@@ -1,15 +1,18 @@
 import { motion } from "framer-motion";
 import { Database, Zap, Shield, FileDown, Layers } from "lucide-react";
-
-const signals = [
-  { icon: Database, label: "Centralizacija podataka" },
-  { icon: Zap, label: "Automatizacija" },
-  { icon: Shield, label: "RBAC & Audit" },
-  { icon: FileDown, label: "Export (Excel/PDF)" },
-  { icon: Layers, label: "Modularno" },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const TrustSignals = () => {
+  const { t } = useLanguage();
+
+  const signals = [
+    { icon: Database, label: t.trust.centralization },
+    { icon: Zap, label: t.trust.automation },
+    { icon: Shield, label: t.trust.rbac },
+    { icon: FileDown, label: t.trust.export },
+    { icon: Layers, label: t.trust.modular },
+  ];
+
   return (
     <section id="trust" className="py-12 border-y border-border bg-secondary/30">
       <div className="container mx-auto px-6">

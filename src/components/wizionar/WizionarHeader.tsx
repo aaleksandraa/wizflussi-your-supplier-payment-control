@@ -4,9 +4,12 @@ import { Link } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import wizionarLogo from "@/assets/wizionar-logo.png";
+import LanguageSwitcher from "./LanguageSwitcher";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const WizionarHeader = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { t } = useLanguage();
 
   return (
     <motion.header
@@ -23,33 +26,37 @@ const WizionarHeader = () => {
         {/* Desktop nav */}
         <nav className="hidden md:flex items-center gap-8">
           <a href="#products" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
-            Proizvodi
+            {t.nav.products}
           </a>
           <a href="#process" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
-            Proces
+            {t.nav.process}
           </a>
           <a href="#security" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
-            Sigurnost
+            {t.nav.security}
           </a>
           <a href="#contact" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
-            Kontakt
+            {t.nav.contact}
           </a>
         </nav>
 
-        <div className="hidden md:block">
+        <div className="hidden md:flex items-center gap-4">
+          <LanguageSwitcher />
           <Button size="lg" className="shadow-orange" asChild>
-            <a href="#contact">Zatraži demo</a>
+            <a href="#contact">{t.nav.requestDemo}</a>
           </Button>
         </div>
 
         {/* Mobile menu button */}
-        <button
-          className="md:hidden p-2 rounded-lg hover:bg-secondary transition-colors"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          aria-label="Toggle menu"
-        >
-          {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-        </button>
+        <div className="md:hidden flex items-center gap-2">
+          <LanguageSwitcher />
+          <button
+            className="p-2 rounded-lg hover:bg-secondary transition-colors"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile menu */}
@@ -62,19 +69,19 @@ const WizionarHeader = () => {
         >
           <nav className="container mx-auto px-6 py-6 flex flex-col gap-4">
             <a href="#products" className="text-base font-medium text-muted-foreground hover:text-foreground py-2" onClick={() => setMobileMenuOpen(false)}>
-              Proizvodi
+              {t.nav.products}
             </a>
             <a href="#process" className="text-base font-medium text-muted-foreground hover:text-foreground py-2" onClick={() => setMobileMenuOpen(false)}>
-              Proces
+              {t.nav.process}
             </a>
             <a href="#security" className="text-base font-medium text-muted-foreground hover:text-foreground py-2" onClick={() => setMobileMenuOpen(false)}>
-              Sigurnost
+              {t.nav.security}
             </a>
             <a href="#contact" className="text-base font-medium text-muted-foreground hover:text-foreground py-2" onClick={() => setMobileMenuOpen(false)}>
-              Kontakt
+              {t.nav.contact}
             </a>
             <Button asChild className="w-full mt-2">
-              <a href="#contact" onClick={() => setMobileMenuOpen(false)}>Zatraži demo</a>
+              <a href="#contact" onClick={() => setMobileMenuOpen(false)}>{t.nav.requestDemo}</a>
             </Button>
           </nav>
         </motion.div>

@@ -1,15 +1,18 @@
 import { motion } from "framer-motion";
 import { Calculator, Stethoscope, Scissors, Building2, Cat, ArrowRight } from "lucide-react";
-
-const audiences = [
-  { icon: Calculator, label: "Finansije i računovodstvo", description: "Agencije i interne službe" },
-  { icon: Stethoscope, label: "Zdravstvene ustanove", description: "Klinike i poliklinike" },
-  { icon: Scissors, label: "Uslužne djelatnosti", description: "Saloni i studiji" },
-  { icon: Cat, label: "Veterinarske ambulante", description: "Ambulante i klinike" },
-  { icon: Building2, label: "Srednje i velike kompanije", description: "50+ zaposlenih" },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const ForWhoSection = () => {
+  const { t } = useLanguage();
+
+  const audiences = [
+    { icon: Calculator, label: t.forWho.audiences.finance.label, description: t.forWho.audiences.finance.description },
+    { icon: Stethoscope, label: t.forWho.audiences.health.label, description: t.forWho.audiences.health.description },
+    { icon: Scissors, label: t.forWho.audiences.services.label, description: t.forWho.audiences.services.description },
+    { icon: Cat, label: t.forWho.audiences.vet.label, description: t.forWho.audiences.vet.description },
+    { icon: Building2, label: t.forWho.audiences.companies.label, description: t.forWho.audiences.companies.description },
+  ];
+
   return (
     <section className="py-32 relative">
       <div className="container mx-auto px-6">
@@ -20,12 +23,12 @@ const ForWhoSection = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <span className="inline-block text-primary text-sm font-semibold uppercase tracking-wider mb-4">Za koga</span>
+          <span className="inline-block text-primary text-sm font-semibold uppercase tracking-wider mb-4">{t.forWho.label}</span>
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Kome donosimo vrijednost
+            {t.forWho.title}
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Naši proizvodi su za organizacije koje trebaju više od generičkih alata.
+            {t.forWho.subtitle}
           </p>
         </motion.div>
 
@@ -59,7 +62,7 @@ const ForWhoSection = () => {
             href="#contact" 
             className="inline-flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all"
           >
-            Razgovarajmo o vašim potrebama
+            {t.forWho.link}
             <ArrowRight className="w-4 h-4" />
           </a>
         </motion.div>
