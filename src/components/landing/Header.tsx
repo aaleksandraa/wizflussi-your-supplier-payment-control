@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -7,32 +8,35 @@ const Header = () => {
       initial={{ opacity: 0, y: -20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="fixed top-0 left-0 right-0 z-50 border-b border-border/50 bg-background/80 backdrop-blur-xl"
+      className="fixed top-0 left-0 right-0 z-50 border-b border-[hsl(var(--wf-border))] bg-[hsl(var(--wf-background)/0.8)] backdrop-blur-xl"
     >
       <div className="container mx-auto px-6 py-4 flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-lg bg-accent flex items-center justify-center">
-            <span className="text-accent-foreground font-bold text-lg">W</span>
+        <Link to="/wizflussi" className="flex items-center gap-2">
+          <div className="w-8 h-8 rounded-lg bg-[hsl(var(--emerald))] flex items-center justify-center">
+            <span className="text-[hsl(var(--wf-background))] font-bold text-lg">W</span>
           </div>
-          <span className="text-xl font-bold text-foreground">WizFlussi</span>
-        </div>
+          <span className="text-xl font-bold text-[hsl(var(--wf-foreground))]">WizFlussi</span>
+        </Link>
 
         <nav className="hidden md:flex items-center gap-8">
-          <a href="#problem" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+          <a href="#problem" className="text-sm text-[hsl(var(--wf-muted-foreground))] hover:text-[hsl(var(--wf-foreground))] transition-colors">
             Problem
           </a>
-          <a href="#solution" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+          <a href="#solution" className="text-sm text-[hsl(var(--wf-muted-foreground))] hover:text-[hsl(var(--wf-foreground))] transition-colors">
             Rješenje
           </a>
-          <a href="#features" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+          <a href="#features" className="text-sm text-[hsl(var(--wf-muted-foreground))] hover:text-[hsl(var(--wf-foreground))] transition-colors">
             Funkcionalnosti
           </a>
-          <a href="#security" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+          <a href="#security" className="text-sm text-[hsl(var(--wf-muted-foreground))] hover:text-[hsl(var(--wf-foreground))] transition-colors">
             Sigurnost
           </a>
-          <a href="#audience" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+          <a href="#audience" className="text-sm text-[hsl(var(--wf-muted-foreground))] hover:text-[hsl(var(--wf-foreground))] transition-colors">
             Za koga
           </a>
+          <Link to="/" className="text-sm text-[hsl(var(--emerald))] hover:text-[hsl(var(--emerald-glow))] transition-colors">
+            ← Wizionar
+          </Link>
         </nav>
 
         <Button variant="hero" size="sm">

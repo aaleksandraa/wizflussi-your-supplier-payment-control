@@ -1,30 +1,34 @@
-import Header from "@/components/landing/Header";
-import HeroSection from "@/components/landing/HeroSection";
-import ProblemSection from "@/components/landing/ProblemSection";
-import SolutionSection from "@/components/landing/SolutionSection";
-import FeaturesSection from "@/components/landing/FeaturesSection";
-import SecuritySection from "@/components/landing/SecuritySection";
-import AudienceSection from "@/components/landing/AudienceSection";
-import TechSection from "@/components/landing/TechSection";
-import CTASection from "@/components/landing/CTASection";
-import Footer from "@/components/landing/Footer";
+import WizionarHeader from "@/components/wizionar/WizionarHeader";
+import WizionarHero from "@/components/wizionar/WizionarHero";
+import TrustSignals from "@/components/wizionar/TrustSignals";
+import WhatWeDo from "@/components/wizionar/WhatWeDo";
+import ProductsSection from "@/components/wizionar/ProductsSection";
+import ProcessSection from "@/components/wizionar/ProcessSection";
+import SecurityTrust from "@/components/wizionar/SecurityTrust";
+import ForWhoSection from "@/components/wizionar/ForWhoSection";
+import ContactSection from "@/components/wizionar/ContactSection";
+import WizionarFooter from "@/components/wizionar/WizionarFooter";
+import SEOHead from "@/components/wizionar/SEOHead";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background text-foreground">
-      <Header />
-      <main>
-        <HeroSection />
-        <ProblemSection />
-        <SolutionSection />
-        <FeaturesSection />
-        <SecuritySection />
-        <AudienceSection />
-        <TechSection />
-        <CTASection />
-      </main>
-      <Footer />
-    </div>
+    <>
+      <SEOHead />
+      <div className="min-h-screen bg-background text-foreground">
+        <WizionarHeader />
+        <main>
+          <WizionarHero />
+          <TrustSignals />
+          <WhatWeDo />
+          <ProductsSection />
+          <ProcessSection />
+          <SecurityTrust />
+          <ForWhoSection />
+          <ContactSection />
+        </main>
+        <WizionarFooter />
+      </div>
+    </>
   );
 };
 
