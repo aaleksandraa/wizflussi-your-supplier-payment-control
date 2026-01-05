@@ -1,75 +1,79 @@
 import { motion } from "framer-motion";
-import { Zap, Eye, TrendingUp } from "lucide-react";
+import { Zap, Eye, TrendingUp, ArrowRight } from "lucide-react";
 
 const WhatWeDo = () => {
   return (
-    <section className="py-24">
-      <div className="container mx-auto px-6">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
-          className="max-w-3xl mx-auto text-center mb-16"
-        >
-          <h2 className="text-3xl md:text-4xl font-bold mb-6">
-            Manje haosa, više kontrole.
-          </h2>
-          <p className="text-lg text-muted-foreground">
-            U većini firmi ključni procesi i dalje zavise od Excel tabela, mailova i ručnog praćenja. 
-            Wizionar proizvodi uvode red: centralizuju podatke, automatizuju ponavljajuće korake 
-            i omogućavaju jasan pregled obaveza, termina i izvještaja.
-          </p>
-        </motion.div>
-
-        <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+    <section className="py-32 relative overflow-hidden">
+      {/* Background accent */}
+      <div className="absolute top-1/2 left-0 w-[400px] h-[400px] bg-primary/5 rounded-full blur-[100px] -translate-y-1/2 -translate-x-1/2" />
+      
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-16 items-center">
+          {/* Left - Text content */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.1 }}
-            className="text-center p-8 rounded-2xl bg-gradient-card border border-border"
+            transition={{ duration: 0.6 }}
           >
-            <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-5">
-              <Zap className="w-7 h-7 text-primary" />
-            </div>
-            <h3 className="text-xl font-semibold mb-3">Automatizacija</h3>
-            <p className="text-muted-foreground">
-              Smanjujemo ručni unos i greške.
+            <span className="inline-block text-primary text-sm font-semibold uppercase tracking-wider mb-4">Šta radimo</span>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+              Manje haosa,<br />
+              <span className="text-gradient">više kontrole.</span>
+            </h2>
+            <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+              U većini firmi ključni procesi i dalje zavise od Excel tabela, mailova i ručnog praćenja. 
+              Wizionar proizvodi uvode red: centralizuju podatke, automatizuju ponavljajuće korake 
+              i omogućavaju jasan pregled obaveza, termina i izvještaja.
             </p>
+            <a 
+              href="#products" 
+              className="inline-flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all"
+            >
+              Pogledaj naše proizvode
+              <ArrowRight className="w-4 h-4" />
+            </a>
           </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="text-center p-8 rounded-2xl bg-gradient-card border border-border"
-          >
-            <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-5">
-              <Eye className="w-7 h-7 text-primary" />
-            </div>
-            <h3 className="text-xl font-semibold mb-3">Kontrola</h3>
-            <p className="text-muted-foreground">
-              Uvodi se pregled stanja i odgovornosti.
-            </p>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.3 }}
-            className="text-center p-8 rounded-2xl bg-gradient-card border border-border"
-          >
-            <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center mx-auto mb-5">
-              <TrendingUp className="w-7 h-7 text-primary" />
-            </div>
-            <h3 className="text-xl font-semibold mb-3">Skalabilnost</h3>
-            <p className="text-muted-foreground">
-              Rješenja rastu kako raste firma.
-            </p>
-          </motion.div>
+          {/* Right - Feature cards */}
+          <div className="grid gap-6">
+            {[
+              {
+                icon: Zap,
+                title: "Automatizacija",
+                description: "Smanjujemo ručni unos i greške. Ponavljajući zadaci se izvršavaju automatski."
+              },
+              {
+                icon: Eye,
+                title: "Kontrola",
+                description: "Uvodi se pregled stanja i odgovornosti. Svaka akcija je zabilježena."
+              },
+              {
+                icon: TrendingUp,
+                title: "Skalabilnost",
+                description: "Rješenja rastu kako raste firma. Od stotina do miliona transakcija."
+              }
+            ].map((feature, index) => (
+              <motion.div
+                key={feature.title}
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: index * 0.15 }}
+                className="group p-6 rounded-2xl bg-card border border-border hover:border-primary/30 hover:shadow-lg transition-all duration-300"
+              >
+                <div className="flex items-start gap-5">
+                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors">
+                    <feature.icon className="w-6 h-6 text-primary" />
+                  </div>
+                  <div>
+                    <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
+                    <p className="text-muted-foreground leading-relaxed">{feature.description}</p>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>

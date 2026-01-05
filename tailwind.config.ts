@@ -60,10 +60,11 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
-        indigo: {
-          DEFAULT: "hsl(var(--indigo))",
-          light: "hsl(var(--indigo-light))",
-          dark: "hsl(var(--indigo-dark))",
+        orange: {
+          DEFAULT: "hsl(var(--orange))",
+          light: "hsl(var(--orange-light))",
+          dark: "hsl(var(--orange-dark))",
+          glow: "hsl(var(--orange-glow))",
         },
         emerald: {
           DEFAULT: "hsl(var(--emerald))",
@@ -78,6 +79,7 @@ export default {
           50: "hsl(var(--slate-50))",
           100: "hsl(var(--slate-100))",
           200: "hsl(var(--slate-200))",
+          400: "hsl(var(--slate-400))",
           600: "hsl(var(--slate-600))",
           800: "hsl(var(--slate-800))",
           900: "hsl(var(--slate-900))",
@@ -87,6 +89,9 @@ export default {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
+        xl: "1rem",
+        "2xl": "1.5rem",
+        "3xl": "2rem",
       },
       keyframes: {
         "accordion-down": {
@@ -113,6 +118,14 @@ export default {
           "0%, 100%": { transform: "translateY(0)" },
           "50%": { transform: "translateY(-10px)" },
         },
+        "slide-up": {
+          from: { opacity: "0", transform: "translateY(30px)" },
+          to: { opacity: "1", transform: "translateY(0)" },
+        },
+        shimmer: {
+          "0%": { backgroundPosition: "-200% 0" },
+          "100%": { backgroundPosition: "200% 0" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
@@ -121,10 +134,13 @@ export default {
         "fade-in-slow": "fade-in-slow 1s ease-out forwards",
         "pulse-glow": "pulse-glow 3s ease-in-out infinite",
         "float": "float 6s ease-in-out infinite",
+        "slide-up": "slide-up 0.5s ease-out forwards",
+        "shimmer": "shimmer 2s linear infinite",
       },
       boxShadow: {
         "glow": "var(--shadow-glow)",
         "glow-emerald": "var(--shadow-emerald-glow)",
+        "orange": "var(--shadow-orange)",
       },
     },
   },

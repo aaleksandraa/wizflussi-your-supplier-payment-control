@@ -3,17 +3,21 @@ import { Shield, FileCheck, Lock, CheckCircle, Activity, Database } from "lucide
 
 const securityFeatures = [
   { icon: Shield, label: "Role-based access control (RBAC)" },
-  { icon: FileCheck, label: "Audit trail (ko je šta uradio i kada)" },
-  { icon: Lock, label: "Validacija unosa i zaštita od web napada" },
-  { icon: Database, label: "Backup strategije i monitoring" },
+  { icon: FileCheck, label: "Audit trail – ko, kada, šta" },
+  { icon: Lock, label: "Validacija i zaštita od napada" },
+  { icon: Database, label: "Backup i monitoring" },
   { icon: Activity, label: "GDPR-friendly pristup" },
   { icon: CheckCircle, label: "Enkripcija podataka" },
 ];
 
 const SecurityTrust = () => {
   return (
-    <section id="security" className="py-24 bg-secondary/30">
-      <div className="container mx-auto px-6">
+    <section id="security" className="py-32 bg-foreground text-background relative overflow-hidden">
+      {/* Background pattern */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,hsl(0_0%_100%/0.03)_1px,transparent_1px),linear-gradient(to_bottom,hsl(0_0%_100%/0.03)_1px,transparent_1px)] bg-[size:4rem_4rem]" />
+      <div className="absolute top-1/2 right-0 w-[600px] h-[600px] bg-primary/10 rounded-full blur-[200px] translate-x-1/2" />
+      
+      <div className="container mx-auto px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -21,11 +25,12 @@ const SecurityTrust = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Sigurnost i pouzdanost kao standard.
+          <span className="inline-block text-primary text-sm font-semibold uppercase tracking-wider mb-4">Sigurnost</span>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+            Sigurnost kao standard.
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Svaki Wizionar proizvod gradi se sa sigurnošću kao osnovnim principom, ne kao naknadnom mišlju.
+          <p className="text-lg text-background/70 max-w-2xl mx-auto">
+            Svaki proizvod gradi se sa sigurnošću kao osnovnim principom.
           </p>
         </motion.div>
 
@@ -37,12 +42,12 @@ const SecurityTrust = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: index * 0.1 }}
-              className="flex items-center gap-3 p-4 rounded-xl bg-background border border-border"
+              className="flex items-center gap-4 p-5 rounded-2xl bg-background/5 border border-background/10 backdrop-blur-sm hover:bg-background/10 transition-colors"
             >
-              <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
-                <feature.icon className="w-5 h-5 text-primary" />
+              <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center shrink-0">
+                <feature.icon className="w-6 h-6 text-primary" />
               </div>
-              <span className="text-sm font-medium text-foreground">{feature.label}</span>
+              <span className="text-sm font-medium text-background">{feature.label}</span>
             </motion.div>
           ))}
         </div>

@@ -1,25 +1,34 @@
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { ArrowRight, ChevronDown } from "lucide-react";
+import { ArrowRight, Play } from "lucide-react";
 
 const WizionarHero = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 pb-16">
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-hero" />
-      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-primary/5 rounded-full blur-[150px]" />
+      <div className="absolute inset-0 bg-background" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1200px] h-[800px] bg-primary/5 rounded-full blur-[150px] opacity-60" />
+      <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-primary/3 rounded-full blur-[120px] opacity-40" />
+      
+      {/* Grid pattern */}
+      <div className="absolute inset-0 bg-[linear-gradient(to_right,hsl(var(--border))_1px,transparent_1px),linear-gradient(to_bottom,hsl(var(--border))_1px,transparent_1px)] bg-[size:4rem_4rem] opacity-30" />
       
       <div className="container mx-auto px-6 relative z-10">
-        <div className="max-w-4xl mx-auto text-center">
+        <div className="max-w-5xl mx-auto">
           {/* Badge */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-secondary/50 mb-8"
+            className="flex justify-center mb-8"
           >
-            <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-            <span className="text-sm text-muted-foreground">Product studio za B2B aplikacije</span>
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+              </span>
+              <span className="text-sm font-medium text-foreground">Product studio za B2B aplikacije</span>
+            </div>
           </motion.div>
 
           {/* H1 */}
@@ -27,9 +36,9 @@ const WizionarHero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-foreground"
+            className="text-center text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.1] mb-8"
           >
-            Wizionar – poslovne aplikacije koje{" "}
+            Poslovne aplikacije koje{" "}
             <span className="text-gradient">automatizuju procese</span>{" "}
             i uvode kontrolu.
           </motion.h1>
@@ -39,7 +48,7 @@ const WizionarHero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-10"
+            className="text-center text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-12 leading-relaxed"
           >
             Gradimo specijalizovane B2B sisteme za finansije, zdravstvo i uslužne djelatnosti – 
             od evidencije i planiranja do potpune automatizacije i izvještavanja.
@@ -50,16 +59,19 @@ const WizionarHero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-6"
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-8"
           >
-            <Button size="xl" className="group" asChild>
+            <Button size="xl" className="group shadow-orange hover:shadow-glow transition-all duration-300" asChild>
               <a href="#contact">
                 Zatraži demo
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </a>
             </Button>
-            <Button variant="outline" size="xl" asChild>
-              <a href="#products">Pogledaj proizvode</a>
+            <Button variant="outline" size="xl" className="group" asChild>
+              <a href="#products">
+                <Play className="w-4 h-4 mr-1" />
+                Pogledaj proizvode
+              </a>
             </Button>
           </motion.div>
 
@@ -68,25 +80,70 @@ const WizionarHero = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className="text-sm text-muted-foreground"
+            className="text-center text-sm text-muted-foreground"
           >
-            Odgovaramo u roku 24h. Demo bez obaveze.
+            Odgovaramo u roku 24h · Demo bez obaveze · Besplatna konsultacija
           </motion.p>
+
+          {/* Visual element - Abstract shapes */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="mt-20 relative"
+          >
+            <div className="relative mx-auto max-w-4xl">
+              {/* Dashboard mockup */}
+              <div className="rounded-2xl border border-border bg-card p-2 shadow-2xl">
+                <div className="rounded-xl bg-secondary/50 p-6">
+                  {/* Mock header */}
+                  <div className="flex items-center justify-between mb-6">
+                    <div className="flex items-center gap-3">
+                      <div className="w-3 h-3 rounded-full bg-destructive" />
+                      <div className="w-3 h-3 rounded-full bg-yellow-500" />
+                      <div className="w-3 h-3 rounded-full bg-green-500" />
+                    </div>
+                    <div className="text-xs text-muted-foreground">wizionar.app/dashboard</div>
+                  </div>
+                  
+                  {/* Mock content */}
+                  <div className="grid grid-cols-4 gap-4 mb-6">
+                    {[
+                      { label: "Aktivni projekti", value: "12", change: "+3" },
+                      { label: "Klijenti", value: "48", change: "+7" },
+                      { label: "Automatizacije", value: "156", change: "+24" },
+                      { label: "Ušteda (h/mj)", value: "340", change: "+45" },
+                    ].map((stat, i) => (
+                      <div key={i} className="p-4 rounded-lg bg-background border border-border">
+                        <div className="text-xs text-muted-foreground mb-1">{stat.label}</div>
+                        <div className="flex items-end gap-2">
+                          <span className="text-2xl font-bold text-foreground">{stat.value}</span>
+                          <span className="text-xs text-primary font-medium mb-1">{stat.change}</span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+
+                  {/* Mock chart area */}
+                  <div className="h-32 rounded-lg bg-background border border-border flex items-end p-4 gap-2">
+                    {[40, 65, 45, 80, 55, 90, 70, 85, 60, 95, 75, 88].map((h, i) => (
+                      <div
+                        key={i}
+                        className="flex-1 bg-primary/20 rounded-t transition-all hover:bg-primary/40"
+                        style={{ height: `${h}%` }}
+                      />
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Floating elements */}
+              <div className="absolute -top-4 -left-4 w-20 h-20 bg-primary/10 rounded-2xl blur-xl animate-float" />
+              <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-primary/5 rounded-full blur-2xl animate-float" style={{ animationDelay: '1s' }} />
+            </div>
+          </motion.div>
         </div>
       </div>
-
-      {/* Scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 0.8, delay: 0.8 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
-      >
-        <a href="#trust" className="flex flex-col items-center gap-2 text-muted-foreground hover:text-foreground transition-colors">
-          <span className="text-xs">Saznaj više</span>
-          <ChevronDown className="w-5 h-5 animate-bounce" />
-        </a>
-      </motion.div>
     </section>
   );
 };

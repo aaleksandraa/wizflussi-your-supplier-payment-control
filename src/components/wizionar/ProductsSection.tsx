@@ -8,99 +8,82 @@ import {
   Cat, 
   Building2, 
   CreditCard,
-  ArrowRight
+  ArrowUpRight,
+  Sparkles
 } from "lucide-react";
 
 const products = [
+  {
+    id: "wizflussi",
+    name: "WizFlussi",
+    icon: CreditCard,
+    tagline: "Upravljanje plaćanjima dobavljačima",
+    description: "Centralizuje plaćanja dobavljačima: rokovi, statusi, valute, planovi plaćanja i izvještaji – sve na jednom mjestu.",
+    features: ["Multi-valuta", "RBAC + Audit", "Automatski podsjetnici"],
+    link: "/wizflussi",
+    available: true,
+    featured: true
+  },
   {
     id: "wizfin",
     name: "WizFin",
     icon: Wallet,
     tagline: "Finansijska evidencija i izvještaji",
-    description: "WizFin je sistem za internu finansijsku evidenciju – prihodi, rashodi, fakture i osnovni izvještaji, pripremljeni tako da tim i računovodstvo imaju jasan pregled bez Excel improvizacija.",
-    features: [
-      "Pregled po periodima i kategorijama",
-      "Brza pretraga i filtriranje",
-      "Izvještaji i export za računovodstvo"
-    ],
+    description: "Sistem za internu finansijsku evidenciju – prihodi, rashodi, fakture i izvještaji bez Excel improvizacija.",
+    features: ["Pregled po periodima", "Brza pretraga", "Export za računovodstvo"],
     link: "/wizfin",
-    available: false
-  },
-  {
-    id: "wizmedik",
-    name: "WizMedik",
-    icon: Stethoscope,
-    tagline: "Platforma za zdravstvene ustanove",
-    description: "WizMedik organizuje podatke o ustanovama, uslugama i lokacijama te priprema osnovu za digitalno zakazivanje i rast vidljivosti.",
-    features: [
-      "Struktura po lokacijama i specijalizacijama",
-      "Kontrolisan unos i ažuriranje podataka",
-      "Spremno za module zakazivanja i CRM-a"
-    ],
-    link: "/wizmedik",
-    available: false
-  },
-  {
-    id: "frizerino",
-    name: "Frizerino",
-    icon: Scissors,
-    tagline: "Rezervacije i upravljanje salonima",
-    description: "Frizerino je alat za salone koji žele uredno zakazivanje, manje propuštenih termina i bolju organizaciju osoblja i usluga.",
-    features: [
-      "Online rezervacije i raspored",
-      "Podsjetnici i evidencija termina",
-      "Upravljanje uslugama i timom"
-    ],
-    link: "/frizerino",
-    available: false
-  },
-  {
-    id: "wizvet",
-    name: "WizVet",
-    icon: Cat,
-    tagline: "Sistem za veterinarske ambulante",
-    description: "WizVet digitalizuje rad veterinarskih ambulanti: kartoni, pregledi, terapije i istorija posjeta uz brz pristup podacima.",
-    features: [
-      "Evidencija pacijenata i vlasnika",
-      "Pregledi, terapije, napomene",
-      "Izvještaji i administrativna organizacija"
-    ],
-    link: "/wizvet",
-    available: false
+    available: false,
+    featured: false
   },
   {
     id: "wizbank",
     name: "WizBank",
     icon: Building2,
     tagline: "Automatizacija bankovnih izvoda",
-    description: "WizBank automatizuje preuzimanje i obradu bankovnih izvoda/fajlova, te ih sortira i priprema za dalju obradu, kontrolu i knjigovodstvo.",
-    features: [
-      "Automatizacija preuzimanja i organizacije",
-      "Strukturisani izlaz (sortiranje/klasifikacija)",
-      "Ušteda vremena i manje manuelnih grešaka"
-    ],
+    description: "Automatizuje preuzimanje i obradu bankovnih izvoda, sortira i priprema za dalju obradu.",
+    features: ["Auto-preuzimanje", "Klasifikacija", "Manje grešaka"],
     link: "/wizbank",
-    available: false
+    available: false,
+    featured: false
   },
   {
-    id: "wizflussi",
-    name: "WizFlussi",
-    icon: CreditCard,
-    tagline: "Upravljanje plaćanjima dobavljačima",
-    description: "WizFlussi centralizuje plaćanja dobavljačima: rokovi, statusi, valute, planovi plaćanja i izvještaji – sve na jednom mjestu, uz jasne dozvole i audit.",
-    features: [
-      "Planiranje i pregled obaveza po danima/periodima",
-      "Multi-valuta (KM/EUR/USD) i izvještaji",
-      "RBAC + audit logovi za kontrolu"
-    ],
-    link: "/wizflussi",
-    available: true
+    id: "wizmedik",
+    name: "WizMedik",
+    icon: Stethoscope,
+    tagline: "Platforma za zdravstvene ustanove",
+    description: "Organizuje podatke o ustanovama, uslugama i lokacijama za digitalno zakazivanje.",
+    features: ["Lokacije", "Specijalizacije", "CRM ready"],
+    link: "/wizmedik",
+    available: false,
+    featured: false
+  },
+  {
+    id: "frizerino",
+    name: "Frizerino",
+    icon: Scissors,
+    tagline: "Rezervacije za salone",
+    description: "Alat za salone koji žele uredno zakazivanje i manje propuštenih termina.",
+    features: ["Online rezervacije", "Podsjetnici", "Upravljanje timom"],
+    link: "/frizerino",
+    available: false,
+    featured: false
+  },
+  {
+    id: "wizvet",
+    name: "WizVet",
+    icon: Cat,
+    tagline: "Sistem za veterinarske ambulante",
+    description: "Digitalizuje rad veterinarskih ambulanti: kartoni, pregledi, terapije i istorija.",
+    features: ["Kartoni pacijenata", "Terapije", "Izvještaji"],
+    link: "/wizvet",
+    available: false,
+    featured: false
   }
 ];
 
 const ProductsSection = () => {
   return (
-    <section id="products" className="py-24 bg-secondary/30">
+    <section id="products" className="py-32 bg-secondary/30">
       <div className="container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -109,12 +92,12 @@ const ProductsSection = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Proizvodi iz Wizionar ekosistema
+          <span className="inline-block text-primary text-sm font-semibold uppercase tracking-wider mb-4">Proizvodi</span>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+            Wizionar ekosistem
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Svaki proizvod rješava specifične probleme u svom domenu – 
-            bez generičkih rješenja koja pokušavaju sve.
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Svaki proizvod rješava specifične probleme u svom domenu – bez generičkih rješenja.
           </p>
         </motion.div>
 
@@ -126,47 +109,71 @@ const ProductsSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="p-6 rounded-2xl bg-background border border-border hover:border-primary/30 hover:shadow-md transition-all duration-300 flex flex-col"
+              className={`group relative p-6 rounded-2xl border transition-all duration-300 flex flex-col ${
+                product.featured 
+                  ? 'bg-card border-primary/30 shadow-lg hover:shadow-orange' 
+                  : 'bg-card border-border hover:border-primary/20 hover:shadow-md'
+              }`}
             >
+              {product.featured && (
+                <div className="absolute -top-3 left-6 px-3 py-1 bg-primary text-primary-foreground text-xs font-semibold rounded-full flex items-center gap-1">
+                  <Sparkles className="w-3 h-3" />
+                  Dostupno
+                </div>
+              )}
+
               <div className="flex items-start gap-4 mb-4">
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
-                  <product.icon className="w-6 h-6 text-primary" />
+                <div className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 transition-colors ${
+                  product.featured 
+                    ? 'bg-primary text-primary-foreground' 
+                    : 'bg-primary/10 text-primary group-hover:bg-primary/20'
+                }`}>
+                  <product.icon className="w-6 h-6" />
                 </div>
                 <div>
-                  <h3 className="text-lg font-semibold">{product.name}</h3>
-                  <p className="text-sm text-primary">{product.tagline}</p>
+                  <h3 className="text-xl font-bold">{product.name}</h3>
+                  <p className="text-sm text-primary font-medium">{product.tagline}</p>
                 </div>
               </div>
 
-              <p className="text-sm text-muted-foreground mb-4 flex-grow">
+              <p className="text-sm text-muted-foreground mb-4 flex-grow leading-relaxed">
                 {product.description}
               </p>
 
-              <ul className="space-y-2 mb-6">
+              <div className="flex flex-wrap gap-2 mb-6">
                 {product.features.map((feature) => (
-                  <li key={feature} className="flex items-start gap-2 text-sm">
-                    <span className="w-1.5 h-1.5 rounded-full bg-primary mt-2 shrink-0" />
-                    <span className="text-muted-foreground">{feature}</span>
-                  </li>
+                  <span 
+                    key={feature} 
+                    className="px-3 py-1 rounded-full bg-secondary text-xs font-medium text-muted-foreground"
+                  >
+                    {feature}
+                  </span>
                 ))}
-              </ul>
+              </div>
 
               <div className="flex gap-3 mt-auto">
                 {product.available ? (
-                  <Button variant="outline" size="sm" asChild className="flex-1 group">
-                    <Link to={product.link}>
-                      Saznaj više
-                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    </Link>
-                  </Button>
+                  <>
+                    <Button variant="outline" size="sm" asChild className="flex-1 group/btn">
+                      <Link to={product.link}>
+                        Saznaj više
+                        <ArrowUpRight className="w-4 h-4 ml-1 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
+                      </Link>
+                    </Button>
+                    <Button size="sm" asChild className="flex-1">
+                      <a href="#contact">Demo</a>
+                    </Button>
+                  </>
                 ) : (
-                  <Button variant="outline" size="sm" disabled className="flex-1">
-                    Uskoro
-                  </Button>
+                  <>
+                    <Button variant="outline" size="sm" disabled className="flex-1 opacity-50">
+                      Uskoro
+                    </Button>
+                    <Button size="sm" variant="secondary" asChild className="flex-1">
+                      <a href="#contact">Zainteresovan</a>
+                    </Button>
+                  </>
                 )}
-                <Button size="sm" asChild className="flex-1">
-                  <a href="#contact">Demo</a>
-                </Button>
               </div>
             </motion.div>
           ))}
