@@ -9,41 +9,59 @@
 
 @layer base {
   :root {
-    /* Dark enterprise palette - trust & stability */
-    --background: 222 47% 6%;
-    --foreground: 210 40% 98%;
+    /* Light theme - Wizionar main brand */
+    --background: 0 0% 100%;
+    --foreground: 222 47% 11%;
 
-    --card: 222 47% 8%;
-    --card-foreground: 210 40% 98%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
 
-    --popover: 222 47% 8%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
 
-    /* Deep navy primary - financial trust */
-    --primary: 217 91% 60%;
-    --primary-foreground: 222 47% 6%;
+    /* Indigo primary */
+    --primary: 234 89% 56%;
+    --primary-foreground: 0 0% 100%;
 
-    /* Slate secondary */
-    --secondary: 217 33% 17%;
-    --secondary-foreground: 210 40% 98%;
+    /* Light gray secondary */
+    --secondary: 220 14% 96%;
+    --secondary-foreground: 222 47% 11%;
 
-    --muted: 217 33% 12%;
-    --muted-foreground: 215 20% 55%;
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 9% 46%;
 
-    /* Emerald accent - growth & money */
-    --accent: 160 84% 39%;
-    --accent-foreground: 222 47% 6%;
+    /* Indigo accent */
+    --accent: 234 89% 56%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 0 0% 100%;
 
-    --border: 217 33% 17%;
-    --input: 217 33% 17%;
-    --ring: 217 91% 60%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 234 89% 56%;
 
     --radius: 0.75rem;
 
-    /* Custom tokens */
+    /* Custom tokens - Wizionar */
+    --indigo: 234 89% 56%;
+    --indigo-light: 234 89% 96%;
+    --indigo-dark: 234 89% 46%;
+    --slate-50: 210 40% 98%;
+    --slate-100: 220 14% 96%;
+    --slate-200: 220 13% 91%;
+    --slate-600: 220 9% 46%;
+    --slate-800: 222 47% 11%;
+    --slate-900: 222 47% 6%;
+    
+    /* WizFlussi dark theme tokens */
+    --wf-background: 222 47% 6%;
+    --wf-foreground: 210 40% 98%;
+    --wf-card: 222 47% 8%;
+    --wf-secondary: 217 33% 17%;
+    --wf-muted: 217 33% 12%;
+    --wf-muted-foreground: 215 20% 55%;
+    --wf-border: 217 33% 17%;
     --emerald: 160 84% 39%;
     --emerald-glow: 160 84% 50%;
     --navy-deep: 222 47% 4%;
@@ -51,27 +69,29 @@
     --gold: 45 93% 47%;
     
     /* Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(222 47% 6%) 0%, hsl(217 33% 12%) 50%, hsl(222 47% 8%) 100%);
-    --gradient-card: linear-gradient(180deg, hsl(217 33% 12%) 0%, hsl(222 47% 8%) 100%);
-    --gradient-accent: linear-gradient(135deg, hsl(160 84% 39%) 0%, hsl(160 60% 45%) 100%);
-    --gradient-primary: linear-gradient(135deg, hsl(217 91% 60%) 0%, hsl(217 91% 50%) 100%);
-    --gradient-glow: radial-gradient(ellipse at center, hsl(160 84% 39% / 0.15) 0%, transparent 70%);
+    --gradient-hero: linear-gradient(135deg, hsl(234 89% 56% / 0.03) 0%, hsl(0 0% 100%) 50%, hsl(234 89% 56% / 0.02) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(220 14% 98%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(234 89% 56%) 0%, hsl(234 89% 66%) 100%);
+    --gradient-dark-hero: linear-gradient(135deg, hsl(222 47% 6%) 0%, hsl(217 33% 12%) 50%, hsl(222 47% 8%) 100%);
+    --gradient-dark-card: linear-gradient(180deg, hsl(217 33% 12%) 0%, hsl(222 47% 8%) 100%);
+    --gradient-emerald: linear-gradient(135deg, hsl(160 84% 39%) 0%, hsl(160 60% 45%) 100%);
+    --gradient-glow: radial-gradient(ellipse at center, hsl(234 89% 56% / 0.1) 0%, transparent 70%);
     
     /* Shadows */
-    --shadow-sm: 0 2px 8px hsl(222 47% 4% / 0.3);
-    --shadow-md: 0 8px 24px hsl(222 47% 4% / 0.4);
-    --shadow-lg: 0 16px 48px hsl(222 47% 4% / 0.5);
-    --shadow-glow: 0 0 40px hsl(160 84% 39% / 0.2);
-    --shadow-primary-glow: 0 0 40px hsl(217 91% 60% / 0.2);
+    --shadow-sm: 0 1px 2px hsl(222 47% 11% / 0.05);
+    --shadow-md: 0 4px 12px hsl(222 47% 11% / 0.08);
+    --shadow-lg: 0 12px 32px hsl(222 47% 11% / 0.12);
+    --shadow-glow: 0 0 40px hsl(234 89% 56% / 0.15);
+    --shadow-emerald-glow: 0 0 40px hsl(160 84% 39% / 0.2);
 
-    --sidebar-background: 222 47% 6%;
-    --sidebar-foreground: 210 40% 98%;
-    --sidebar-primary: 217 91% 60%;
-    --sidebar-primary-foreground: 222 47% 6%;
-    --sidebar-accent: 217 33% 17%;
-    --sidebar-accent-foreground: 210 40% 98%;
-    --sidebar-border: 217 33% 17%;
-    --sidebar-ring: 217 91% 60%;
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 222 47% 11%;
+    --sidebar-primary: 234 89% 56%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 14% 96%;
+    --sidebar-accent-foreground: 222 47% 11%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 234 89% 56%;
   }
 }
 
@@ -101,9 +121,9 @@
     background-image: var(--gradient-accent);
   }
 
-  .text-gradient-primary {
+  .text-gradient-emerald {
     @apply bg-clip-text text-transparent;
-    background-image: var(--gradient-primary);
+    background-image: var(--gradient-emerald);
   }
 
   .bg-gradient-hero {
@@ -114,18 +134,35 @@
     background: var(--gradient-card);
   }
 
+  .bg-gradient-dark-hero {
+    background: var(--gradient-dark-hero);
+  }
+
+  .bg-gradient-dark-card {
+    background: var(--gradient-dark-card);
+  }
+
   .shadow-glow {
     box-shadow: var(--shadow-glow);
   }
 
-  .shadow-primary-glow {
-    box-shadow: var(--shadow-primary-glow);
+  .shadow-emerald-glow {
+    box-shadow: var(--shadow-emerald-glow);
   }
 
-  .border-gradient {
-    border: 1px solid transparent;
-    background: linear-gradient(var(--gradient-card)), linear-gradient(135deg, hsl(var(--border)) 0%, hsl(var(--muted)) 100%);
-    background-origin: border-box;
-    background-clip: padding-box, border-box;
+  /* WizFlussi dark theme utility classes */
+  .wizflussi-theme {
+    --background: var(--wf-background);
+    --foreground: var(--wf-foreground);
+    --card: var(--wf-card);
+    --card-foreground: var(--wf-foreground);
+    --secondary: var(--wf-secondary);
+    --muted: var(--wf-muted);
+    --muted-foreground: var(--wf-muted-foreground);
+    --border: var(--wf-border);
+    --accent: var(--emerald);
+    --accent-foreground: var(--wf-background);
+    --primary: 217 91% 60%;
+    --primary-foreground: var(--wf-background);
   }
 }

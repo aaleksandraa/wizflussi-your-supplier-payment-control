@@ -60,6 +60,11 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        indigo: {
+          DEFAULT: "hsl(var(--indigo))",
+          light: "hsl(var(--indigo-light))",
+          dark: "hsl(var(--indigo-dark))",
+        },
         emerald: {
           DEFAULT: "hsl(var(--emerald))",
           glow: "hsl(var(--emerald-glow))",
@@ -69,6 +74,14 @@ export default {
           light: "hsl(var(--navy-light))",
         },
         gold: "hsl(var(--gold))",
+        slate: {
+          50: "hsl(var(--slate-50))",
+          100: "hsl(var(--slate-100))",
+          200: "hsl(var(--slate-200))",
+          600: "hsl(var(--slate-600))",
+          800: "hsl(var(--slate-800))",
+          900: "hsl(var(--slate-900))",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -111,7 +124,7 @@ export default {
       },
       boxShadow: {
         "glow": "var(--shadow-glow)",
-        "glow-primary": "var(--shadow-primary-glow)",
+        "glow-emerald": "var(--shadow-emerald-glow)",
       },
     },
   },
