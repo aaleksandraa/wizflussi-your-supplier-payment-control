@@ -1,16 +1,19 @@
 import { motion } from "framer-motion";
 import { Shield, FileCheck, Lock, CheckCircle, Activity, Database } from "lucide-react";
-
-const securityFeatures = [
-  { icon: Shield, label: "Role-based access control (RBAC)" },
-  { icon: FileCheck, label: "Audit trail – ko, kada, šta" },
-  { icon: Lock, label: "Validacija i zaštita od napada" },
-  { icon: Database, label: "Backup i monitoring" },
-  { icon: Activity, label: "GDPR-friendly pristup" },
-  { icon: CheckCircle, label: "Enkripcija podataka" },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const SecurityTrust = () => {
+  const { t } = useLanguage();
+
+  const securityFeatures = [
+    { icon: Shield, label: t.security.features.rbac },
+    { icon: FileCheck, label: t.security.features.audit },
+    { icon: Lock, label: t.security.features.protection },
+    { icon: Database, label: t.security.features.backup },
+    { icon: Activity, label: t.security.features.gdpr },
+    { icon: CheckCircle, label: t.security.features.encryption },
+  ];
+
   return (
     <section id="security" className="py-32 bg-foreground text-background relative overflow-hidden">
       {/* Background pattern */}
@@ -25,12 +28,12 @@ const SecurityTrust = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <span className="inline-block text-primary text-sm font-semibold uppercase tracking-wider mb-4">Sigurnost</span>
+          <span className="inline-block text-primary text-sm font-semibold uppercase tracking-wider mb-4">{t.security.label}</span>
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Sigurnost kao standard.
+            {t.security.title}
           </h2>
           <p className="text-lg text-background/70 max-w-2xl mx-auto">
-            Svaki proizvod gradi se sa sigurnošću kao osnovnim principom.
+            {t.security.subtitle}
           </p>
         </motion.div>
 

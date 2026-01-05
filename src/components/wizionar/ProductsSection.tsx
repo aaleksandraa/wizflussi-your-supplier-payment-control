@@ -11,77 +11,80 @@ import {
   ArrowUpRight,
   Sparkles
 } from "lucide-react";
-
-const products = [
-  {
-    id: "wizflussi",
-    name: "WizFlussi",
-    icon: CreditCard,
-    tagline: "Upravljanje plaćanjima dobavljačima",
-    description: "Centralizuje plaćanja dobavljačima: rokovi, statusi, valute, planovi plaćanja i izvještaji – sve na jednom mjestu.",
-    features: ["Multi-valuta", "RBAC + Audit", "Automatski podsjetnici"],
-    link: "/wizflussi",
-    available: true,
-    featured: true
-  },
-  {
-    id: "wizfin",
-    name: "WizFin",
-    icon: Wallet,
-    tagline: "Finansijska evidencija i izvještaji",
-    description: "Sistem za internu finansijsku evidenciju – prihodi, rashodi, fakture i izvještaji bez Excel improvizacija.",
-    features: ["Pregled po periodima", "Brza pretraga", "Export za računovodstvo"],
-    link: "/wizfin",
-    available: false,
-    featured: false
-  },
-  {
-    id: "wizbank",
-    name: "WizBank",
-    icon: Building2,
-    tagline: "Automatizacija bankovnih izvoda",
-    description: "Automatizuje preuzimanje i obradu bankovnih izvoda, sortira i priprema za dalju obradu.",
-    features: ["Auto-preuzimanje", "Klasifikacija", "Manje grešaka"],
-    link: "/wizbank",
-    available: false,
-    featured: false
-  },
-  {
-    id: "wizmedik",
-    name: "WizMedik",
-    icon: Stethoscope,
-    tagline: "Platforma za zdravstvene ustanove",
-    description: "Organizuje podatke o ustanovama, uslugama i lokacijama za digitalno zakazivanje.",
-    features: ["Lokacije", "Specijalizacije", "CRM ready"],
-    link: "/wizmedik",
-    available: false,
-    featured: false
-  },
-  {
-    id: "frizerino",
-    name: "Frizerino",
-    icon: Scissors,
-    tagline: "Rezervacije za salone",
-    description: "Alat za salone koji žele uredno zakazivanje i manje propuštenih termina.",
-    features: ["Online rezervacije", "Podsjetnici", "Upravljanje timom"],
-    link: "/frizerino",
-    available: false,
-    featured: false
-  },
-  {
-    id: "wizvet",
-    name: "WizVet",
-    icon: Cat,
-    tagline: "Sistem za veterinarske ambulante",
-    description: "Digitalizuje rad veterinarskih ambulanti: kartoni, pregledi, terapije i istorija.",
-    features: ["Kartoni pacijenata", "Terapije", "Izvještaji"],
-    link: "/wizvet",
-    available: false,
-    featured: false
-  }
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const ProductsSection = () => {
+  const { t } = useLanguage();
+
+  const products = [
+    {
+      id: "wizflussi",
+      name: "WizFlussi",
+      icon: CreditCard,
+      tagline: t.products.items.wizflussi.tagline,
+      description: t.products.items.wizflussi.description,
+      features: t.products.items.wizflussi.features,
+      link: "/wizflussi",
+      available: true,
+      featured: true
+    },
+    {
+      id: "wizfin",
+      name: "WizFin",
+      icon: Wallet,
+      tagline: t.products.items.wizfin.tagline,
+      description: t.products.items.wizfin.description,
+      features: t.products.items.wizfin.features,
+      link: "/wizfin",
+      available: false,
+      featured: false
+    },
+    {
+      id: "wizbank",
+      name: "WizBank",
+      icon: Building2,
+      tagline: t.products.items.wizbank.tagline,
+      description: t.products.items.wizbank.description,
+      features: t.products.items.wizbank.features,
+      link: "/wizbank",
+      available: false,
+      featured: false
+    },
+    {
+      id: "wizmedik",
+      name: "WizMedik",
+      icon: Stethoscope,
+      tagline: t.products.items.wizmedik.tagline,
+      description: t.products.items.wizmedik.description,
+      features: t.products.items.wizmedik.features,
+      link: "/wizmedik",
+      available: false,
+      featured: false
+    },
+    {
+      id: "frizerino",
+      name: "Frizerino",
+      icon: Scissors,
+      tagline: t.products.items.frizerino.tagline,
+      description: t.products.items.frizerino.description,
+      features: t.products.items.frizerino.features,
+      link: "/frizerino",
+      available: false,
+      featured: false
+    },
+    {
+      id: "wizvet",
+      name: "WizVet",
+      icon: Cat,
+      tagline: t.products.items.wizvet.tagline,
+      description: t.products.items.wizvet.description,
+      features: t.products.items.wizvet.features,
+      link: "/wizvet",
+      available: false,
+      featured: false
+    }
+  ];
+
   return (
     <section id="products" className="py-32 bg-secondary/30">
       <div className="container mx-auto px-6">
@@ -92,12 +95,12 @@ const ProductsSection = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <span className="inline-block text-primary text-sm font-semibold uppercase tracking-wider mb-4">Proizvodi</span>
+          <span className="inline-block text-primary text-sm font-semibold uppercase tracking-wider mb-4">{t.products.label}</span>
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Wizionar ekosistem
+            {t.products.title}
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Svaki proizvod rješava specifične probleme u svom domenu – bez generičkih rješenja.
+            {t.products.subtitle}
           </p>
         </motion.div>
 
@@ -118,7 +121,7 @@ const ProductsSection = () => {
               {product.featured && (
                 <div className="absolute -top-3 left-6 px-3 py-1 bg-primary text-primary-foreground text-xs font-semibold rounded-full flex items-center gap-1">
                   <Sparkles className="w-3 h-3" />
-                  Dostupno
+                  {t.products.available}
                 </div>
               )}
 
@@ -156,21 +159,21 @@ const ProductsSection = () => {
                   <>
                     <Button variant="outline" size="sm" asChild className="flex-1 group/btn">
                       <Link to={product.link}>
-                        Saznaj više
+                        {t.products.learnMore}
                         <ArrowUpRight className="w-4 h-4 ml-1 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
                       </Link>
                     </Button>
                     <Button size="sm" asChild className="flex-1">
-                      <a href="#contact">Demo</a>
+                      <a href="#contact">{t.products.demo}</a>
                     </Button>
                   </>
                 ) : (
                   <>
                     <Button variant="outline" size="sm" disabled className="flex-1 opacity-50">
-                      Uskoro
+                      {t.products.soon}
                     </Button>
                     <Button size="sm" variant="secondary" asChild className="flex-1">
-                      <a href="#contact">Zainteresovan</a>
+                      <a href="#contact">{t.products.interested}</a>
                     </Button>
                   </>
                 )}

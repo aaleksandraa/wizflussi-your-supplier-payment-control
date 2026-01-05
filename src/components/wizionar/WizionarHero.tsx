@@ -1,8 +1,18 @@
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { ArrowRight, Play } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const WizionarHero = () => {
+  const { t } = useLanguage();
+
+  const stats = [
+    { label: t.hero.stats.projects, value: "12", change: "+3" },
+    { label: t.hero.stats.clients, value: "48", change: "+7" },
+    { label: t.hero.stats.automations, value: "156", change: "+24" },
+    { label: t.hero.stats.savings, value: "340", change: "+45" },
+  ];
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 pb-16">
       {/* Background */}
@@ -27,7 +37,7 @@ const WizionarHero = () => {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
               </span>
-              <span className="text-sm font-medium text-foreground">Product studio za B2B aplikacije</span>
+              <span className="text-sm font-medium text-foreground">{t.hero.badge}</span>
             </div>
           </motion.div>
 
@@ -38,9 +48,9 @@ const WizionarHero = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-center text-4xl md:text-6xl lg:text-7xl font-bold leading-[1.1] mb-8"
           >
-            Poslovne aplikacije koje{" "}
-            <span className="text-gradient">automatizuju procese</span>{" "}
-            i uvode kontrolu.
+            {t.hero.title1}{" "}
+            <span className="text-gradient">{t.hero.titleHighlight}</span>{" "}
+            {t.hero.title2}
           </motion.h1>
 
           {/* Subheadline */}
@@ -50,8 +60,7 @@ const WizionarHero = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="text-center text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto mb-12 leading-relaxed"
           >
-            Gradimo specijalizovane B2B sisteme za finansije, zdravstvo i uslužne djelatnosti – 
-            od evidencije i planiranja do potpune automatizacije i izvještavanja.
+            {t.hero.subtitle}
           </motion.p>
 
           {/* CTAs */}
@@ -63,14 +72,14 @@ const WizionarHero = () => {
           >
             <Button size="xl" className="group shadow-orange hover:shadow-glow transition-all duration-300" asChild>
               <a href="#contact">
-                Zatraži demo
+                {t.hero.cta1}
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </a>
             </Button>
             <Button variant="outline" size="xl" className="group" asChild>
               <a href="#products">
                 <Play className="w-4 h-4 mr-1" />
-                Pogledaj proizvode
+                {t.hero.cta2}
               </a>
             </Button>
           </motion.div>
@@ -82,7 +91,7 @@ const WizionarHero = () => {
             transition={{ duration: 0.6, delay: 0.5 }}
             className="text-center text-sm text-muted-foreground"
           >
-            Odgovaramo u roku 24h · Demo bez obaveze · Besplatna konsultacija
+            {t.hero.microcopy}
           </motion.p>
 
           {/* Visual element - Abstract shapes */}
@@ -108,12 +117,7 @@ const WizionarHero = () => {
                   
                   {/* Mock content */}
                   <div className="grid grid-cols-4 gap-4 mb-6">
-                    {[
-                      { label: "Aktivni projekti", value: "12", change: "+3" },
-                      { label: "Klijenti", value: "48", change: "+7" },
-                      { label: "Automatizacije", value: "156", change: "+24" },
-                      { label: "Ušteda (h/mj)", value: "340", change: "+45" },
-                    ].map((stat, i) => (
+                    {stats.map((stat, i) => (
                       <div key={i} className="p-4 rounded-lg bg-background border border-border">
                         <div className="text-xs text-muted-foreground mb-1">{stat.label}</div>
                         <div className="flex items-end gap-2">

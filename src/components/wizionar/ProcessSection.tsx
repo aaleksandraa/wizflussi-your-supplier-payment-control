@@ -1,40 +1,43 @@
 import { motion } from "framer-motion";
 import { Search, Monitor, Settings, TestTube, Rocket } from "lucide-react";
-
-const steps = [
-  {
-    icon: Search,
-    step: "01",
-    title: "Discovery",
-    description: "Kratki poziv – mapiramo procese i ciljeve."
-  },
-  {
-    icon: Monitor,
-    step: "02",
-    title: "Demo",
-    description: "Prezentacija i identifikacija modula."
-  },
-  {
-    icon: Settings,
-    step: "03",
-    title: "Setup",
-    description: "Implementacija i migracija podataka."
-  },
-  {
-    icon: TestTube,
-    step: "04",
-    title: "Testiranje",
-    description: "Sigurnost, role i user acceptance."
-  },
-  {
-    icon: Rocket,
-    step: "05",
-    title: "Go-live",
-    description: "Produkcija, obuka i podrška."
-  }
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const ProcessSection = () => {
+  const { t } = useLanguage();
+
+  const steps = [
+    {
+      icon: Search,
+      step: "01",
+      title: t.process.steps.discovery.title,
+      description: t.process.steps.discovery.description
+    },
+    {
+      icon: Monitor,
+      step: "02",
+      title: t.process.steps.demo.title,
+      description: t.process.steps.demo.description
+    },
+    {
+      icon: Settings,
+      step: "03",
+      title: t.process.steps.setup.title,
+      description: t.process.steps.setup.description
+    },
+    {
+      icon: TestTube,
+      step: "04",
+      title: t.process.steps.testing.title,
+      description: t.process.steps.testing.description
+    },
+    {
+      icon: Rocket,
+      step: "05",
+      title: t.process.steps.golive.title,
+      description: t.process.steps.golive.description
+    }
+  ];
+
   return (
     <section id="process" className="py-32 relative overflow-hidden">
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[150px]" />
@@ -47,12 +50,12 @@ const ProcessSection = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-20"
         >
-          <span className="inline-block text-primary text-sm font-semibold uppercase tracking-wider mb-4">Proces</span>
+          <span className="inline-block text-primary text-sm font-semibold uppercase tracking-wider mb-4">{t.process.label}</span>
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Od demo-a do produkcije
+            {t.process.title}
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Transparentan proces. Znate šta očekivati u svakoj fazi.
+            {t.process.subtitle}
           </p>
         </motion.div>
 

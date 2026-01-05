@@ -1,7 +1,28 @@
 import { motion } from "framer-motion";
 import { Zap, Eye, TrendingUp, ArrowRight } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const WhatWeDo = () => {
+  const { t } = useLanguage();
+
+  const features = [
+    {
+      icon: Zap,
+      title: t.whatWeDo.features.automation.title,
+      description: t.whatWeDo.features.automation.description
+    },
+    {
+      icon: Eye,
+      title: t.whatWeDo.features.control.title,
+      description: t.whatWeDo.features.control.description
+    },
+    {
+      icon: TrendingUp,
+      title: t.whatWeDo.features.scalability.title,
+      description: t.whatWeDo.features.scalability.description
+    }
+  ];
+
   return (
     <section className="py-32 relative overflow-hidden">
       {/* Background accent */}
@@ -16,44 +37,26 @@ const WhatWeDo = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <span className="inline-block text-primary text-sm font-semibold uppercase tracking-wider mb-4">Šta radimo</span>
+            <span className="inline-block text-primary text-sm font-semibold uppercase tracking-wider mb-4">{t.whatWeDo.label}</span>
             <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
-              Manje haosa,<br />
-              <span className="text-gradient">više kontrole.</span>
+              {t.whatWeDo.title1}<br />
+              <span className="text-gradient">{t.whatWeDo.title2}</span>
             </h2>
             <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-              U većini firmi ključni procesi i dalje zavise od Excel tabela, mailova i ručnog praćenja. 
-              Wizionar proizvodi uvode red: centralizuju podatke, automatizuju ponavljajuće korake 
-              i omogućavaju jasan pregled obaveza, termina i izvještaja.
+              {t.whatWeDo.description}
             </p>
             <a 
               href="#products" 
               className="inline-flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all"
             >
-              Pogledaj naše proizvode
+              {t.whatWeDo.link}
               <ArrowRight className="w-4 h-4" />
             </a>
           </motion.div>
 
           {/* Right - Feature cards */}
           <div className="grid gap-6">
-            {[
-              {
-                icon: Zap,
-                title: "Automatizacija",
-                description: "Smanjujemo ručni unos i greške. Ponavljajući zadaci se izvršavaju automatski."
-              },
-              {
-                icon: Eye,
-                title: "Kontrola",
-                description: "Uvodi se pregled stanja i odgovornosti. Svaka akcija je zabilježena."
-              },
-              {
-                icon: TrendingUp,
-                title: "Skalabilnost",
-                description: "Rješenja rastu kako raste firma. Od stotina do miliona transakcija."
-              }
-            ].map((feature, index) => (
+            {features.map((feature, index) => (
               <motion.div
                 key={feature.title}
                 initial={{ opacity: 0, x: 30 }}
