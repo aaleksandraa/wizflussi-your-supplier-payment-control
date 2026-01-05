@@ -1,40 +1,19 @@
 import { motion } from "framer-motion";
 import { Shield, Lock, FileCheck, UserCheck, Eye, Key } from "lucide-react";
-
-const securityFeatures = [
-  {
-    icon: Shield,
-    title: "Kontrola pristupa",
-    description: "Role-Based Access Control (RBAC) omogućava precizno definisanje ko može vidjeti, kreirati ili odobriti plaćanja."
-  },
-  {
-    icon: FileCheck,
-    title: "Audit trail",
-    description: "Svaka akcija u sistemu se bilježi – ko, kada i šta. Potpuna transparentnost za interne i eksterne revizije."
-  },
-  {
-    icon: Lock,
-    title: "Enkripcija podataka",
-    description: "Svi osjetljivi podaci su enkriptovani u mirovanju i tokom prijenosa. Industrijski standardi zaštite."
-  },
-  {
-    icon: UserCheck,
-    title: "Validacija unosa",
-    description: "Automatska provjera podataka prilikom unosa. Sprječavanje grešaka prije nego što uđu u sistem."
-  },
-  {
-    icon: Eye,
-    title: "Aktivni monitoring",
-    description: "Praćenje sumnjivih aktivnosti i neuobičajenih obrazaca. Proaktivna zaštita od anomalija."
-  },
-  {
-    icon: Key,
-    title: "Session management",
-    description: "Sigurno upravljanje sesijama sa automatskim logout-om i ponovnom autentifikacijom za osjetljive akcije."
-  }
-];
+import { useWizflussiTranslations } from "@/hooks/useWizflussiTranslations";
 
 const SecuritySection = () => {
+  const t = useWizflussiTranslations();
+
+  const securityFeatures = [
+    { icon: Shield, ...t.security.items.access },
+    { icon: FileCheck, ...t.security.items.audit },
+    { icon: Lock, ...t.security.items.encryption },
+    { icon: UserCheck, ...t.security.items.validation },
+    { icon: Eye, ...t.security.items.monitoring },
+    { icon: Key, ...t.security.items.session }
+  ];
+
   return (
     <section id="security" className="py-24 relative overflow-hidden bg-[hsl(var(--wf-background))]">
       <div className="absolute inset-0 bg-gradient-to-b from-[hsl(var(--wf-background))] to-[hsl(var(--wf-secondary)/0.2)]" />
@@ -48,13 +27,12 @@ const SecuritySection = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <span className="text-[hsl(var(--emerald))] text-sm font-medium uppercase tracking-wider">Sigurnost</span>
+          <span className="text-[hsl(var(--emerald))] text-sm font-medium uppercase tracking-wider">{t.security.label}</span>
           <h2 className="text-3xl md:text-4xl font-bold mt-4 mb-6 text-[hsl(var(--wf-foreground))]">
-            Sigurnost i povjerenje na prvom mjestu
+            {t.security.title}
           </h2>
           <p className="text-[hsl(var(--wf-muted-foreground))] max-w-2xl mx-auto">
-            Finansijski podaci zahtijevaju najviši nivo zaštite. 
-            WizFlussi je dizajniran sa sigurnošću kao osnovnim principom.
+            {t.security.subtitle}
           </p>
         </motion.div>
 
@@ -91,8 +69,8 @@ const SecuritySection = () => {
                 <Shield className="w-8 h-8 text-[hsl(var(--emerald))]" />
               </div>
               <div>
-                <h4 className="font-semibold text-lg text-[hsl(var(--wf-foreground))]">Enterprise-grade sigurnost</h4>
-                <p className="text-[hsl(var(--wf-muted-foreground))] text-sm">Isti standardi koje koriste banke i finansijske institucije</p>
+                <h4 className="font-semibold text-lg text-[hsl(var(--wf-foreground))]">{t.security.enterprise.title}</h4>
+                <p className="text-[hsl(var(--wf-muted-foreground))] text-sm">{t.security.enterprise.subtitle}</p>
               </div>
             </div>
             <div className="flex gap-4">

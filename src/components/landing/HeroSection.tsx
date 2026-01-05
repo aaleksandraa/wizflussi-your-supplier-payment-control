@@ -1,8 +1,11 @@
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { ArrowRight, Shield, BarChart3, Clock } from "lucide-react";
+import { useWizflussiTranslations } from "@/hooks/useWizflussiTranslations";
 
 const HeroSection = () => {
+  const t = useWizflussiTranslations();
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 bg-[hsl(var(--wf-background))]">
       {/* Background effects */}
@@ -20,7 +23,7 @@ const HeroSection = () => {
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-[hsl(var(--wf-border))] bg-[hsl(var(--wf-secondary)/0.5)] mb-8"
           >
             <span className="w-2 h-2 rounded-full bg-[hsl(var(--emerald))] animate-pulse" />
-            <span className="text-sm text-[hsl(var(--wf-muted-foreground))]">Enterprise rješenje za finansijske timove</span>
+            <span className="text-sm text-[hsl(var(--wf-muted-foreground))]">{t.hero.badge}</span>
           </motion.div>
 
           {/* Main headline */}
@@ -30,8 +33,8 @@ const HeroSection = () => {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-6 text-[hsl(var(--wf-foreground))]"
           >
-            Potpuna kontrola nad{" "}
-            <span className="text-gradient-emerald">plaćanjima dobavljačima</span>
+            {t.hero.title}{" "}
+            <span className="text-gradient-emerald">{t.hero.titleHighlight}</span>
           </motion.h1>
 
           {/* Subheadline */}
@@ -41,8 +44,7 @@ const HeroSection = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="text-lg md:text-xl text-[hsl(var(--wf-muted-foreground))] max-w-2xl mx-auto mb-10"
           >
-            Centralizujte sve obaveze prema dobavljačima. Pratite rokove, 
-            valute i statuse plaćanja na jednom mjestu. Bez grešaka, bez kašnjenja.
+            {t.hero.subtitle}
           </motion.p>
 
           {/* CTAs */}
@@ -52,12 +54,14 @@ const HeroSection = () => {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16"
           >
-            <Button variant="hero" size="xl" className="group">
-              Zatraži demo
-              <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            <Button variant="hero" size="xl" className="group" asChild>
+              <a href="https://flussi.wizionar.app" target="_blank" rel="noopener noreferrer">
+                {t.hero.cta1}
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </a>
             </Button>
-            <Button variant="heroOutline" size="xl">
-              Saznaj više
+            <Button variant="heroOutline" size="xl" asChild>
+              <a href="#solution">{t.hero.cta2}</a>
             </Button>
           </motion.div>
 
@@ -70,15 +74,15 @@ const HeroSection = () => {
           >
             <div className="flex items-center justify-center gap-3 p-4 rounded-xl bg-[hsl(var(--wf-secondary)/0.3)] border border-[hsl(var(--wf-border)/0.5)]">
               <Shield className="w-5 h-5 text-[hsl(var(--emerald))]" />
-              <span className="text-sm text-[hsl(var(--wf-muted-foreground))]">RBAC kontrola pristupa</span>
+              <span className="text-sm text-[hsl(var(--wf-muted-foreground))]">{t.hero.trust.rbac}</span>
             </div>
             <div className="flex items-center justify-center gap-3 p-4 rounded-xl bg-[hsl(var(--wf-secondary)/0.3)] border border-[hsl(var(--wf-border)/0.5)]">
               <BarChart3 className="w-5 h-5 text-[hsl(var(--emerald))]" />
-              <span className="text-sm text-[hsl(var(--wf-muted-foreground))]">Real-time analitika</span>
+              <span className="text-sm text-[hsl(var(--wf-muted-foreground))]">{t.hero.trust.analytics}</span>
             </div>
             <div className="flex items-center justify-center gap-3 p-4 rounded-xl bg-[hsl(var(--wf-secondary)/0.3)] border border-[hsl(var(--wf-border)/0.5)]">
               <Clock className="w-5 h-5 text-[hsl(var(--emerald))]" />
-              <span className="text-sm text-[hsl(var(--wf-muted-foreground))]">Automatsko praćenje rokova</span>
+              <span className="text-sm text-[hsl(var(--wf-muted-foreground))]">{t.hero.trust.deadlines}</span>
             </div>
           </motion.div>
         </div>

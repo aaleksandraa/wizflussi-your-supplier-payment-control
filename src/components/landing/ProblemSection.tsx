@@ -1,35 +1,18 @@
 import { motion } from "framer-motion";
 import { FileSpreadsheet, AlertTriangle, Clock, Eye, Lock } from "lucide-react";
-
-const problems = [
-  {
-    icon: FileSpreadsheet,
-    title: "Rasuta dokumentacija",
-    description: "Plaćanja, fakture i rokovi razbacani po Excel tabelama, emailovima i različitim sistemima. Nema jednog izvora istine."
-  },
-  {
-    icon: AlertTriangle,
-    title: "Greške i duplikati",
-    description: "Ručni unos podataka dovodi do grešaka. Dupla plaćanja, pogrešni iznosi i propušteni popusti postaju svakodnevica."
-  },
-  {
-    icon: Clock,
-    title: "Propušteni rokovi",
-    description: "Bez automatizovanih podsjetnika, rokovi plaćanja se propuštaju. Kamate, penali i narušeni odnosi sa dobavljačima."
-  },
-  {
-    icon: Eye,
-    title: "Nevidljiv cash flow",
-    description: "Menadžment nema jasan pregled nadolazećih obaveza. Odluke se donose naslijepo, bez pouzdanih finansijskih projekcija."
-  },
-  {
-    icon: Lock,
-    title: "Nedostatak kontrole",
-    description: "Ko je odobrio plaćanje? Kada? Zašto? Bez audit traga, teško je osigurati usklađenost i unutrašnju kontrolu."
-  }
-];
+import { useWizflussiTranslations } from "@/hooks/useWizflussiTranslations";
 
 const ProblemSection = () => {
+  const t = useWizflussiTranslations();
+
+  const problems = [
+    { icon: FileSpreadsheet, ...t.problem.items.documentation },
+    { icon: AlertTriangle, ...t.problem.items.errors },
+    { icon: Clock, ...t.problem.items.deadlines },
+    { icon: Eye, ...t.problem.items.cashflow },
+    { icon: Lock, ...t.problem.items.control }
+  ];
+
   return (
     <section id="problem" className="py-24 relative bg-[hsl(var(--wf-background))]">
       <div className="absolute inset-0 bg-gradient-to-b from-[hsl(var(--wf-background))] via-[hsl(var(--wf-secondary)/0.2)] to-[hsl(var(--wf-background))]" />
@@ -42,13 +25,12 @@ const ProblemSection = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <span className="text-[hsl(var(--emerald))] text-sm font-medium uppercase tracking-wider">Problem</span>
+          <span className="text-[hsl(var(--emerald))] text-sm font-medium uppercase tracking-wider">{t.problem.label}</span>
           <h2 className="text-3xl md:text-4xl font-bold mt-4 mb-6 text-[hsl(var(--wf-foreground))]">
-            Izazovi koje finansijski timovi poznaju predobro
+            {t.problem.title}
           </h2>
           <p className="text-[hsl(var(--wf-muted-foreground))] max-w-2xl mx-auto">
-            Upravljanje plaćanjima dobavljačima nije trivijalan zadatak. 
-            Ovo su stvarni problemi koje svakodnevno viđamo u srednjim i velikim kompanijama.
+            {t.problem.subtitle}
           </p>
         </motion.div>
 

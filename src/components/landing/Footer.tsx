@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
+import { useWizflussiTranslations } from "@/hooks/useWizflussiTranslations";
 
 const Footer = () => {
+  const t = useWizflussiTranslations();
+
   return (
     <footer className="py-12 border-t border-[hsl(var(--wf-border))]">
       <div className="container mx-auto px-6">
@@ -14,19 +17,19 @@ const Footer = () => {
 
           <nav className="flex flex-wrap items-center justify-center gap-6">
             <a href="#problem" className="text-sm text-[hsl(var(--wf-muted-foreground))] hover:text-[hsl(var(--wf-foreground))] transition-colors">
-              Problem
+              {t.header.problem}
             </a>
             <a href="#solution" className="text-sm text-[hsl(var(--wf-muted-foreground))] hover:text-[hsl(var(--wf-foreground))] transition-colors">
-              Rješenje
+              {t.header.solution}
             </a>
             <a href="#features" className="text-sm text-[hsl(var(--wf-muted-foreground))] hover:text-[hsl(var(--wf-foreground))] transition-colors">
-              Funkcionalnosti
+              {t.header.features}
             </a>
             <a href="#security" className="text-sm text-[hsl(var(--wf-muted-foreground))] hover:text-[hsl(var(--wf-foreground))] transition-colors">
-              Sigurnost
+              {t.header.security}
             </a>
             <Link to="/" className="text-sm text-[hsl(var(--emerald))] hover:text-[hsl(var(--emerald-glow))] transition-colors">
-              Wizionar
+              {t.footer.wizionar}
             </Link>
           </nav>
 

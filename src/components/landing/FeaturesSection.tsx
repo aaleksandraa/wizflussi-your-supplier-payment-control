@@ -9,54 +9,22 @@ import {
   FileDown, 
   ShieldCheck 
 } from "lucide-react";
-
-const features = [
-  {
-    icon: LayoutDashboard,
-    title: "Dashboard analitika",
-    description: "Pregled svih ključnih metrika na jednom mjestu. Grafički prikazi obaveza po dobavljačima, valutama i periodima. Trend analiza i projekcije cash flow-a.",
-    highlight: true
-  },
-  {
-    icon: CreditCard,
-    title: "Upravljanje plaćanjima",
-    description: "Kreiranje, praćenje i odobravanje plaćanja kroz definisane workflow-e. Status tracking od kreiranja do izvršenja. Batch obrada za efikasnost."
-  },
-  {
-    icon: Users,
-    title: "Dobavljači",
-    description: "Centralni registar svih dobavljača sa kontakt podacima, ugovorima i historijom plaćanja. Kategorizacija i ocjenjivanje dobavljača."
-  },
-  {
-    icon: Building2,
-    title: "Poslovnice",
-    description: "Multi-lokacijska podrška za kompanije sa više poslovnica. Konsolidovani izvještaji i individualno praćenje po lokaciji."
-  },
-  {
-    icon: CalendarClock,
-    title: "Planovi plaćanja",
-    description: "Definisanje planova plaćanja za rate, pretplate i periodična plaćanja. Automatsko generisanje obaveza prema planu.",
-    highlight: true
-  },
-  {
-    icon: Globe,
-    title: "Više valuta",
-    description: "Podrška za KM, EUR, USD i druge valute. Automatska konverzija po definisanim kursevima. Izvještaji u osnovnoj i stranim valutama."
-  },
-  {
-    icon: FileDown,
-    title: "Izvještaji i export",
-    description: "Generisanje izvještaja u CSV, Excel i PDF formatima. Prilagodljivi izvještaji prema potrebama revizije i menadžmenta."
-  },
-  {
-    icon: ShieldCheck,
-    title: "RBAC i audit logovi",
-    description: "Granularna kontrola pristupa po ulogama. Kompletna evidencija svih akcija u sistemu. Usklađenost sa regulatornim zahtjevima.",
-    highlight: true
-  }
-];
+import { useWizflussiTranslations } from "@/hooks/useWizflussiTranslations";
 
 const FeaturesSection = () => {
+  const t = useWizflussiTranslations();
+
+  const features = [
+    { icon: LayoutDashboard, ...t.features.items.dashboard, highlight: true },
+    { icon: CreditCard, ...t.features.items.payments, highlight: false },
+    { icon: Users, ...t.features.items.suppliers, highlight: false },
+    { icon: Building2, ...t.features.items.branches, highlight: false },
+    { icon: CalendarClock, ...t.features.items.plans, highlight: true },
+    { icon: Globe, ...t.features.items.currency, highlight: false },
+    { icon: FileDown, ...t.features.items.reports, highlight: false },
+    { icon: ShieldCheck, ...t.features.items.rbac, highlight: true }
+  ];
+
   return (
     <section id="features" className="py-24 relative bg-[hsl(var(--wf-background))]">
       <div className="absolute inset-0 bg-gradient-to-b from-[hsl(var(--wf-background))] via-[hsl(var(--wf-secondary)/0.1)] to-[hsl(var(--wf-background))]" />
@@ -69,13 +37,12 @@ const FeaturesSection = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <span className="text-[hsl(var(--emerald))] text-sm font-medium uppercase tracking-wider">Funkcionalnosti</span>
+          <span className="text-[hsl(var(--emerald))] text-sm font-medium uppercase tracking-wider">{t.features.label}</span>
           <h2 className="text-3xl md:text-4xl font-bold mt-4 mb-6 text-[hsl(var(--wf-foreground))]">
-            Sve što trebate za profesionalno upravljanje plaćanjima
+            {t.features.title}
           </h2>
           <p className="text-[hsl(var(--wf-muted-foreground))] max-w-2xl mx-auto">
-            WizFlussi pokriva cijeli životni ciklus upravljanja obavezama prema dobavljačima – 
-            od unosa do izvještavanja i revizije.
+            {t.features.subtitle}
           </p>
         </motion.div>
 

@@ -1,30 +1,17 @@
 import { motion } from "framer-motion";
 import { CheckCircle2, TrendingUp, Layers, Zap } from "lucide-react";
-
-const solutions = [
-  {
-    icon: Layers,
-    title: "Centralizovana kontrola",
-    description: "Sva plaćanja, dobavljači i fakture na jednom mjestu. Jedan izvor istine za cijelu organizaciju."
-  },
-  {
-    icon: CheckCircle2,
-    title: "Eliminacija grešaka",
-    description: "Validacija unosa, automatska detekcija duplikata i kontrola odobrenja smanjuju ljudske greške na minimum."
-  },
-  {
-    icon: TrendingUp,
-    title: "Jasan cash flow",
-    description: "Real-time pregled svih nadolazećih plaćanja po datumima, valutama i statusima. Precizne finansijske projekcije."
-  },
-  {
-    icon: Zap,
-    title: "Automatizacija rokova",
-    description: "Sistem prati rokove i automatski obavještava odgovorne osobe. Nikad više propuštenih plaćanja."
-  }
-];
+import { useWizflussiTranslations } from "@/hooks/useWizflussiTranslations";
 
 const SolutionSection = () => {
+  const t = useWizflussiTranslations();
+
+  const solutions = [
+    { icon: Layers, ...t.solution.items.centralized },
+    { icon: CheckCircle2, ...t.solution.items.errors },
+    { icon: TrendingUp, ...t.solution.items.cashflow },
+    { icon: Zap, ...t.solution.items.automation }
+  ];
+
   return (
     <section id="solution" className="py-24 relative overflow-hidden bg-[hsl(var(--wf-background))]">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-[hsl(var(--emerald)/0.05)] rounded-full blur-[150px]" />
@@ -37,14 +24,12 @@ const SolutionSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <span className="text-[hsl(var(--emerald))] text-sm font-medium uppercase tracking-wider">Rješenje</span>
+            <span className="text-[hsl(var(--emerald))] text-sm font-medium uppercase tracking-wider">{t.solution.label}</span>
             <h2 className="text-3xl md:text-4xl font-bold mt-4 mb-6 text-[hsl(var(--wf-foreground))]">
-              WizFlussi donosi red u vaše finansije
+              {t.solution.title}
             </h2>
             <p className="text-[hsl(var(--wf-muted-foreground))] mb-8">
-              WizFlussi nije još jedan alat za praćenje računa. To je profesionalna platforma 
-              dizajnirana za organizacije koje zahtijevaju potpunu kontrolu, transparentnost 
-              i sigurnost u upravljanju obavezama prema dobavljačima.
+              {t.solution.subtitle}
             </p>
 
             <div className="space-y-6">
@@ -85,31 +70,31 @@ const SolutionSection = () => {
                     <div className="w-3 h-3 rounded-full bg-[hsl(var(--gold))]" />
                     <div className="w-3 h-3 rounded-full bg-[hsl(var(--emerald))]" />
                   </div>
-                  <div className="text-xs text-[hsl(var(--wf-muted-foreground))]">WizFlussi Dashboard</div>
+                  <div className="text-xs text-[hsl(var(--wf-muted-foreground))]">{t.solution.dashboard.title}</div>
                 </div>
 
                 {/* Mock dashboard content */}
                 <div className="grid grid-cols-3 gap-4 mb-6">
                   <div className="p-4 rounded-lg bg-[hsl(var(--wf-secondary)/0.5)] border border-[hsl(var(--wf-border))]">
-                    <div className="text-xs text-[hsl(var(--wf-muted-foreground))] mb-1">Ukupne obaveze</div>
+                    <div className="text-xs text-[hsl(var(--wf-muted-foreground))] mb-1">{t.solution.dashboard.totalObligations}</div>
                     <div className="text-lg font-bold text-[hsl(var(--wf-foreground))]">€124,580</div>
-                    <div className="text-xs text-[hsl(var(--emerald))] mt-1">+12% ovaj mjesec</div>
+                    <div className="text-xs text-[hsl(var(--emerald))] mt-1">+12%</div>
                   </div>
                   <div className="p-4 rounded-lg bg-[hsl(var(--wf-secondary)/0.5)] border border-[hsl(var(--wf-border))]">
-                    <div className="text-xs text-[hsl(var(--wf-muted-foreground))] mb-1">Dospijeva danas</div>
+                    <div className="text-xs text-[hsl(var(--wf-muted-foreground))] mb-1">{t.solution.dashboard.dueToday}</div>
                     <div className="text-lg font-bold text-[hsl(var(--wf-foreground))]">€8,420</div>
-                    <div className="text-xs text-[hsl(var(--gold))] mt-1">3 plaćanja</div>
+                    <div className="text-xs text-[hsl(var(--gold))] mt-1">3 {t.solution.dashboard.payments}</div>
                   </div>
                   <div className="p-4 rounded-lg bg-[hsl(var(--wf-secondary)/0.5)] border border-[hsl(var(--wf-border))]">
-                    <div className="text-xs text-[hsl(var(--wf-muted-foreground))] mb-1">Dobavljači</div>
+                    <div className="text-xs text-[hsl(var(--wf-muted-foreground))] mb-1">{t.solution.dashboard.suppliers}</div>
                     <div className="text-lg font-bold text-[hsl(var(--wf-foreground))]">47</div>
-                    <div className="text-xs text-[hsl(var(--wf-muted-foreground))] mt-1">Aktivnih</div>
+                    <div className="text-xs text-[hsl(var(--wf-muted-foreground))] mt-1">{t.solution.dashboard.active}</div>
                   </div>
                 </div>
 
                 {/* Mock table */}
                 <div className="flex-1 rounded-lg bg-[hsl(var(--wf-secondary)/0.3)] border border-[hsl(var(--wf-border))] p-4">
-                  <div className="text-xs text-[hsl(var(--wf-muted-foreground))] mb-3">Nadolazeća plaćanja</div>
+                  <div className="text-xs text-[hsl(var(--wf-muted-foreground))] mb-3">{t.solution.dashboard.upcomingPayments}</div>
                   <div className="space-y-2">
                     {[
                       { supplier: "TechCorp d.o.o.", amount: "€2,450", date: "15.01.", status: "pending" },
@@ -121,7 +106,7 @@ const SolutionSection = () => {
                         <span className="text-[hsl(var(--wf-muted-foreground))]">{payment.date}</span>
                         <span className="font-medium text-[hsl(var(--wf-foreground))]">{payment.amount}</span>
                         <span className={`px-2 py-0.5 rounded text-[10px] ${payment.status === 'approved' ? 'bg-[hsl(var(--emerald)/0.2)] text-[hsl(var(--emerald))]' : 'bg-[hsl(var(--gold)/0.2)] text-[hsl(var(--gold))]'}`}>
-                          {payment.status === 'approved' ? 'Odobreno' : 'Na čekanju'}
+                          {payment.status === 'approved' ? t.solution.dashboard.approved : t.solution.dashboard.pending}
                         </span>
                       </div>
                     ))}
