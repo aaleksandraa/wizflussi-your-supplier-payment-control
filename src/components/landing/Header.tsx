@@ -1,0 +1,46 @@
+import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
+
+const Header = () => {
+  return (
+    <motion.header
+      initial={{ opacity: 0, y: -20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      className="fixed top-0 left-0 right-0 z-50 border-b border-border/50 bg-background/80 backdrop-blur-xl"
+    >
+      <div className="container mx-auto px-6 py-4 flex items-center justify-between">
+        <div className="flex items-center gap-2">
+          <div className="w-8 h-8 rounded-lg bg-accent flex items-center justify-center">
+            <span className="text-accent-foreground font-bold text-lg">W</span>
+          </div>
+          <span className="text-xl font-bold text-foreground">WizFlussi</span>
+        </div>
+
+        <nav className="hidden md:flex items-center gap-8">
+          <a href="#problem" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+            Problem
+          </a>
+          <a href="#solution" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+            Rješenje
+          </a>
+          <a href="#features" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+            Funkcionalnosti
+          </a>
+          <a href="#security" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+            Sigurnost
+          </a>
+          <a href="#audience" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
+            Za koga
+          </a>
+        </nav>
+
+        <Button variant="hero" size="sm">
+          Zatraži demo
+        </Button>
+      </div>
+    </motion.header>
+  );
+};
+
+export default Header;
