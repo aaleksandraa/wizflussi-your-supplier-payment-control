@@ -1,8 +1,12 @@
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
+import LanguageSwitcher from "@/components/wizionar/LanguageSwitcher";
+import { useWizflussiTranslations } from "@/hooks/useWizflussiTranslations";
 
 const Header = () => {
+  const t = useWizflussiTranslations();
+
   return (
     <motion.header
       initial={{ opacity: 0, y: -20 }}
@@ -20,28 +24,33 @@ const Header = () => {
 
         <nav className="hidden md:flex items-center gap-8">
           <a href="#problem" className="text-sm text-[hsl(var(--wf-muted-foreground))] hover:text-[hsl(var(--wf-foreground))] transition-colors">
-            Problem
+            {t.header.problem}
           </a>
           <a href="#solution" className="text-sm text-[hsl(var(--wf-muted-foreground))] hover:text-[hsl(var(--wf-foreground))] transition-colors">
-            Rješenje
+            {t.header.solution}
           </a>
           <a href="#features" className="text-sm text-[hsl(var(--wf-muted-foreground))] hover:text-[hsl(var(--wf-foreground))] transition-colors">
-            Funkcionalnosti
+            {t.header.features}
           </a>
           <a href="#security" className="text-sm text-[hsl(var(--wf-muted-foreground))] hover:text-[hsl(var(--wf-foreground))] transition-colors">
-            Sigurnost
+            {t.header.security}
           </a>
           <a href="#audience" className="text-sm text-[hsl(var(--wf-muted-foreground))] hover:text-[hsl(var(--wf-foreground))] transition-colors">
-            Za koga
+            {t.header.audience}
           </a>
           <Link to="/" className="text-sm text-[hsl(var(--emerald))] hover:text-[hsl(var(--emerald-glow))] transition-colors">
-            ← Wizionar
+            {t.header.backToWizionar}
           </Link>
         </nav>
 
-        <Button variant="hero" size="sm">
-          Zatraži demo
-        </Button>
+        <div className="flex items-center gap-4">
+          <LanguageSwitcher />
+          <Button variant="hero" size="sm" asChild>
+            <a href="https://flussi.wizionar.app" target="_blank" rel="noopener noreferrer">
+              {t.header.testApp}
+            </a>
+          </Button>
+        </div>
       </div>
     </motion.header>
   );

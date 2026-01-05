@@ -1,34 +1,17 @@
 import { motion } from "framer-motion";
 import { Building2, Factory, Calculator, Truck } from "lucide-react";
-
-const audiences = [
-  {
-    icon: Building2,
-    title: "Srednje kompanije",
-    description: "Organizacije sa 50-500 zaposlenih koje su prerasle Excel tabele ali ne žele kompleksne ERP sisteme. WizFlussi nudi pravu mjeru funkcionalnosti.",
-    features: ["Brza implementacija", "Intuitivno korištenje", "Skalabilnost"]
-  },
-  {
-    icon: Factory,
-    title: "Velike kompanije",
-    description: "Korporacije sa višestrukim poslovnicama, složenim lancima nabavke i strogim zahtjevima za usklađenost i kontrolu.",
-    features: ["Multi-lokacijska podrška", "Napredni RBAC", "Integracije"]
-  },
-  {
-    icon: Calculator,
-    title: "Računovodstvene agencije",
-    description: "Agencije koje vode finansije za više klijenata. Odvojeni prostori za svakog klijenta sa centralizovanim upravljanjem.",
-    features: ["Multi-tenant arhitektura", "Klijentski portali", "Batch operacije"]
-  },
-  {
-    icon: Truck,
-    title: "Logistika i distribucija",
-    description: "Kompanije sa velikim brojem dobavljača i čestim plaćanjima. Kritična potreba za tačnim praćenjem rokova i cash flow-a.",
-    features: ["Masovni import", "Automatizacija", "Izvještaji po vozilima"]
-  }
-];
+import { useWizflussiTranslations } from "@/hooks/useWizflussiTranslations";
 
 const AudienceSection = () => {
+  const t = useWizflussiTranslations();
+
+  const audiences = [
+    { icon: Building2, ...t.audience.items.medium },
+    { icon: Factory, ...t.audience.items.large },
+    { icon: Calculator, ...t.audience.items.accounting },
+    { icon: Truck, ...t.audience.items.logistics }
+  ];
+
   return (
     <section id="audience" className="py-24 relative bg-[hsl(var(--wf-background))]">
       <div className="absolute inset-0 bg-gradient-to-b from-[hsl(var(--wf-secondary)/0.2)] via-[hsl(var(--wf-background))] to-[hsl(var(--wf-background))]" />
@@ -41,13 +24,12 @@ const AudienceSection = () => {
           transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <span className="text-[hsl(var(--emerald))] text-sm font-medium uppercase tracking-wider">Za koga</span>
+          <span className="text-[hsl(var(--emerald))] text-sm font-medium uppercase tracking-wider">{t.audience.label}</span>
           <h2 className="text-3xl md:text-4xl font-bold mt-4 mb-6 text-[hsl(var(--wf-foreground))]">
-            Dizajnirano za profesionalce
+            {t.audience.title}
           </h2>
           <p className="text-[hsl(var(--wf-muted-foreground))] max-w-2xl mx-auto">
-            WizFlussi nije za svakoga. Kreiran je za organizacije koje shvataju 
-            važnost kontrole nad finansijskim obavezama i koje traže pouzdano rješenje.
+            {t.audience.subtitle}
           </p>
         </motion.div>
 

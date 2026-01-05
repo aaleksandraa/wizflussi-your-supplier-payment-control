@@ -1,7 +1,10 @@
 import { motion } from "framer-motion";
 import { Server, Database, Shield, Gauge } from "lucide-react";
+import { useWizflussiTranslations } from "@/hooks/useWizflussiTranslations";
 
 const TechSection = () => {
+  const t = useWizflussiTranslations();
+
   return (
     <section className="py-24 relative bg-[hsl(var(--wf-background))]">
       <div className="absolute inset-0 bg-gradient-to-b from-[hsl(var(--wf-background))] via-[hsl(var(--wf-muted)/0.05)] to-[hsl(var(--wf-background))]" />
@@ -15,9 +18,9 @@ const TechSection = () => {
           className="max-w-4xl mx-auto"
         >
           <div className="text-center mb-12">
-            <span className="text-[hsl(var(--emerald))] text-sm font-medium uppercase tracking-wider">Tehnologija</span>
+            <span className="text-[hsl(var(--emerald))] text-sm font-medium uppercase tracking-wider">{t.tech.label}</span>
             <h2 className="text-3xl md:text-4xl font-bold mt-4 mb-6 text-[hsl(var(--wf-foreground))]">
-              Izgrađeno na provjerenim temeljima
+              {t.tech.title}
             </h2>
           </div>
 
@@ -29,9 +32,9 @@ const TechSection = () => {
                     <Server className="w-5 h-5 text-[hsl(217,91%,60%)]" />
                   </div>
                   <div>
-                    <h4 className="font-semibold mb-1 text-[hsl(var(--wf-foreground))]">Laravel Backend</h4>
+                    <h4 className="font-semibold mb-1 text-[hsl(var(--wf-foreground))]">{t.tech.items.laravel.title}</h4>
                     <p className="text-[hsl(var(--wf-muted-foreground))] text-sm">
-                      Robustan PHP framework sa godinama dokazanom stabilnošću u enterprise okruženjima.
+                      {t.tech.items.laravel.description}
                     </p>
                   </div>
                 </div>
@@ -41,9 +44,9 @@ const TechSection = () => {
                     <Database className="w-5 h-5 text-[hsl(217,91%,60%)]" />
                   </div>
                   <div>
-                    <h4 className="font-semibold mb-1 text-[hsl(var(--wf-foreground))]">Stabilna arhitektura</h4>
+                    <h4 className="font-semibold mb-1 text-[hsl(var(--wf-foreground))]">{t.tech.items.architecture.title}</h4>
                     <p className="text-[hsl(var(--wf-muted-foreground))] text-sm">
-                      Modularna struktura koja omogućava lako održavanje i proširenje funkcionalnosti.
+                      {t.tech.items.architecture.description}
                     </p>
                   </div>
                 </div>
@@ -55,9 +58,9 @@ const TechSection = () => {
                     <Shield className="w-5 h-5 text-[hsl(217,91%,60%)]" />
                   </div>
                   <div>
-                    <h4 className="font-semibold mb-1 text-[hsl(var(--wf-foreground))]">Sigurnost ugrađena</h4>
+                    <h4 className="font-semibold mb-1 text-[hsl(var(--wf-foreground))]">{t.tech.items.security.title}</h4>
                     <p className="text-[hsl(var(--wf-muted-foreground))] text-sm">
-                      OWASP smjernice, zaštita od SQL injection, CSRF i XSS napada iz temelja.
+                      {t.tech.items.security.description}
                     </p>
                   </div>
                 </div>
@@ -67,9 +70,9 @@ const TechSection = () => {
                     <Gauge className="w-5 h-5 text-[hsl(217,91%,60%)]" />
                   </div>
                   <div>
-                    <h4 className="font-semibold mb-1 text-[hsl(var(--wf-foreground))]">Skalabilnost</h4>
+                    <h4 className="font-semibold mb-1 text-[hsl(var(--wf-foreground))]">{t.tech.items.scalability.title}</h4>
                     <p className="text-[hsl(var(--wf-muted-foreground))] text-sm">
-                      Arhitektura spremna za rast – od stotina do miliona transakcija.
+                      {t.tech.items.scalability.description}
                     </p>
                   </div>
                 </div>
@@ -78,8 +81,7 @@ const TechSection = () => {
 
             <div className="mt-8 pt-8 border-t border-[hsl(var(--wf-border))]">
               <p className="text-center text-[hsl(var(--wf-muted-foreground))] text-sm">
-                Svi tehnički detalji su dostupni na zahtjev. Naš tim je spreman odgovoriti na pitanja 
-                vaših IT stručnjaka tokom evaluacije.
+                {t.tech.note}
               </p>
             </div>
           </div>
