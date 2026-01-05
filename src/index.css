@@ -9,50 +9,52 @@
 
 @layer base {
   :root {
-    /* Light theme - Wizionar main brand */
+    /* Light theme - Wizionar main brand with Orange accent */
     --background: 0 0% 100%;
-    --foreground: 222 47% 11%;
+    --foreground: 0 0% 9%;
 
     --card: 0 0% 100%;
-    --card-foreground: 222 47% 11%;
+    --card-foreground: 0 0% 9%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 11%;
+    --popover-foreground: 0 0% 9%;
 
-    /* Indigo primary */
-    --primary: 234 89% 56%;
+    /* Wizionar Orange - from logo */
+    --primary: 14 89% 55%;
     --primary-foreground: 0 0% 100%;
 
     /* Light gray secondary */
-    --secondary: 220 14% 96%;
-    --secondary-foreground: 222 47% 11%;
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 0 0% 9%;
 
-    --muted: 220 14% 96%;
-    --muted-foreground: 220 9% 46%;
+    --muted: 0 0% 96%;
+    --muted-foreground: 0 0% 45%;
 
-    /* Indigo accent */
-    --accent: 234 89% 56%;
+    /* Orange accent */
+    --accent: 14 89% 55%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
-    --ring: 234 89% 56%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 14 89% 55%;
 
     --radius: 0.75rem;
 
-    /* Custom tokens - Wizionar */
-    --indigo: 234 89% 56%;
-    --indigo-light: 234 89% 96%;
-    --indigo-dark: 234 89% 46%;
-    --slate-50: 210 40% 98%;
-    --slate-100: 220 14% 96%;
-    --slate-200: 220 13% 91%;
-    --slate-600: 220 9% 46%;
-    --slate-800: 222 47% 11%;
-    --slate-900: 222 47% 6%;
+    /* Custom tokens - Wizionar Orange Theme */
+    --orange: 14 89% 55%;
+    --orange-light: 14 89% 95%;
+    --orange-dark: 14 89% 45%;
+    --orange-glow: 14 89% 65%;
+    --slate-50: 0 0% 98%;
+    --slate-100: 0 0% 96%;
+    --slate-200: 0 0% 90%;
+    --slate-400: 0 0% 60%;
+    --slate-600: 0 0% 45%;
+    --slate-800: 0 0% 15%;
+    --slate-900: 0 0% 9%;
     
     /* WizFlussi dark theme tokens */
     --wf-background: 222 47% 6%;
@@ -69,29 +71,30 @@
     --gold: 45 93% 47%;
     
     /* Gradients */
-    --gradient-hero: linear-gradient(135deg, hsl(234 89% 56% / 0.03) 0%, hsl(0 0% 100%) 50%, hsl(234 89% 56% / 0.02) 100%);
-    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(220 14% 98%) 100%);
-    --gradient-accent: linear-gradient(135deg, hsl(234 89% 56%) 0%, hsl(234 89% 66%) 100%);
+    --gradient-hero: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(14 89% 55% / 0.03) 50%, hsl(0 0% 100%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(0 0% 98%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(14 89% 55%) 0%, hsl(14 89% 65%) 100%);
+    --gradient-orange-glow: radial-gradient(ellipse at center, hsl(14 89% 55% / 0.15) 0%, transparent 70%);
     --gradient-dark-hero: linear-gradient(135deg, hsl(222 47% 6%) 0%, hsl(217 33% 12%) 50%, hsl(222 47% 8%) 100%);
     --gradient-dark-card: linear-gradient(180deg, hsl(217 33% 12%) 0%, hsl(222 47% 8%) 100%);
     --gradient-emerald: linear-gradient(135deg, hsl(160 84% 39%) 0%, hsl(160 60% 45%) 100%);
-    --gradient-glow: radial-gradient(ellipse at center, hsl(234 89% 56% / 0.1) 0%, transparent 70%);
     
     /* Shadows */
-    --shadow-sm: 0 1px 2px hsl(222 47% 11% / 0.05);
-    --shadow-md: 0 4px 12px hsl(222 47% 11% / 0.08);
-    --shadow-lg: 0 12px 32px hsl(222 47% 11% / 0.12);
-    --shadow-glow: 0 0 40px hsl(234 89% 56% / 0.15);
+    --shadow-sm: 0 1px 2px hsl(0 0% 0% / 0.04);
+    --shadow-md: 0 4px 16px hsl(0 0% 0% / 0.08);
+    --shadow-lg: 0 12px 40px hsl(0 0% 0% / 0.12);
+    --shadow-glow: 0 0 60px hsl(14 89% 55% / 0.25);
+    --shadow-orange: 0 8px 32px hsl(14 89% 55% / 0.3);
     --shadow-emerald-glow: 0 0 40px hsl(160 84% 39% / 0.2);
 
     --sidebar-background: 0 0% 100%;
-    --sidebar-foreground: 222 47% 11%;
-    --sidebar-primary: 234 89% 56%;
+    --sidebar-foreground: 0 0% 9%;
+    --sidebar-primary: 14 89% 55%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 220 14% 96%;
-    --sidebar-accent-foreground: 222 47% 11%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 234 89% 56%;
+    --sidebar-accent: 0 0% 96%;
+    --sidebar-accent-foreground: 0 0% 9%;
+    --sidebar-border: 0 0% 90%;
+    --sidebar-ring: 14 89% 55%;
   }
 }
 
@@ -146,6 +149,10 @@
     box-shadow: var(--shadow-glow);
   }
 
+  .shadow-orange {
+    box-shadow: var(--shadow-orange);
+  }
+
   .shadow-emerald-glow {
     box-shadow: var(--shadow-emerald-glow);
   }
@@ -164,5 +171,14 @@
     --accent-foreground: var(--wf-background);
     --primary: 217 91% 60%;
     --primary-foreground: var(--wf-background);
+  }
+
+  /* Modern hover effects */
+  .hover-lift {
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-lg;
+  }
+
+  .hover-glow {
+    @apply transition-all duration-300 hover:shadow-glow;
   }
 }

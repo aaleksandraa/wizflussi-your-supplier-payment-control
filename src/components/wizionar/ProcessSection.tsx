@@ -6,84 +6,81 @@ const steps = [
     icon: Search,
     step: "01",
     title: "Discovery",
-    description: "Kratki discovery poziv – mapiramo procese i ciljeve."
+    description: "Kratki poziv – mapiramo procese i ciljeve."
   },
   {
     icon: Monitor,
     step: "02",
-    title: "Demo i mapiranje",
-    description: "Prezentacija proizvoda i identifikacija modula koje trebate."
+    title: "Demo",
+    description: "Prezentacija i identifikacija modula."
   },
   {
     icon: Settings,
     step: "03",
-    title: "Implementacija",
-    description: "Postavljanje sistema i migracija podataka (po potrebi)."
+    title: "Setup",
+    description: "Implementacija i migracija podataka."
   },
   {
     icon: TestTube,
     step: "04",
     title: "Testiranje",
-    description: "Provjera sigurnosti, role/permissions i user acceptance."
+    description: "Sigurnost, role i user acceptance."
   },
   {
     icon: Rocket,
     step: "05",
-    title: "Produkcija",
-    description: "Go-live, obuka korisnika i kontinuirana podrška."
+    title: "Go-live",
+    description: "Produkcija, obuka i podrška."
   }
 ];
 
 const ProcessSection = () => {
   return (
-    <section id="process" className="py-24">
-      <div className="container mx-auto px-6">
+    <section id="process" className="py-32 relative overflow-hidden">
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[150px]" />
+      
+      <div className="container mx-auto px-6 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
-            Od demo-a do produkcije – jasno i kontrolisano.
+          <span className="inline-block text-primary text-sm font-semibold uppercase tracking-wider mb-4">Proces</span>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+            Od demo-a do produkcije
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Naš proces je transparentan. Znate šta očekivati u svakoj fazi.
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            Transparentan proces. Znate šta očekivati u svakoj fazi.
           </p>
         </motion.div>
 
-        <div className="max-w-4xl mx-auto">
-          <div className="relative">
-            {/* Connection line */}
-            <div className="absolute left-6 md:left-1/2 top-0 bottom-0 w-px bg-border md:-translate-x-1/2" />
-
+        {/* Horizontal timeline */}
+        <div className="relative max-w-5xl mx-auto">
+          {/* Connection line */}
+          <div className="hidden lg:block absolute top-10 left-0 right-0 h-0.5 bg-border" />
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-4">
             {steps.map((step, index) => (
               <motion.div
                 key={step.step}
-                initial={{ opacity: 0, x: index % 2 === 0 ? -20 : 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                className={`relative flex items-start gap-6 mb-12 last:mb-0 ${
-                  index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
-                }`}
+                className="relative text-center lg:text-left"
               >
-                {/* Step number circle */}
-                <div className="absolute left-6 md:left-1/2 w-12 h-12 -translate-x-1/2 rounded-full bg-background border-2 border-primary flex items-center justify-center z-10">
-                  <span className="text-sm font-bold text-primary">{step.step}</span>
+                {/* Step circle */}
+                <div className="relative inline-flex items-center justify-center w-20 h-20 rounded-full bg-card border-2 border-primary mb-6 mx-auto lg:mx-0">
+                  <step.icon className="w-8 h-8 text-primary" />
+                  <span className="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-primary text-primary-foreground text-sm font-bold flex items-center justify-center">
+                    {step.step}
+                  </span>
                 </div>
-
-                {/* Content */}
-                <div className={`ml-16 md:ml-0 md:w-1/2 ${index % 2 === 0 ? "md:pr-16 md:text-right" : "md:pl-16"}`}>
-                  <div className={`p-6 rounded-2xl bg-gradient-card border border-border ${index % 2 === 0 ? "md:ml-auto" : ""}`}>
-                    <div className={`flex items-center gap-3 mb-3 ${index % 2 === 0 ? "md:justify-end" : ""}`}>
-                      <step.icon className="w-5 h-5 text-primary" />
-                      <h3 className="text-lg font-semibold">{step.title}</h3>
-                    </div>
-                    <p className="text-sm text-muted-foreground">{step.description}</p>
-                  </div>
-                </div>
+                
+                <h3 className="text-xl font-bold mb-2">{step.title}</h3>
+                <p className="text-sm text-muted-foreground">{step.description}</p>
               </motion.div>
             ))}
           </div>
