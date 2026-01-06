@@ -1,5 +1,5 @@
 export const wizflussiTranslations = {
-  hr: {
+  sr: {
     header: {
       problem: "Problem",
       solution: "Rješenje",
@@ -509,4 +509,4 @@ export const wizflussiTranslations = {
   }
 };
 
-export type WizflussiTranslations = typeof wizflussiTranslations.hr;
+export type WizflussiTranslations = typeof wizflussiTranslations.sr;
