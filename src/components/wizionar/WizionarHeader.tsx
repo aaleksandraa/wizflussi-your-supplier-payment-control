@@ -20,7 +20,7 @@ const WizionarHeader = () => {
     >
       <div className="container mx-auto px-6 py-4 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-3">
-          <img src={wizionarLogo} alt="Wizionar" className="h-14 md:h-16 w-auto" />
+          <img src={wizionarLogo} alt="Wizionar" className="h-11 md:h-12 w-auto" />
         </Link>
 
         {/* Desktop nav */}
