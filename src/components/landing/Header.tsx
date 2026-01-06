@@ -43,14 +43,7 @@ const Header = () => {
           </Link>
         </nav>
 
-        <div className="flex items-center gap-4">
-          <LanguageSwitcher />
-          <Button variant="hero" size="sm" asChild>
-            <a href="https://flussi.wizionar.app" target="_blank" rel="noopener noreferrer">
-              {t.header.testApp}
-            </a>
-          </Button>
-        </div>
+        <LanguageSwitcher />
       </div>
     </motion.header>
   );
