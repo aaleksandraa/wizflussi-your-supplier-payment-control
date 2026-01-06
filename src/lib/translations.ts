@@ -1,7 +1,7 @@
-export type Language = 'hr' | 'en' | 'de' | 'it';
+export type Language = 'sr' | 'en' | 'de' | 'it';
 
 export const translations = {
-  hr: {
+  sr: {
     // Header
     nav: {
       products: "Proizvodi",
@@ -609,4 +609,4 @@ export const translations = {
   }
 };
 
-export type Translations = typeof translations.hr;
+export type Translations = typeof translations.sr;
