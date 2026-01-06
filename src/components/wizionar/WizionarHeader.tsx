@@ -28,12 +28,6 @@ const WizionarHeader = () => {
           <a href="#products" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
             {t.nav.products}
           </a>
-          <a href="#process" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
-            {t.nav.process}
-          </a>
-          <a href="#security" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
-            {t.nav.security}
-          </a>
           <a href="#contact" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
             {t.nav.contact}
           </a>
@@ -70,12 +64,6 @@ const WizionarHeader = () => {
           <nav className="container mx-auto px-6 py-6 flex flex-col gap-4">
             <a href="#products" className="text-base font-medium text-muted-foreground hover:text-foreground py-2" onClick={() => setMobileMenuOpen(false)}>
               {t.nav.products}
-            </a>
-            <a href="#process" className="text-base font-medium text-muted-foreground hover:text-foreground py-2" onClick={() => setMobileMenuOpen(false)}>
-              {t.nav.process}
-            </a>
-            <a href="#security" className="text-base font-medium text-muted-foreground hover:text-foreground py-2" onClick={() => setMobileMenuOpen(false)}>
-              {t.nav.security}
             </a>
             <a href="#contact" className="text-base font-medium text-muted-foreground hover:text-foreground py-2" onClick={() => setMobileMenuOpen(false)}>
               {t.nav.contact}
