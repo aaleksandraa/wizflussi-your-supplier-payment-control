@@ -29,6 +29,17 @@ const ProductsSection = () => {
       featured: true
     },
     {
+      id: "wizmedik-reports",
+      name: "WizMedikReports",
+      icon: Stethoscope,
+      tagline: "Izvještavanje za medicinske ustanove",
+      description: "Dnevni, sedmični i mjesečni izvještaji. Praćenje zarade, osoblja, radnih sati i normativa – sve na jednom mjestu.",
+      features: ["Praćenje zarade", "Upravljanje osobljem", "Automatski izvještaji"],
+      link: "/wizmedik-reports",
+      available: true,
+      featured: true
+    },
+    {
       id: "wizfin",
       name: "WizFin",
       icon: Wallet,

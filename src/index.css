@@ -70,6 +70,20 @@
     --navy-light: 217 33% 20%;
     --gold: 45 93% 47%;
     
+    /* WizMedikReports medical cyan theme tokens */
+    --wmr-background: 200 30% 6%;
+    --wmr-foreground: 200 20% 98%;
+    --wmr-card: 200 30% 8%;
+    --wmr-secondary: 200 25% 15%;
+    --wmr-muted: 200 25% 12%;
+    --wmr-muted-foreground: 200 15% 55%;
+    --wmr-border: 200 25% 17%;
+    --cyan: 185 80% 45%;
+    --cyan-glow: 185 80% 55%;
+    --cyan-light: 185 80% 35%;
+    --teal-deep: 200 30% 4%;
+    --teal-light: 195 30% 20%;
+    
     /* Gradients */
     --gradient-hero: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(14 89% 55% / 0.03) 50%, hsl(0 0% 100%) 100%);
     --gradient-card: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(0 0% 98%) 100%);
@@ -78,6 +92,9 @@
     --gradient-dark-hero: linear-gradient(135deg, hsl(222 47% 6%) 0%, hsl(217 33% 12%) 50%, hsl(222 47% 8%) 100%);
     --gradient-dark-card: linear-gradient(180deg, hsl(217 33% 12%) 0%, hsl(222 47% 8%) 100%);
     --gradient-emerald: linear-gradient(135deg, hsl(160 84% 39%) 0%, hsl(160 60% 45%) 100%);
+    --gradient-cyan: linear-gradient(135deg, hsl(185 80% 45%) 0%, hsl(185 60% 55%) 100%);
+    --gradient-cyan-hero: linear-gradient(135deg, hsl(200 30% 6%) 0%, hsl(200 25% 12%) 50%, hsl(200 30% 8%) 100%);
+    --gradient-cyan-card: linear-gradient(180deg, hsl(200 25% 12%) 0%, hsl(200 30% 8%) 100%);
     
     /* Shadows */
     --shadow-sm: 0 1px 2px hsl(0 0% 0% / 0.04);
@@ -86,6 +103,7 @@
     --shadow-glow: 0 0 60px hsl(14 89% 55% / 0.25);
     --shadow-orange: 0 8px 32px hsl(14 89% 55% / 0.3);
     --shadow-emerald-glow: 0 0 40px hsl(160 84% 39% / 0.2);
+    --shadow-cyan-glow: 0 0 40px hsl(185 80% 45% / 0.2);
 
     --sidebar-background: 0 0% 100%;
     --sidebar-foreground: 0 0% 9%;
@@ -129,6 +147,11 @@
     background-image: var(--gradient-emerald);
   }
 
+  .text-gradient-cyan {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-cyan);
+  }
+
   .bg-gradient-hero {
     background: var(--gradient-hero);
   }
@@ -157,6 +180,18 @@
     box-shadow: var(--shadow-emerald-glow);
   }
 
+  .shadow-cyan-glow {
+    box-shadow: var(--shadow-cyan-glow);
+  }
+
+  .bg-gradient-cyan-hero {
+    background: var(--gradient-cyan-hero);
+  }
+
+  .bg-gradient-cyan-card {
+    background: var(--gradient-cyan-card);
+  }
+
   /* WizFlussi dark theme utility classes */
   .wizflussi-theme {
     --background: var(--wf-background);
@@ -171,6 +206,22 @@
     --accent-foreground: var(--wf-background);
     --primary: 217 91% 60%;
     --primary-foreground: var(--wf-background);
+  }
+
+  /* WizMedikReports cyan theme utility classes */
+  .wizmedik-reports-theme {
+    --background: var(--wmr-background);
+    --foreground: var(--wmr-foreground);
+    --card: var(--wmr-card);
+    --card-foreground: var(--wmr-foreground);
+    --secondary: var(--wmr-secondary);
+    --muted: var(--wmr-muted);
+    --muted-foreground: var(--wmr-muted-foreground);
+    --border: var(--wmr-border);
+    --accent: var(--cyan);
+    --accent-foreground: var(--wmr-background);
+    --primary: 185 80% 45%;
+    --primary-foreground: var(--wmr-background);
   }
 
   /* Modern hover effects */
