@@ -7,6 +7,7 @@ import { LanguageProvider } from "@/contexts/LanguageContext";
 import Index from "./pages/Index";
 import WizFlussi from "./pages/WizFlussi";
 import WizMedikReports from "./pages/WizMedikReports";
+import WizMedik from "./pages/WizMedik";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -22,6 +23,7 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/wizflussi" element={<WizFlussi />} />
             <Route path="/wizmedik-reports" element={<WizMedikReports />} />
+            <Route path="/wizmedik" element={<WizMedik />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
