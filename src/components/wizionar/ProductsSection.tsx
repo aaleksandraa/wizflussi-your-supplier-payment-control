@@ -63,14 +63,14 @@ const ProductsSection = () => {
     },
     {
       id: "wizmedik",
-      name: "WizMedik",
+      name: "wizMedik",
       icon: Stethoscope,
-      tagline: t.products.items.wizmedik.tagline,
-      description: t.products.items.wizmedik.description,
-      features: t.products.items.wizmedik.features,
+      tagline: "Zdravstvo na jednom mjestu u BiH",
+      description: "Platforma koja povezuje doktore, klinike, laboratorije, banje i domove za njegu. Online zakazivanje, stručni blog i anonimna pitanja.",
+      features: ["Pretraga doktora", "Online zakazivanje", "Stručni blog"],
       link: "/wizmedik",
-      available: false,
-      featured: false
+      available: true,
+      featured: true
     },
     {
       id: "frizerino",
