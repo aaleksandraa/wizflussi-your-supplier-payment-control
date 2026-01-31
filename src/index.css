@@ -95,6 +95,17 @@
     --teal: 192 91% 36%;
     --teal-glow: 192 91% 46%;
     
+    /* Frizerino rose/pink theme tokens */
+    --friz-background: 340 30% 6%;
+    --friz-foreground: 340 20% 98%;
+    --friz-card: 340 30% 8%;
+    --friz-secondary: 340 25% 15%;
+    --friz-muted: 340 25% 12%;
+    --friz-muted-foreground: 340 15% 55%;
+    --friz-border: 340 25% 17%;
+    --rose: 340 75% 55%;
+    --rose-glow: 340 75% 65%;
+    
     /* Gradients */
     --gradient-hero: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(14 89% 55% / 0.03) 50%, hsl(0 0% 100%) 100%);
     --gradient-card: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(0 0% 98%) 100%);
@@ -108,6 +119,8 @@
     --gradient-cyan-card: linear-gradient(180deg, hsl(200 25% 12%) 0%, hsl(200 30% 8%) 100%);
     --gradient-teal: linear-gradient(135deg, hsl(192 91% 36%) 0%, hsl(192 80% 46%) 100%);
     --gradient-teal-hero: linear-gradient(135deg, hsl(192 30% 6%) 0%, hsl(192 25% 12%) 50%, hsl(192 30% 8%) 100%);
+    --gradient-rose: linear-gradient(135deg, hsl(340 75% 55%) 0%, hsl(340 65% 65%) 100%);
+    --gradient-rose-hero: linear-gradient(135deg, hsl(340 30% 6%) 0%, hsl(340 25% 12%) 50%, hsl(340 30% 8%) 100%);
     
     /* Shadows */
     --shadow-sm: 0 1px 2px hsl(0 0% 0% / 0.04);
@@ -118,6 +131,7 @@
     --shadow-emerald-glow: 0 0 40px hsl(160 84% 39% / 0.2);
     --shadow-cyan-glow: 0 0 40px hsl(185 80% 45% / 0.2);
     --shadow-teal-glow: 0 0 40px hsl(192 91% 36% / 0.2);
+    --shadow-rose-glow: 0 0 40px hsl(340 75% 55% / 0.2);
 
     --sidebar-background: 0 0% 100%;
     --sidebar-foreground: 0 0% 9%;
@@ -261,6 +275,31 @@
 
   .bg-gradient-teal-hero {
     background: var(--gradient-teal-hero);
+  }
+
+  /* Frizerino rose theme utility classes */
+  .frizerino-theme {
+    --background: var(--friz-background);
+    --foreground: var(--friz-foreground);
+    --card: var(--friz-card);
+    --card-foreground: var(--friz-foreground);
+    --secondary: var(--friz-secondary);
+    --muted: var(--friz-muted);
+    --muted-foreground: var(--friz-muted-foreground);
+    --border: var(--friz-border);
+    --accent: var(--rose);
+    --accent-foreground: var(--friz-background);
+    --primary: 340 75% 55%;
+    --primary-foreground: 0 0% 100%;
+  }
+
+  .text-gradient-rose {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-rose);
+  }
+
+  .bg-gradient-rose-hero {
+    background: var(--gradient-rose-hero);
   }
 
   /* Modern hover effects */

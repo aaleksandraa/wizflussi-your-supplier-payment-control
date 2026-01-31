@@ -76,12 +76,12 @@ const ProductsSection = () => {
       id: "frizerino",
       name: "Frizerino",
       icon: Scissors,
-      tagline: t.products.items.frizerino.tagline,
-      description: t.products.items.frizerino.description,
-      features: t.products.items.frizerino.features,
+      tagline: "Platforma za online zakazivanje salona",
+      description: "Pronađite i rezervišite frizerski ili kozmetički salon. Pretraga po gradu, usluzi i slobodnim terminima – bez poziva i čekanja.",
+      features: ["Pametna pretraga", "Online rezervacija", "Sistem za salone"],
       link: "/frizerino",
-      available: false,
-      featured: false
+      available: true,
+      featured: true
     },
     {
       id: "wizvet",
