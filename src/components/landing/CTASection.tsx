@@ -28,7 +28,7 @@ const CTASection = () => {
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
             <Button variant="hero" size="xl" className="group" asChild>
-              <a href="https://flussi.wizionar.app" target="_blank" rel="noopener noreferrer">
+              <a href="https://flussi.wizionar.app/login" target="_blank" rel="noopener noreferrer">
                 {t.cta.testApp}
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </a>
