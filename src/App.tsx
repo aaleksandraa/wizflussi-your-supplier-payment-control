@@ -8,6 +8,7 @@ import Index from "./pages/Index";
 import WizFlussi from "./pages/WizFlussi";
 import WizMedikReports from "./pages/WizMedikReports";
 import WizMedik from "./pages/WizMedik";
+import Frizerino from "./pages/Frizerino";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -24,6 +25,7 @@ const App = () => (
             <Route path="/wizflussi" element={<WizFlussi />} />
             <Route path="/wizmedik-reports" element={<WizMedikReports />} />
             <Route path="/wizmedik" element={<WizMedik />} />
+            <Route path="/frizerino" element={<Frizerino />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
