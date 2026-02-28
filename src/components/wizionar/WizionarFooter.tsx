@@ -1,85 +1,58 @@
 import { Link } from "react-router-dom";
 import wizionarLogo from "@/assets/wizionar-logo.png";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { Mail } from "lucide-react";
 
 const WizionarFooter = () => {
   const { t } = useLanguage();
 
+  const products = [
+    { name: "WizFlussi", to: "/wizflussi" },
+    { name: "wizMedik", to: "/wizmedik" },
+    { name: "Frizerino", to: "/frizerino" },
+  ];
+
   return (
-    <footer className="py-16 border-t border-border bg-secondary/30">
-      <div className="container mx-auto px-6">
-        <div className="grid md:grid-cols-4 gap-12 mb-12">
-          {/* Brand */}
-          <div className="md:col-span-2">
-            <Link to="/" className="inline-block mb-6">
-              <img src={wizionarLogo} alt="Wizionar" className="h-10 w-auto" />
-            </Link>
-            <p className="text-muted-foreground max-w-sm leading-relaxed">
-              {t.footer.description}
-            </p>
-          </div>
-
-          {/* Products */}
-          <div>
-            <h4 className="font-bold text-lg mb-4">{t.footer.products}</h4>
-            <ul className="space-y-3">
-              <li>
-                <Link to="/wizflussi" className="text-muted-foreground hover:text-primary transition-colors">
-                  WizFlussi
-                </Link>
-              </li>
-              <li><span className="text-muted-foreground/50">WizBank ({t.footer.soon})</span></li>
-              <li><span className="text-muted-foreground/50">WizFin ({t.footer.soon})</span></li>
-              <li><span className="text-muted-foreground/50">WizMedik ({t.footer.soon})</span></li>
-              <li><span className="text-muted-foreground/50">Frizerino ({t.footer.soon})</span></li>
-              <li><span className="text-muted-foreground/50">WizVet ({t.footer.soon})</span></li>
-            </ul>
-          </div>
-
-          {/* Links */}
-          <div>
-            <h4 className="font-bold text-lg mb-4">{t.footer.links}</h4>
-            <ul className="space-y-3">
-              <li>
-                <a href="#products" className="text-muted-foreground hover:text-primary transition-colors">
-                  {t.footer.products}
-                </a>
-              </li>
-              <li>
-                <a href="#process" className="text-muted-foreground hover:text-primary transition-colors">
-                  {t.nav.process}
-                </a>
-              </li>
-              <li>
-                <a href="#contact" className="text-muted-foreground hover:text-primary transition-colors">
-                  {t.footer.contact}
-                </a>
-              </li>
-              <li>
-                <Link to="/privacy" className="text-muted-foreground hover:text-primary transition-colors">
-                  {t.footer.privacy}
-                </Link>
-              </li>
-            </ul>
-
-            <div className="mt-8">
-              <h4 className="font-bold mb-2">{t.footer.contact}</h4>
-              <a href="mailto:info@wizionar.com" className="text-primary hover:text-primary/80 transition-colors">
-                info@wizionar.com
-              </a>
-            </div>
-          </div>
+    <footer className="border-t border-border bg-background">
+      <div className="container mx-auto px-6 py-10 md:py-14">
+        {/* Top: Logo + Email */}
+        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 mb-8">
+          <Link to="/" className="inline-block">
+            <img src={wizionarLogo} alt="Wizionar" className="h-9 w-auto" />
+          </Link>
+          <a
+            href="mailto:info@wizionar.com"
+            className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+          >
+            <Mail className="w-4 h-4" />
+            info@wizionar.com
+          </a>
         </div>
 
-        <div className="pt-8 border-t border-border flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-muted-foreground">
+        {/* Products row */}
+        <div className="flex flex-wrap items-center gap-3 mb-8">
+          {products.map((p) => (
+            <Link
+              key={p.to}
+              to={p.to}
+              className="text-sm px-3 py-1.5 rounded-full border border-border text-muted-foreground hover:text-foreground hover:border-primary/40 transition-colors"
+            >
+              {p.name}
+            </Link>
+          ))}
+        </div>
+
+        {/* Bottom bar */}
+        <div className="pt-6 border-t border-border/60 flex flex-col sm:flex-row items-center justify-between gap-3">
+          <p className="text-xs text-muted-foreground">
             {t.footer.copyright}
           </p>
-          <div className="flex items-center gap-6">
-            <Link to="/privacy" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-              {t.footer.privacyPolicy}
-            </Link>
-          </div>
+          <Link
+            to="/privacy"
+            className="text-xs text-muted-foreground hover:text-primary transition-colors"
+          >
+            {t.footer.privacyPolicy}
+          </Link>
         </div>
       </div>
     </footer>
