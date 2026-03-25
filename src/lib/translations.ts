@@ -413,6 +413,11 @@ export const translations = {
           tagline: "Veterinärklinik-System",
           description: "Digitalisiert die Arbeit in Veterinärkliniken: Akten, Untersuchungen, Therapien und Verlauf.",
           features: ["Patientenakten", "Therapien", "Berichte"]
+        },
+        chatko: {
+          tagline: "KI-Assistent für Ihren Webshop",
+          description: "Chatko ist ein KI-Chat-Assistent, der sich in Ihre Website integriert. Verbinden Sie ihn mit Produkten, Lieferdetails, Zahlungen und passen Sie Antworten an – alles automatisch.",
+          features: ["Shop-Integration", "Anpassbare Antworten", "24/7 Support"]
         }
       }
     },
@@ -563,6 +568,11 @@ export const translations = {
           tagline: "Sistema cliniche veterinarie",
           description: "Digitalizza il lavoro delle cliniche veterinarie: cartelle, esami, terapie e storico.",
           features: ["Cartelle pazienti", "Terapie", "Report"]
+        },
+        chatko: {
+          tagline: "Assistente AI per il tuo web shop",
+          description: "Chatko è un assistente AI che si integra nel tuo sito web. Collegalo con prodotti, dettagli di consegna, pagamenti e personalizza le risposte – tutto automaticamente.",
+          features: ["Integrazione shop", "Risposte personalizzate", "Supporto 24/7"]
         }
       }
     },
