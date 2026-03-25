@@ -227,6 +227,7 @@ export const translations = {
       interested: "Interested",
       learnMore: "Learn more",
       demo: "Demo",
+      contactUs: "For more details, write to us",
       items: {
         wizflussi: {
           tagline: "Supplier payment management",
@@ -257,6 +258,11 @@ export const translations = {
           tagline: "Veterinary clinic system",
           description: "Digitalizes veterinary clinic work: records, exams, therapies and history.",
           features: ["Patient records", "Therapies", "Reports"]
+        },
+        chatko: {
+          tagline: "AI assistant for your web shop",
+          description: "Chatko is an AI chat assistant that integrates into your website. Connect it with products, delivery details, payments and customize responses – all automatically.",
+          features: ["Shop integration", "Custom responses", "24/7 support"]
         }
       }
     },
