@@ -382,6 +382,7 @@ export const translations = {
       interested: "Interessiert",
       learnMore: "Mehr erfahren",
       demo: "Demo",
+      contactUs: "Für weitere Details schreiben Sie uns",
       items: {
         wizflussi: {
           tagline: "Lieferantenzahlungsverwaltung",
@@ -531,6 +532,7 @@ export const translations = {
       interested: "Interessato",
       learnMore: "Scopri di più",
       demo: "Demo",
+      contactUs: "Per maggiori dettagli scriveteci",
       items: {
         wizflussi: {
           tagline: "Gestione pagamenti fornitori",
