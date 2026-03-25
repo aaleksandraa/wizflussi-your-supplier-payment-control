@@ -137,11 +137,7 @@ const ProductsSection = () => {
             >
 
               <div className="flex items-start gap-4 mb-4">
-                <div className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 transition-colors ${
-                  product.featured 
-                    ? 'bg-primary text-primary-foreground' 
-                    : 'bg-primary/10 text-primary group-hover:bg-primary/20'
-                }`}>
+                <div className="w-12 h-12 rounded-xl flex items-center justify-center shrink-0 bg-primary/10 text-primary group-hover:bg-primary/20 transition-colors">
                   <product.icon className="w-6 h-6" />
                 </div>
                 <div>
