@@ -1,7 +1,7 @@
 import { useLanguage } from '@/contexts/LanguageContext';
-import { chatkoTranslations, ChatkoTranslations } from '@/lib/chatko-translations';
+import { chatkoTranslations } from '@/lib/chatko-translations';
 
-export const useChatkoTranslations = (): ChatkoTranslations => {
+export const useChatkoTranslations = () => {
   const { language } = useLanguage();
   return chatkoTranslations[language];
 };
