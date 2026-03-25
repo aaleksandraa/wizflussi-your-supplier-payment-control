@@ -67,6 +67,7 @@ export const translations = {
       interested: "Zainteresovan",
       learnMore: "Saznaj više",
       demo: "Demo",
+      contactUs: "Za više detalja pišite nam",
       items: {
         wizflussi: {
           tagline: "Upravljanje plaćanjima dobavljačima",
@@ -97,6 +98,11 @@ export const translations = {
           tagline: "Sistem za veterinarske ambulante",
           description: "Digitalizuje rad veterinarskih ambulanti: kartoni, pregledi, terapije i istorija.",
           features: ["Kartoni pacijenata", "Terapije", "Izvještaji"]
+        },
+        chatko: {
+          tagline: "AI asistent za vaš web shop",
+          description: "Chatko je AI chat asistent koji se integriše na vaš web sajt. Povežite ga sa proizvodima, detaljima dostave, plaćanja i prilagodite odgovore – sve automatski.",
+          features: ["Integracija sa shopom", "Prilagodljivi odgovori", "24/7 podrška"]
         }
       }
     },
