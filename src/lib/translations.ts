@@ -67,6 +67,7 @@ export const translations = {
       interested: "Zainteresovan",
       learnMore: "Saznaj više",
       demo: "Demo",
+      contactUs: "Za više detalja pišite nam",
       items: {
         wizflussi: {
           tagline: "Upravljanje plaćanjima dobavljačima",
@@ -97,6 +98,11 @@ export const translations = {
           tagline: "Sistem za veterinarske ambulante",
           description: "Digitalizuje rad veterinarskih ambulanti: kartoni, pregledi, terapije i istorija.",
           features: ["Kartoni pacijenata", "Terapije", "Izvještaji"]
+        },
+        chatko: {
+          tagline: "AI asistent za vaš web shop",
+          description: "Chatko je AI chat asistent koji se integriše na vaš web sajt. Povežite ga sa proizvodima, detaljima dostave, plaćanja i prilagodite odgovore – sve automatski.",
+          features: ["Integracija sa shopom", "Prilagodljivi odgovori", "24/7 podrška"]
         }
       }
     },
@@ -221,6 +227,7 @@ export const translations = {
       interested: "Interested",
       learnMore: "Learn more",
       demo: "Demo",
+      contactUs: "For more details, write to us",
       items: {
         wizflussi: {
           tagline: "Supplier payment management",
@@ -251,6 +258,11 @@ export const translations = {
           tagline: "Veterinary clinic system",
           description: "Digitalizes veterinary clinic work: records, exams, therapies and history.",
           features: ["Patient records", "Therapies", "Reports"]
+        },
+        chatko: {
+          tagline: "AI assistant for your web shop",
+          description: "Chatko is an AI chat assistant that integrates into your website. Connect it with products, delivery details, payments and customize responses – all automatically.",
+          features: ["Shop integration", "Custom responses", "24/7 support"]
         }
       }
     },
@@ -370,6 +382,7 @@ export const translations = {
       interested: "Interessiert",
       learnMore: "Mehr erfahren",
       demo: "Demo",
+      contactUs: "Für weitere Details schreiben Sie uns",
       items: {
         wizflussi: {
           tagline: "Lieferantenzahlungsverwaltung",
@@ -400,6 +413,11 @@ export const translations = {
           tagline: "Veterinärklinik-System",
           description: "Digitalisiert die Arbeit in Veterinärkliniken: Akten, Untersuchungen, Therapien und Verlauf.",
           features: ["Patientenakten", "Therapien", "Berichte"]
+        },
+        chatko: {
+          tagline: "KI-Assistent für Ihren Webshop",
+          description: "Chatko ist ein KI-Chat-Assistent, der sich in Ihre Website integriert. Verbinden Sie ihn mit Produkten, Lieferdetails, Zahlungen und passen Sie Antworten an – alles automatisch.",
+          features: ["Shop-Integration", "Anpassbare Antworten", "24/7 Support"]
         }
       }
     },
@@ -519,6 +537,7 @@ export const translations = {
       interested: "Interessato",
       learnMore: "Scopri di più",
       demo: "Demo",
+      contactUs: "Per maggiori dettagli scriveteci",
       items: {
         wizflussi: {
           tagline: "Gestione pagamenti fornitori",
@@ -549,6 +568,11 @@ export const translations = {
           tagline: "Sistema cliniche veterinarie",
           description: "Digitalizza il lavoro delle cliniche veterinarie: cartelle, esami, terapie e storico.",
           features: ["Cartelle pazienti", "Terapie", "Report"]
+        },
+        chatko: {
+          tagline: "Assistente AI per il tuo web shop",
+          description: "Chatko è un assistente AI che si integra nel tuo sito web. Collegalo con prodotti, dettagli di consegna, pagamenti e personalizza le risposte – tutto automaticamente.",
+          features: ["Integrazione shop", "Risposte personalizzate", "Supporto 24/7"]
         }
       }
     },

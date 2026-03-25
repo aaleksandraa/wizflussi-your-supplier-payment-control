@@ -1,5 +1,4 @@
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { 
   Wallet, 
@@ -8,8 +7,8 @@ import {
   Cat, 
   Building2, 
   CreditCard,
-  ArrowUpRight,
-  Sparkles
+  MessageCircle,
+  Mail
 } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
@@ -84,6 +83,17 @@ const ProductsSection = () => {
       featured: true
     },
     {
+      id: "chatko",
+      name: "Chatko",
+      icon: MessageCircle,
+      tagline: t.products.items.chatko.tagline,
+      description: t.products.items.chatko.description,
+      features: t.products.items.chatko.features,
+      link: "/chatko",
+      available: true,
+      featured: true
+    },
+    {
       id: "wizvet",
       name: "WizVet",
       icon: Cat,
@@ -123,25 +133,11 @@ const ProductsSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className={`group relative p-6 rounded-2xl border transition-all duration-300 flex flex-col ${
-                product.featured 
-                  ? 'bg-card border-primary/30 shadow-lg hover:shadow-orange' 
-                  : 'bg-card border-border hover:border-primary/20 hover:shadow-md'
-              }`}
+              className="group relative p-6 rounded-2xl border bg-card border-border hover:border-primary/20 hover:shadow-md transition-all duration-300 flex flex-col"
             >
-              {product.featured && (
-                <div className="absolute -top-3 left-6 px-3 py-1 bg-primary text-primary-foreground text-xs font-semibold rounded-full flex items-center gap-1">
-                  <Sparkles className="w-3 h-3" />
-                  {t.products.available}
-                </div>
-              )}
 
               <div className="flex items-start gap-4 mb-4">
-                <div className={`w-12 h-12 rounded-xl flex items-center justify-center shrink-0 transition-colors ${
-                  product.featured 
-                    ? 'bg-primary text-primary-foreground' 
-                    : 'bg-primary/10 text-primary group-hover:bg-primary/20'
-                }`}>
+                <div className="w-12 h-12 rounded-xl flex items-center justify-center shrink-0 bg-primary/10 text-primary group-hover:bg-primary/20 transition-colors">
                   <product.icon className="w-6 h-6" />
                 </div>
                 <div>
@@ -165,29 +161,14 @@ const ProductsSection = () => {
                 ))}
               </div>
 
-              <div className="flex gap-3 mt-auto">
-                {product.available ? (
-                  <>
-                    <Button variant="outline" size="sm" asChild className="flex-1 group/btn">
-                      <Link to={product.link}>
-                        {t.products.learnMore}
-                        <ArrowUpRight className="w-4 h-4 ml-1 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
-                      </Link>
-                    </Button>
-                    <Button size="sm" asChild className="flex-1">
-                      <a href="#contact">{t.products.demo}</a>
-                    </Button>
-                  </>
-                ) : (
-                  <>
-                    <Button variant="outline" size="sm" disabled className="flex-1 opacity-50">
-                      {t.products.soon}
-                    </Button>
-                    <Button size="sm" variant="secondary" asChild className="flex-1">
-                      <a href="#contact">{t.products.interested}</a>
-                    </Button>
-                  </>
-                )}
+              <div className="mt-auto pt-4 border-t border-border/50">
+                <a 
+                  href="mailto:info@wizionar.com" 
+                  className="inline-flex items-center gap-2 text-sm text-primary hover:text-primary/80 transition-colors"
+                >
+                  <Mail className="w-4 h-4" />
+                  {t.products.contactUs}
+                </a>
               </div>
             </motion.div>
           ))}
