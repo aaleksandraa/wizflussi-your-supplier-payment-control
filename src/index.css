@@ -95,6 +95,17 @@
     --teal: 192 91% 36%;
     --teal-glow: 192 91% 46%;
     
+    /* Chatko violet/AI theme tokens */
+    --ck-background: 260 30% 6%;
+    --ck-foreground: 260 20% 98%;
+    --ck-card: 260 30% 8%;
+    --ck-secondary: 260 25% 15%;
+    --ck-muted: 260 25% 12%;
+    --ck-muted-foreground: 260 15% 55%;
+    --ck-border: 260 25% 17%;
+    --violet: 260 70% 58%;
+    --violet-glow: 260 70% 68%;
+    
     /* Frizerino rose/pink theme tokens */
     --friz-background: 340 30% 6%;
     --friz-foreground: 340 20% 98%;
@@ -121,6 +132,8 @@
     --gradient-teal-hero: linear-gradient(135deg, hsl(192 30% 6%) 0%, hsl(192 25% 12%) 50%, hsl(192 30% 8%) 100%);
     --gradient-rose: linear-gradient(135deg, hsl(340 75% 55%) 0%, hsl(340 65% 65%) 100%);
     --gradient-rose-hero: linear-gradient(135deg, hsl(340 30% 6%) 0%, hsl(340 25% 12%) 50%, hsl(340 30% 8%) 100%);
+    --gradient-violet: linear-gradient(135deg, hsl(260 70% 58%) 0%, hsl(260 60% 68%) 100%);
+    --gradient-violet-hero: linear-gradient(135deg, hsl(260 30% 6%) 0%, hsl(260 25% 12%) 50%, hsl(260 30% 8%) 100%);
     
     /* Shadows */
     --shadow-sm: 0 1px 2px hsl(0 0% 0% / 0.04);
@@ -132,6 +145,7 @@
     --shadow-cyan-glow: 0 0 40px hsl(185 80% 45% / 0.2);
     --shadow-teal-glow: 0 0 40px hsl(192 91% 36% / 0.2);
     --shadow-rose-glow: 0 0 40px hsl(340 75% 55% / 0.2);
+    --shadow-violet-glow: 0 0 40px hsl(260 70% 58% / 0.2);
 
     --sidebar-background: 0 0% 100%;
     --sidebar-foreground: 0 0% 9%;
@@ -300,6 +314,31 @@
 
   .bg-gradient-rose-hero {
     background: var(--gradient-rose-hero);
+  }
+
+  /* Chatko violet theme utility classes */
+  .chatko-theme {
+    --background: var(--ck-background);
+    --foreground: var(--ck-foreground);
+    --card: var(--ck-card);
+    --card-foreground: var(--ck-foreground);
+    --secondary: var(--ck-secondary);
+    --muted: var(--ck-muted);
+    --muted-foreground: var(--ck-muted-foreground);
+    --border: var(--ck-border);
+    --accent: var(--violet);
+    --accent-foreground: var(--ck-background);
+    --primary: 260 70% 58%;
+    --primary-foreground: 0 0% 100%;
+  }
+
+  .text-gradient-violet {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-violet);
+  }
+
+  .bg-gradient-violet-hero {
+    background: var(--gradient-violet-hero);
   }
 
   /* Modern hover effects */

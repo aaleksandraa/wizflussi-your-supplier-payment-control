@@ -10,6 +10,7 @@ const WizionarFooter = () => {
     { name: "WizFlussi", to: "/wizflussi" },
     { name: "wizMedik", to: "/wizmedik" },
     { name: "Frizerino", to: "/frizerino" },
+    { name: "Chatko", to: "/chatko" },
   ];
 
   return (
