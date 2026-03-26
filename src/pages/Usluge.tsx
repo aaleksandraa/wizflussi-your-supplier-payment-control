@@ -20,10 +20,11 @@ import { useLanguage } from "@/contexts/LanguageContext";
 const services = [
   {
     icon: Globe,
-    title: "Izrada web stranica",
+    title: "Izrada web stranica & web shopova",
     description:
-      "Moderan dizajn, brze performanse i potpuna responzivnost. Od jednostavnih prezentacijskih sajtova do kompleksnih poslovnih platformi.",
-    features: ["Responzivan dizajn", "CMS integracija", "Brzo učitavanje", "SSL sigurnost"],
+      "Moderan dizajn, brze performanse i potpuna responzivnost. Od prezentacijskih sajtova i landing stranica do kompletnih e-commerce rješenja.",
+    features: ["Responzivan dizajn", "CMS & custom razvoj", "SEO optimizacija", "E-commerce"],
+    link: "/usluge/izrada-web-stranica",
   },
   {
     icon: ShoppingCart,
@@ -31,6 +32,7 @@ const services = [
     description:
       "Kompletna e-commerce rješenja sa upravljanjem proizvodima, narudžbama, plaćanjima i dostavom. Sve što vam treba za online prodaju.",
     features: ["Upravljanje proizvodima", "Online plaćanje", "Praćenje narudžbi", "Integracija dostave"],
+    link: "/usluge/izrada-web-stranica",
   },
   {
     icon: Search,
@@ -146,7 +148,7 @@ const Usluge = () => {
                   <p className="text-sm text-muted-foreground mb-4 leading-relaxed flex-grow">
                     {service.description}
                   </p>
-                  <ul className="space-y-2">
+                  <ul className="space-y-2 mb-4">
                     {service.features.map((f) => (
                       <li key={f} className="flex items-center gap-2 text-sm text-muted-foreground">
                         <CheckCircle2 className="w-4 h-4 text-primary shrink-0" />
@@ -154,6 +156,14 @@ const Usluge = () => {
                       </li>
                     ))}
                   </ul>
+                  {service.link && (
+                    <Link
+                      to={service.link}
+                      className="inline-flex items-center gap-1 text-sm text-primary font-medium hover:gap-2 transition-all mt-auto"
+                    >
+                      Saznajte više <ArrowRight className="w-4 h-4" />
+                    </Link>
+                  )}
                 </motion.div>
               ))}
             </div>
