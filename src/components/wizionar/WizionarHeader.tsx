@@ -28,6 +28,9 @@ const WizionarHeader = () => {
           <a href="#products" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
             {t.nav.products}
           </a>
+          <Link to="/usluge" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
+            Usluge
+          </Link>
           <a href="#contact" className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
             {t.nav.contact}
           </a>
@@ -65,6 +68,9 @@ const WizionarHeader = () => {
             <a href="#products" className="text-base font-medium text-muted-foreground hover:text-foreground py-2" onClick={() => setMobileMenuOpen(false)}>
               {t.nav.products}
             </a>
+            <Link to="/usluge" className="text-base font-medium text-muted-foreground hover:text-foreground py-2" onClick={() => setMobileMenuOpen(false)}>
+              Usluge
+            </Link>
             <a href="#contact" className="text-base font-medium text-muted-foreground hover:text-foreground py-2" onClick={() => setMobileMenuOpen(false)}>
               {t.nav.contact}
             </a>
