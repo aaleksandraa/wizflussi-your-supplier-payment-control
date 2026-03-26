@@ -161,7 +161,7 @@ const ProductsSection = () => {
                 ))}
               </div>
 
-              <div className="mt-auto pt-4 border-t border-border/50 flex items-center gap-4">
+              <div className="mt-auto pt-4 border-t border-border/50 flex items-center justify-between">
                 <a 
                   href="mailto:info@wizionar.com" 
                   className="inline-flex items-center gap-2 text-sm text-primary hover:text-primary/80 transition-colors"
