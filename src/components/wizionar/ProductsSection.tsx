@@ -161,7 +161,7 @@ const ProductsSection = () => {
                 ))}
               </div>
 
-              <div className="mt-auto pt-4 border-t border-border/50">
+              <div className="mt-auto pt-4 border-t border-border/50 flex items-center gap-4">
                 <a 
                   href="mailto:info@wizionar.com" 
                   className="inline-flex items-center gap-2 text-sm text-primary hover:text-primary/80 transition-colors"
@@ -169,6 +169,14 @@ const ProductsSection = () => {
                   <Mail className="w-4 h-4" />
                   {t.products.contactUs}
                 </a>
+                {product.available && product.link !== "#" && (
+                  <Link
+                    to={product.link}
+                    className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    Pogledaj →
+                  </Link>
+                )}
               </div>
             </motion.div>
           ))}
