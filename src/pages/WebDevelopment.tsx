@@ -129,7 +129,7 @@ const FaqItem = ({ q, a }: { q: string; a: string }) => {
 /* ─── PAGE ─── */
 const WebDevelopment = () => {
   const t = useWebdevTranslations();
-  const { language } = require("@/contexts/LanguageContext").useLanguage();
+  const { language } = useLanguage();
 
   useEffect(() => {
     document.title = t.meta.title;
