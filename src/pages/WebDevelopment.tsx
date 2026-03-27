@@ -41,6 +41,7 @@ import WizionarHeader from "@/components/wizionar/WizionarHeader";
 import WizionarFooter from "@/components/wizionar/WizionarFooter";
 import { useEffect, useState } from "react";
 import { useWebdevTranslations } from "@/hooks/useWebdevTranslations";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 import portfolioCorporate from "@/assets/portfolio-corporate.jpg";
 import portfolioEshop from "@/assets/portfolio-eshop.jpg";
