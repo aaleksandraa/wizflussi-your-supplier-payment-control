@@ -64,16 +64,16 @@ const approach = [
     num: "02",
     icon: Target,
     title: "Strategija ključnih riječi",
-    desc: "Ne ciljamo samo „velike" keyworde. Fokusiramo se na pretrage koje donose rezultate.",
+    desc: 'Ne ciljamo samo \u201Evelike\u201C keyworde. Fokusiramo se na pretrage koje donose rezultate.',
     items: [
       "Komercijalne pretrage (koje donose klijente)",
       "Long-tail keyworde (manja konkurencija, veća konverzija)",
       "Lokalne pretrage",
     ],
     examples: [
-      "„zubna ordinacija Sarajevo cijene"",
-      "„izrada web shopa BiH"",
-      "„ginekolog privatno Tuzla"",
+      '\u201Ezubna ordinacija Sarajevo cijene\u201C',
+      '\u201Eizrada web shopa BiH\u201C',
+      '\u201Eginekolog privatno Tuzla\u201C',
     ],
   },
   {
