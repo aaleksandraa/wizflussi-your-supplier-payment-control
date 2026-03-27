@@ -40,6 +40,7 @@ const services = [
     description:
       "Tehnička i sadržajna optimizacija za pretraživače. Povećajte vidljivost i privucite više organskog saobraćaja na vaš sajt.",
     features: ["Tehnički SEO", "On-page optimizacija", "Analitika", "Izvještavanje"],
+    link: "/usluge/seo-optimizacija",
   },
   {
     icon: Smartphone,
