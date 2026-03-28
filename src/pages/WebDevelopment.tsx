@@ -65,9 +65,9 @@ const resultIcons = [Phone, MessageSquare, ShoppingCart, Star, Users, TrendingUp
 const advantageIcons = [Star, Target, Users, TrendingUp, Clock, Shield];
 
 const portfolioData = [
-  { image: portfolioCorporate, title: "TechFlow Dashboard", link: "#", descKey: 0 },
-  { image: portfolioEshop, title: "StyleOut Fashion Shop", link: "#", descKey: 1 },
-  { image: portfolioMedical, title: "MediConnect Klinika", link: "#", descKey: 2 },
+  { image: portfolioCorporate, title: "TechFlow Dashboard", link: "/portfolio/techflow-dashboard", descKey: 0 },
+  { image: portfolioEshop, title: "StyleOut Fashion Shop", link: "/portfolio/styleout-fashion-shop", descKey: 1 },
+  { image: portfolioMedical, title: "MediConnect Klinika", link: "/portfolio/mediconnect-klinika", descKey: 2 },
   { image: portfolioRestaurant, title: "GastroPress Restoran", link: "#", descKey: 3 },
   { image: portfolioSalon, title: "BeautyGlow Salon", link: "#", descKey: 4 },
   { image: portfolioRealestate, title: "PropertyVista Nekretnine", link: "#", descKey: 5 },
@@ -486,14 +486,12 @@ const WebDevelopment = () => {
                     <h3 className="font-bold mb-1">{item.title}</h3>
                     <p className="text-sm text-muted-foreground mb-3">{descs[item.descKey]}</p>
                     {item.link !== "#" && (
-                      <a
-                        href={item.link}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                      <Link
+                        to={item.link}
                         className="inline-flex items-center gap-1 text-sm text-primary hover:underline"
                       >
                         {t.portfolio.visitSite} <ExternalLink className="w-3 h-3" />
-                      </a>
+                      </Link>
                     )}
                   </div>
                 </motion.div>
