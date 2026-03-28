@@ -56,30 +56,90 @@ const WizionarHeader = () => {
         </div>
       </div>
 
-      {/* Mobile menu */}
-      {mobileMenuOpen && (
-        <motion.div
-          initial={{ opacity: 0, height: 0 }}
-          animate={{ opacity: 1, height: "auto" }}
-          exit={{ opacity: 0, height: 0 }}
-          className="md:hidden border-t border-border bg-background"
-        >
-          <nav className="container mx-auto px-6 py-6 flex flex-col gap-4">
-            <a href="#products" className="text-base font-medium text-muted-foreground hover:text-foreground py-2" onClick={() => setMobileMenuOpen(false)}>
-              {t.nav.products}
-            </a>
-            <Link to="/usluge" className="text-base font-medium text-muted-foreground hover:text-foreground py-2" onClick={() => setMobileMenuOpen(false)}>
-              Usluge
-            </Link>
-            <a href="#contact" className="text-base font-medium text-muted-foreground hover:text-foreground py-2" onClick={() => setMobileMenuOpen(false)}>
-              {t.nav.contact}
-            </a>
-            <Button asChild className="w-full mt-2">
-              <a href="#contact" onClick={() => setMobileMenuOpen(false)}>{t.nav.requestDemo}</a>
-            </Button>
-          </nav>
-        </motion.div>
-      )}
+      {/* Mobile menu overlay */}
+      <AnimatePresence>
+        {mobileMenuOpen && (
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="fixed inset-0 z-40 bg-black/60 backdrop-blur-sm md:hidden"
+              onClick={() => setMobileMenuOpen(false)}
+            />
+            <motion.div
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ type: "spring", damping: 30, stiffness: 300 }}
+              className="fixed top-0 right-0 z-50 h-full w-[80%] max-w-sm bg-background/95 backdrop-blur-xl border-l border-border/50 shadow-2xl md:hidden"
+            >
+              <div className="flex flex-col h-full">
+                {/* Close button */}
+                <div className="flex items-center justify-between p-6 border-b border-border/30">
+                  <img src={wizionarLogo} alt="Wizionar" className="h-9 w-auto" />
+                  <button
+                    className="p-2 rounded-full bg-secondary hover:bg-secondary/80 transition-colors"
+                    onClick={() => setMobileMenuOpen(false)}
+                    aria-label="Close menu"
+                  >
+                    <X className="w-5 h-5" />
+                  </button>
+                </div>
+
+                {/* Nav links */}
+                <nav className="flex-1 px-6 py-8 flex flex-col gap-2">
+                  {[
+                    { href: "#products", label: t.nav.products, isLink: false },
+                    { href: "/usluge", label: "Usluge", isLink: true },
+                    { href: "#contact", label: t.nav.contact, isLink: false },
+                  ].map((item, i) => (
+                    <motion.div
+                      key={item.href}
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: 0.1 + i * 0.07 }}
+                    >
+                      {item.isLink ? (
+                        <Link
+                          to={item.href}
+                          className="flex items-center justify-between py-4 px-4 rounded-xl text-lg font-medium text-foreground hover:bg-secondary/80 transition-colors group"
+                          onClick={() => setMobileMenuOpen(false)}
+                        >
+                          {item.label}
+                          <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors group-hover:translate-x-1 duration-200" />
+                        </Link>
+                      ) : (
+                        <a
+                          href={item.href}
+                          className="flex items-center justify-between py-4 px-4 rounded-xl text-lg font-medium text-foreground hover:bg-secondary/80 transition-colors group"
+                          onClick={() => setMobileMenuOpen(false)}
+                        >
+                          {item.label}
+                          <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:text-primary transition-colors group-hover:translate-x-1 duration-200" />
+                        </a>
+                      )}
+                    </motion.div>
+                  ))}
+                </nav>
+
+                {/* Bottom CTA */}
+                <div className="p-6 border-t border-border/30 space-y-4">
+                  <Button asChild className="w-full shadow-orange" size="lg">
+                    <a href="#contact" onClick={() => setMobileMenuOpen(false)}>
+                      {t.nav.requestDemo}
+                    </a>
+                  </Button>
+                  <div className="flex justify-center">
+                    <LanguageSwitcher />
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
     </motion.header>
   );
 };
