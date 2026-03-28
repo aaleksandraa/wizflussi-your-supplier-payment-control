@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ArrowRight } from "lucide-react";
 import { useState } from "react";
 import wizionarLogo from "@/assets/wizionar-logo.png";
 import LanguageSwitcher from "./LanguageSwitcher";
