@@ -1,60 +1,62 @@
 import { Link } from "react-router-dom";
 import wizionarLogo from "@/assets/wizionar-logo.png";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { Mail } from "lucide-react";
+import { Mail, Facebook, Instagram, Phone } from "lucide-react";
 
 const WizionarFooter = () => {
   const { t } = useLanguage();
 
-  const products = [
-    { name: "WizFlussi", to: "/wizflussi" },
-    { name: "wizMedik", to: "/wizmedik" },
-    { name: "Frizerino", to: "/frizerino" },
-    { name: "Chatko", to: "/chatko" },
-  ];
-
   return (
     <footer className="border-t border-border bg-background">
-      <div className="container mx-auto px-6 py-10 md:py-14">
-        {/* Top: Logo + Email */}
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6 mb-8">
-          <Link to="/" className="inline-block">
-            <img src={wizionarLogo} alt="Wizionar" className="h-9 w-auto" />
-          </Link>
+      <div className="container mx-auto px-6 py-12 md:py-16 flex flex-col items-center text-center gap-6">
+        {/* Email */}
+        <a
+          href="mailto:info@wizionar.com"
+          className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+        >
+          info@wizionar.com
+        </a>
+
+        {/* Social Icons */}
+        <div className="flex items-center gap-5">
           <a
-            href="mailto:info@wizionar.com"
-            className="flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors"
+            href="https://facebook.com/wizionar"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-muted-foreground hover:text-foreground transition-colors"
+            aria-label="Facebook"
           >
-            <Mail className="w-4 h-4" />
-            info@wizionar.com
+            <Facebook className="w-5 h-5" />
+          </a>
+          <a
+            href="https://instagram.com/wizionar.app"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-muted-foreground hover:text-foreground transition-colors"
+            aria-label="Instagram"
+          >
+            <Instagram className="w-5 h-5" />
+          </a>
+          <a
+            href="https://wa.me/38766882702"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-muted-foreground hover:text-foreground transition-colors"
+            aria-label="WhatsApp"
+          >
+            <Phone className="w-5 h-5" />
           </a>
         </div>
 
-        {/* Products row */}
-        <div className="flex flex-wrap items-center gap-3 mb-8">
-          {products.map((p) => (
-            <Link
-              key={p.to}
-              to={p.to}
-              className="text-sm px-3 py-1.5 rounded-full border border-border text-muted-foreground hover:text-foreground hover:border-primary/40 transition-colors"
-            >
-              {p.name}
-            </Link>
-          ))}
-        </div>
+        {/* Logo */}
+        <Link to="/" className="inline-block">
+          <img src={wizionarLogo} alt="Wizionar" className="h-16 w-auto" />
+        </Link>
 
-        {/* Bottom bar */}
-        <div className="pt-6 border-t border-border/60 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-xs text-muted-foreground">
-            {t.footer.copyright}
-          </p>
-          <Link
-            to="/privacy"
-            className="text-xs text-muted-foreground hover:text-primary transition-colors"
-          >
-            {t.footer.privacyPolicy}
-          </Link>
-        </div>
+        {/* Copyright */}
+        <p className="text-sm text-muted-foreground">
+          {t.footer.copyright}
+        </p>
       </div>
     </footer>
   );
