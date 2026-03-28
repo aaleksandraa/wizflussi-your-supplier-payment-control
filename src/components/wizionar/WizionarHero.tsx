@@ -116,7 +116,7 @@ const WizionarHero = () => {
                   </div>
                   
                   {/* Mock content */}
-                  <div className="grid grid-cols-4 gap-4 mb-6">
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 mb-6">
                     {stats.map((stat, i) => (
                       <div key={i} className="p-4 rounded-lg bg-background border border-border">
                         <div className="text-xs text-muted-foreground mb-1">{stat.label}</div>
