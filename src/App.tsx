@@ -13,6 +13,7 @@ import Chatko from "./pages/Chatko";
 import Usluge from "./pages/Usluge";
 import SEOOptimizacija from "./pages/SEOOptimizacija";
 import WebDevelopment from "./pages/WebDevelopment";
+import ProjectDetail from "./pages/ProjectDetail";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -34,6 +35,7 @@ const App = () => (
             <Route path="/usluge" element={<Usluge />} />
             <Route path="/usluge/izrada-web-stranica" element={<WebDevelopment />} />
             <Route path="/usluge/seo-optimizacija" element={<SEOOptimizacija />} />
+            <Route path="/portfolio/:slug" element={<ProjectDetail />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
