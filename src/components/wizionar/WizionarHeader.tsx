@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
-import { Menu, X, ArrowRight } from "lucide-react";
+import { Menu, X, ChevronRight } from "lucide-react";
 import { useEffect, useState } from "react";
 import wizionarLogo from "@/assets/wizionar-logo.png";
 import LanguageSwitcher from "./LanguageSwitcher";
@@ -81,24 +81,33 @@ const WizionarHeader = () => {
 
       <AnimatePresence>
         {mobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, x: "100%" }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: "100%" }}
-            transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed inset-0 z-[70] md:hidden"
-          >
-            <div className="absolute inset-0 bg-background" />
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,hsl(var(--primary)/0.08),transparent_42%)]" />
+          <>
+            <motion.button
+              type="button"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="fixed inset-0 z-[60] bg-foreground/20 backdrop-blur-sm md:hidden"
+              onClick={closeMobileMenu}
+              aria-label="Close menu overlay"
+            />
 
-            <div className="relative flex h-full flex-col">
-              <div className="flex items-center justify-between border-b border-border/60 bg-background px-6 py-5">
-                <Link to="/" className="flex items-center gap-3" onClick={closeMobileMenu}>
+            <motion.aside
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
+              className="fixed inset-y-0 right-0 z-[70] flex w-[86%] max-w-sm flex-col border-l border-border bg-background shadow-2xl md:hidden"
+            >
+              <div className="flex items-center justify-between border-b border-border/60 px-5 py-5">
+                <Link to="/" className="flex items-center" onClick={closeMobileMenu}>
                   <img src={wizionarLogo} alt="Wizionar" className="h-10 w-auto" />
                 </Link>
+
                 <button
                   type="button"
-                  className="inline-flex h-12 w-12 items-center justify-center rounded-full border border-border/60 bg-card transition-colors hover:bg-secondary"
+                  className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-border/60 bg-card transition-colors hover:bg-secondary"
                   onClick={closeMobileMenu}
                   aria-label="Close menu"
                 >
@@ -106,71 +115,55 @@ const WizionarHeader = () => {
                 </button>
               </div>
 
-              <div className="flex flex-1 flex-col overflow-y-auto px-6 pb-6 pt-6">
-                <div className="mb-6 inline-flex w-fit items-center gap-3 rounded-full border border-primary/20 bg-primary/5 px-4 py-2 text-sm font-medium text-foreground">
-                  <span className="h-2.5 w-2.5 rounded-full bg-primary" />
-                  Digital solutions za rast biznisa
-                </div>
-
-                <nav className="space-y-3">
+              <nav className="flex-1 px-5 py-6">
+                <div className="space-y-2">
                   {mobileNavItems.map((item, index) => {
-                    const sharedClassName =
-                      "group flex items-center justify-between rounded-[1.75rem] border border-border/60 bg-card px-5 py-5 transition-all duration-300 hover:border-primary/30 hover:bg-secondary";
+                    const linkClassName =
+                      "flex items-center justify-between rounded-2xl px-4 py-4 text-base font-medium text-foreground transition-colors hover:bg-secondary";
 
                     const content = (
                       <>
-                        <div>
-                          <span className="text-xs uppercase tracking-[0.24em] text-muted-foreground">Meni</span>
-                          <span className="mt-2 block text-3xl font-semibold tracking-tight text-foreground">
-                            {item.label}
-                          </span>
-                        </div>
-                        <span className="flex h-11 w-11 items-center justify-center rounded-full border border-border/60 bg-background transition-all duration-300 group-hover:border-primary/30 group-hover:text-primary">
-                          <ArrowRight className="h-5 w-5 transition-transform duration-300 group-hover:translate-x-1" />
-                        </span>
+                        <span>{item.label}</span>
+                        <ChevronRight className="h-4 w-4 text-muted-foreground" />
                       </>
                     );
 
                     return (
                       <motion.div
                         key={item.href}
-                        initial={{ opacity: 0, y: 16 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.08 + index * 0.06 }}
+                        initial={{ opacity: 0, x: 12 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        exit={{ opacity: 0, x: 12 }}
+                        transition={{ delay: 0.05 + index * 0.05, duration: 0.2 }}
                       >
                         {item.isLink ? (
-                          <Link to={item.href} className={sharedClassName} onClick={closeMobileMenu}>
+                          <Link to={item.href} className={linkClassName} onClick={closeMobileMenu}>
                             {content}
                           </Link>
                         ) : (
-                          <a href={item.href} className={sharedClassName} onClick={closeMobileMenu}>
+                          <a href={item.href} className={linkClassName} onClick={closeMobileMenu}>
                             {content}
                           </a>
                         )}
                       </motion.div>
                     );
                   })}
-                </nav>
+                </div>
+              </nav>
 
-                <div className="mt-auto pt-8">
-                  <div className="rounded-[2rem] border border-border/60 bg-card p-5 shadow-lg">
-                    <p className="text-sm leading-6 text-muted-foreground">
-                      Trebate web stranicu, aplikaciju ili SEO podršku? Javite nam se i predložit ćemo najbolje rješenje.
-                    </p>
-                    <Button asChild className="mt-5 w-full shadow-orange" size="xl">
-                      <a href="#contact" onClick={closeMobileMenu}>
-                        {t.nav.requestDemo}
-                      </a>
-                    </Button>
-                  </div>
+              <div className="border-t border-border/60 px-5 py-5">
+                <Button asChild size="lg" className="mb-4 w-full shadow-orange">
+                  <a href="#contact" onClick={closeMobileMenu}>
+                    {t.nav.requestDemo}
+                  </a>
+                </Button>
 
-                  <div className="mt-5 flex justify-center">
-                    <LanguageSwitcher />
-                  </div>
+                <div className="flex justify-center">
+                  <LanguageSwitcher />
                 </div>
               </div>
-            </div>
-          </motion.div>
+            </motion.aside>
+          </>
         )}
       </AnimatePresence>
     </motion.header>
