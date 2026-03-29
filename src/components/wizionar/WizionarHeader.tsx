@@ -98,7 +98,7 @@ const WizionarHeader = () => {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
-              className="fixed inset-y-0 right-0 z-[70] flex w-[86%] max-w-sm flex-col border-l border-border bg-background shadow-2xl md:hidden"
+              className="fixed inset-y-0 right-0 z-[70] flex w-[86%] max-w-sm flex-col border-l border-border bg-white shadow-2xl md:hidden"
             >
               <div className="flex items-center justify-between border-b border-border/60 px-5 py-5">
                 <Link to="/" className="flex items-center" onClick={closeMobileMenu}>
