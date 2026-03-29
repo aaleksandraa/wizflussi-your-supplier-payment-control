@@ -73,7 +73,7 @@ const WizionarHeader = () => {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 30, stiffness: 300 }}
-              className="fixed top-0 right-0 z-50 h-full w-[80%] max-w-sm bg-background/95 backdrop-blur-xl border-l border-border/50 shadow-2xl md:hidden"
+              className="fixed top-0 right-0 z-50 h-full w-[80%] max-w-sm bg-background border-l border-border/50 shadow-2xl md:hidden"
             >
               <div className="flex flex-col h-full">
                 {/* Close button */}
