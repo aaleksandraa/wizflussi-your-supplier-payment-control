@@ -44,6 +44,7 @@ const projects: ProjectData[] = [
     slug: "techflow-dashboard",
     title: "TechFlow Dashboard",
     image: portfolioCorporate,
+    gallery: [portfolioCorporate, portfolioEshop, portfolioMedical, portfolioRestaurant],
     client: { sr: "TechFlow Solutions", en: "TechFlow Solutions", de: "TechFlow Solutions", it: "TechFlow Solutions" },
     category: { sr: "Korporativni web sajt", en: "Corporate website", de: "Unternehmenswebsite", it: "Sito web aziendale" },
     description: {
