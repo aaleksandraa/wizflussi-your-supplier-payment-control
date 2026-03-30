@@ -214,11 +214,13 @@ const WebDevelopment = () => {
               {t.whyNeeded.items.map((item, i) => {
                 const Icon = whyNeededIcons[i];
                 return (
-                  <motion.div key={item.title} {...fadeUp} transition={{ duration: 0.5, delay: i * 0.1 }} className="text-center">
-                    <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-4">
-                      <Icon className="w-7 h-7 text-primary" />
+                  <motion.div key={item.title} {...fadeUp} transition={{ duration: 0.5, delay: i * 0.1 }} className="p-6 rounded-2xl border border-border bg-card">
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                        <Icon className="w-5 h-5 text-primary" />
+                      </div>
+                      <h3 className="text-lg font-bold">{item.title}</h3>
                     </div>
-                    <h3 className="text-xl font-bold mb-2">{item.title}</h3>
                     <p className="text-muted-foreground leading-relaxed">{item.text}</p>
                   </motion.div>
                 );
