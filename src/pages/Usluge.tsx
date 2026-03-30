@@ -142,10 +142,12 @@ const Usluge = () => {
                   transition={{ duration: 0.4, delay: index * 0.08 }}
                   className="group p-6 rounded-2xl border border-border bg-card hover:border-primary/20 hover:shadow-lg transition-all duration-300 flex flex-col"
                 >
-                  <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                    <service.icon className="w-6 h-6 text-primary" />
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors">
+                      <service.icon className="w-5 h-5 text-primary" />
+                    </div>
+                    <h3 className="text-lg font-bold leading-tight">{service.title}</h3>
                   </div>
-                  <h3 className="text-xl font-bold mb-2">{service.title}</h3>
                   <p className="text-sm text-muted-foreground mb-4 leading-relaxed flex-grow">
                     {service.description}
                   </p>
