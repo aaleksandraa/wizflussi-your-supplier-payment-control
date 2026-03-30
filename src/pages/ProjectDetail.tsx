@@ -231,7 +231,7 @@ const GalleryCarousel = ({ images, title }: { images: string[]; title: string })
   );
 };
 
-  const { slug } = useParams<{ slug: string }>();
+  const ProjectDetail = () => {
   const { language } = useLanguage();
   const lang = language as Lang;
   const l = labels[lang];
