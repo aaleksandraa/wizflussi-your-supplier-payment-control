@@ -1,10 +1,11 @@
 import { motion } from "framer-motion";
 import { Link, useParams, Navigate } from "react-router-dom";
-import { ArrowLeft, ExternalLink, CheckCircle2, Globe, Smartphone, Search, Zap, Code2, ShoppingCart, BarChart3, Shield, PenTool } from "lucide-react";
+import { ArrowLeft, ExternalLink, CheckCircle2, Globe, Smartphone, Search, Zap, Code2, ShoppingCart, BarChart3, Shield, PenTool, ChevronLeft, ChevronRight } from "lucide-react";
 import WizionarHeader from "@/components/wizionar/WizionarHeader";
 import WizionarFooter from "@/components/wizionar/WizionarFooter";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { useEffect } from "react";
+import { useEffect, useState, useCallback } from "react";
+import useEmblaCarousel from "embla-carousel-react";
 
 import portfolioCorporate from "@/assets/portfolio-corporate.jpg";
 import portfolioEshop from "@/assets/portfolio-eshop.jpg";
