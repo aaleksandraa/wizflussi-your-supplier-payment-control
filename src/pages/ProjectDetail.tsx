@@ -226,6 +226,11 @@ const ProjectDetail = () => {
         </div>
       </section>
 
+      {/* Gallery Carousel */}
+      {project.gallery.length > 1 && (
+        <GalleryCarousel images={project.gallery} title={project.title} />
+      )}
+
       {/* Info Grid */}
       <section className="pb-16">
         <div className="container mx-auto px-6">
