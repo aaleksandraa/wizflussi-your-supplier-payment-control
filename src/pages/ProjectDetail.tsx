@@ -168,7 +168,69 @@ const labels = {
 
 const featureIcons = [Globe, Smartphone, Search, Zap, Code2, ShoppingCart];
 
-const ProjectDetail = () => {
+const GalleryCarousel = ({ images, title }: { images: string[]; title: string }) => {
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: "start", slidesToScroll: 1 });
+  const [selectedIndex, setSelectedIndex] = useState(0);
+
+  const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
+  const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+    const onSelect = () => setSelectedIndex(emblaApi.selectedScrollSnap());
+    emblaApi.on("select", onSelect);
+    onSelect();
+    return () => { emblaApi.off("select", onSelect); };
+  }, [emblaApi]);
+
+  return (
+    <section className="pb-16">
+      <div className="container mx-auto px-6">
+        <motion.div {...fadeUp} className="relative">
+          <div ref={emblaRef} className="overflow-hidden rounded-xl">
+            <div className="flex">
+              {images.map((img, i) => (
+                <div key={i} className="flex-[0_0_48%] min-w-0 mr-4 last:mr-0 max-md:flex-[0_0_85%]">
+                  <div className="rounded-xl overflow-hidden border border-border shadow-md">
+                    <img
+                      src={img}
+                      alt={`${title} - ${i + 1}`}
+                      className="w-full aspect-video object-cover"
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          <button
+            onClick={scrollPrev}
+            className="absolute left-2 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-background/90 border border-border shadow-md flex items-center justify-center hover:bg-background transition-colors"
+          >
+            <ChevronLeft className="w-5 h-5" />
+          </button>
+          <button
+            onClick={scrollNext}
+            className="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-background/90 border border-border shadow-md flex items-center justify-center hover:bg-background transition-colors"
+          >
+            <ChevronRight className="w-5 h-5" />
+          </button>
+          <div className="flex justify-center gap-2 mt-4">
+            {images.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => emblaApi?.scrollTo(i)}
+                className={`w-2.5 h-2.5 rounded-full transition-colors ${
+                  i === selectedIndex ? "bg-primary" : "bg-border"
+                }`}
+              />
+            ))}
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
+
   const { slug } = useParams<{ slug: string }>();
   const { language } = useLanguage();
   const lang = language as Lang;
