@@ -297,10 +297,12 @@ const WebDevelopment = () => {
                 <div className="absolute top-4 right-4">
                   <span className="px-3 py-1 rounded-full bg-primary/10 text-primary text-xs font-semibold">{t.cmsVsCustom.custom.label}</span>
                 </div>
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
-                  <Code2 className="w-6 h-6 text-primary" />
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                    <Code2 className="w-5 h-5 text-primary" />
+                  </div>
+                  <h3 className="text-xl font-bold">{t.cmsVsCustom.custom.title}</h3>
                 </div>
-                <h3 className="text-2xl font-bold mb-3">{t.cmsVsCustom.custom.title}</h3>
                 <p className="text-sm text-primary font-medium mb-4">{t.cmsVsCustom.custom.badge}</p>
                 <p className="text-muted-foreground leading-relaxed mb-6">{t.cmsVsCustom.custom.desc}</p>
                 <ul className="space-y-2">
