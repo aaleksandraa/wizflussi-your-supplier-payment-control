@@ -122,6 +122,7 @@ const projects: ProjectData[] = [
     slug: "mediconnect-klinika",
     title: "MediConnect Klinika",
     image: portfolioMedical,
+    gallery: [portfolioMedical, portfolioRealestate, portfolioCorporate, portfolioSalon],
     client: { sr: "MediConnect Klinika", en: "MediConnect Clinic", de: "MediConnect Klinik", it: "Clinica MediConnect" },
     category: { sr: "Medicinska platforma", en: "Medical platform", de: "Medizinische Plattform", it: "Piattaforma medica" },
     description: {
