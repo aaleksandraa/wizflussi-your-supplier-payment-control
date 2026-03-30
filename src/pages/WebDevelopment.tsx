@@ -362,10 +362,12 @@ const WebDevelopment = () => {
                     transition={{ duration: 0.4, delay: i * 0.06 }}
                     className="p-5 rounded-2xl border border-border bg-card hover:border-primary/20 hover:shadow-md transition-all"
                   >
-                    <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center mb-3">
-                      <Icon className="w-5 h-5 text-primary" />
+                    <div className="flex items-center gap-3 mb-3">
+                      <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                        <Icon className="w-5 h-5 text-primary" />
+                      </div>
+                      <h3 className="font-bold">{item.label}</h3>
                     </div>
-                    <h3 className="font-bold mb-1">{item.label}</h3>
                     <p className="text-sm text-muted-foreground">{item.desc}</p>
                   </motion.div>
                 );
