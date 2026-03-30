@@ -83,6 +83,7 @@ const projects: ProjectData[] = [
     slug: "styleout-fashion-shop",
     title: "StyleOut Fashion Shop",
     image: portfolioEshop,
+    gallery: [portfolioEshop, portfolioCorporate, portfolioSalon, portfolioRealestate],
     client: { sr: "StyleOut d.o.o.", en: "StyleOut Ltd.", de: "StyleOut GmbH", it: "StyleOut Srl" },
     category: { sr: "Web shop", en: "E-commerce", de: "Webshop", it: "E-commerce" },
     description: {
