@@ -276,10 +276,12 @@ const WebDevelopment = () => {
             </motion.div>
             <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
               <motion.div {...fadeUp} transition={{ delay: 0.1 }} className="p-8 rounded-2xl border border-border bg-card">
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4">
-                  <Layers className="w-6 h-6 text-primary" />
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                    <Layers className="w-5 h-5 text-primary" />
+                  </div>
+                  <h3 className="text-xl font-bold">{t.cmsVsCustom.cms.title}</h3>
                 </div>
-                <h3 className="text-2xl font-bold mb-3">{t.cmsVsCustom.cms.title}</h3>
                 <p className="text-sm text-primary font-medium mb-4">{t.cmsVsCustom.cms.badge}</p>
                 <p className="text-muted-foreground leading-relaxed mb-6">{t.cmsVsCustom.cms.desc}</p>
                 <ul className="space-y-2">
