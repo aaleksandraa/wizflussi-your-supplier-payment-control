@@ -27,6 +27,7 @@ interface ProjectData {
   slug: string;
   title: string;
   image: string;
+  gallery: string[];
   client: Record<Lang, string>;
   category: Record<Lang, string>;
   description: Record<Lang, string>;
