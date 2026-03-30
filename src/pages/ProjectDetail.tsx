@@ -1,10 +1,11 @@
 import { motion } from "framer-motion";
 import { Link, useParams, Navigate } from "react-router-dom";
-import { ArrowLeft, ExternalLink, CheckCircle2, Globe, Smartphone, Search, Zap, Code2, ShoppingCart, BarChart3, Shield, PenTool } from "lucide-react";
+import { ArrowLeft, ExternalLink, CheckCircle2, Globe, Smartphone, Search, Zap, Code2, ShoppingCart, BarChart3, Shield, PenTool, ChevronLeft, ChevronRight } from "lucide-react";
 import WizionarHeader from "@/components/wizionar/WizionarHeader";
 import WizionarFooter from "@/components/wizionar/WizionarFooter";
 import { useLanguage } from "@/contexts/LanguageContext";
-import { useEffect } from "react";
+import { useEffect, useState, useCallback } from "react";
+import useEmblaCarousel from "embla-carousel-react";
 
 import portfolioCorporate from "@/assets/portfolio-corporate.jpg";
 import portfolioEshop from "@/assets/portfolio-eshop.jpg";
@@ -26,6 +27,7 @@ interface ProjectData {
   slug: string;
   title: string;
   image: string;
+  gallery: string[];
   client: Record<Lang, string>;
   category: Record<Lang, string>;
   description: Record<Lang, string>;
@@ -42,6 +44,7 @@ const projects: ProjectData[] = [
     slug: "techflow-dashboard",
     title: "TechFlow Dashboard",
     image: portfolioCorporate,
+    gallery: [portfolioCorporate, portfolioEshop, portfolioMedical, portfolioRestaurant],
     client: { sr: "TechFlow Solutions", en: "TechFlow Solutions", de: "TechFlow Solutions", it: "TechFlow Solutions" },
     category: { sr: "Korporativni web sajt", en: "Corporate website", de: "Unternehmenswebsite", it: "Sito web aziendale" },
     description: {
@@ -80,6 +83,7 @@ const projects: ProjectData[] = [
     slug: "styleout-fashion-shop",
     title: "StyleOut Fashion Shop",
     image: portfolioEshop,
+    gallery: [portfolioEshop, portfolioCorporate, portfolioSalon, portfolioRealestate],
     client: { sr: "StyleOut d.o.o.", en: "StyleOut Ltd.", de: "StyleOut GmbH", it: "StyleOut Srl" },
     category: { sr: "Web shop", en: "E-commerce", de: "Webshop", it: "E-commerce" },
     description: {
@@ -118,6 +122,7 @@ const projects: ProjectData[] = [
     slug: "mediconnect-klinika",
     title: "MediConnect Klinika",
     image: portfolioMedical,
+    gallery: [portfolioMedical, portfolioRealestate, portfolioCorporate, portfolioSalon],
     client: { sr: "MediConnect Klinika", en: "MediConnect Clinic", de: "MediConnect Klinik", it: "Clinica MediConnect" },
     category: { sr: "Medicinska platforma", en: "Medical platform", de: "Medizinische Plattform", it: "Piattaforma medica" },
     description: {
@@ -162,6 +167,69 @@ const labels = {
 };
 
 const featureIcons = [Globe, Smartphone, Search, Zap, Code2, ShoppingCart];
+
+const GalleryCarousel = ({ images, title }: { images: string[]; title: string }) => {
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: "start", slidesToScroll: 1 });
+  const [selectedIndex, setSelectedIndex] = useState(0);
+
+  const scrollPrev = useCallback(() => emblaApi?.scrollPrev(), [emblaApi]);
+  const scrollNext = useCallback(() => emblaApi?.scrollNext(), [emblaApi]);
+
+  useEffect(() => {
+    if (!emblaApi) return;
+    const onSelect = () => setSelectedIndex(emblaApi.selectedScrollSnap());
+    emblaApi.on("select", onSelect);
+    onSelect();
+    return () => { emblaApi.off("select", onSelect); };
+  }, [emblaApi]);
+
+  return (
+    <section className="pb-16">
+      <div className="container mx-auto px-6">
+        <motion.div {...fadeUp} className="relative">
+          <div ref={emblaRef} className="overflow-hidden rounded-xl">
+            <div className="flex">
+              {images.map((img, i) => (
+                <div key={i} className="flex-[0_0_48%] min-w-0 mr-4 last:mr-0 max-md:flex-[0_0_85%]">
+                  <div className="rounded-xl overflow-hidden border border-border shadow-md">
+                    <img
+                      src={img}
+                      alt={`${title} - ${i + 1}`}
+                      className="w-full aspect-video object-cover"
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          <button
+            onClick={scrollPrev}
+            className="absolute left-2 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-background/90 border border-border shadow-md flex items-center justify-center hover:bg-background transition-colors"
+          >
+            <ChevronLeft className="w-5 h-5" />
+          </button>
+          <button
+            onClick={scrollNext}
+            className="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-background/90 border border-border shadow-md flex items-center justify-center hover:bg-background transition-colors"
+          >
+            <ChevronRight className="w-5 h-5" />
+          </button>
+          <div className="flex justify-center gap-2 mt-4">
+            {images.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => emblaApi?.scrollTo(i)}
+                className={`w-2.5 h-2.5 rounded-full transition-colors ${
+                  i === selectedIndex ? "bg-primary" : "bg-border"
+                }`}
+              />
+            ))}
+          </div>
+        </motion.div>
+      </div>
+    </section>
+  );
+};
 
 const ProjectDetail = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -220,6 +288,11 @@ const ProjectDetail = () => {
           </motion.div>
         </div>
       </section>
+
+      {/* Gallery Carousel */}
+      {project.gallery.length > 1 && (
+        <GalleryCarousel images={project.gallery} title={project.title} />
+      )}
 
       {/* Info Grid */}
       <section className="pb-16">
