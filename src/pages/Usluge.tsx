@@ -6,6 +6,7 @@ import {
   Search,
   Smartphone,
   PenTool,
+  Palette,
   BarChart3,
   Server,
   Headphones,
@@ -55,6 +56,14 @@ const services = [
     description:
       "Kreiranje korisničkog interfejsa koji je lijep i funkcionalan. Od wireframe-a do finalnog dizajna sa fokusom na korisničko iskustvo.",
     features: ["Wireframing", "Prototipovi", "Korisnički testovi", "Dizajn sistemi"],
+  },
+  {
+    icon: Palette,
+    title: "Grafički dizajn",
+    description:
+      "Kompletna grafička rješenja za vaš brend – od logotipa i vizuelnog identiteta do štampanih materijala, social media grafika i pakovanja.",
+    features: ["Logo & branding", "Vizitke & flajeri", "Social media grafike", "Packaging dizajn"],
+    link: "/usluge/graficki-dizajn",
   },
   {
     icon: BarChart3,
