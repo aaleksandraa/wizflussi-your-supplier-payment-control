@@ -18,7 +18,8 @@ export const translations = {
       title2: "i uvode kontrolu.",
       subtitle: "Gradimo specijalizovane B2B sisteme za finansije, zdravstvo i uslužne djelatnosti – od evidencije i planiranja do potpune automatizacije i izvještavanja.",
       cta1: "Zatraži demo",
-      cta2: "Pogledaj proizvode",
+      cta2: "Projekti",
+      cta3: "Usluge",
       microcopy: "Odgovaramo u roku 24h · Demo bez obaveze · Besplatna konsultacija",
       stats: {
         projects: "Aktivni projekti",
