@@ -6,6 +6,7 @@ import {
   Search,
   Smartphone,
   PenTool,
+  Palette,
   BarChart3,
   Server,
   Headphones,
