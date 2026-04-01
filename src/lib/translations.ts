@@ -182,7 +182,8 @@ export const translations = {
       title2: "and introduce control.",
       subtitle: "We build specialized B2B systems for finance, healthcare and service industries – from records and planning to full automation and reporting.",
       cta1: "Request demo",
-      cta2: "View products",
+      cta2: "Projects",
+      cta3: "Services",
       microcopy: "We respond within 24h · No-obligation demo · Free consultation",
       stats: {
         projects: "Active projects",
