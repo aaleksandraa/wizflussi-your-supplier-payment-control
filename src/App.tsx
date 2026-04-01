@@ -13,6 +13,7 @@ import Chatko from "./pages/Chatko";
 import Usluge from "./pages/Usluge";
 import SEOOptimizacija from "./pages/SEOOptimizacija";
 import WebDevelopment from "./pages/WebDevelopment";
+import GrafickiDizajn from "./pages/GrafickiDizajn";
 import ProjectDetail from "./pages/ProjectDetail";
 import NotFound from "./pages/NotFound";
 
