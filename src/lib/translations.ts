@@ -338,7 +338,8 @@ export const translations = {
       title2: "und Kontrolle einführen.",
       subtitle: "Wir entwickeln spezialisierte B2B-Systeme für Finanzen, Gesundheitswesen und Dienstleistungsbranchen – von Aufzeichnungen und Planung bis zur vollständigen Automatisierung und Berichterstattung.",
       cta1: "Demo anfordern",
-      cta2: "Produkte ansehen",
+      cta2: "Projekte",
+      cta3: "Dienstleistungen",
       microcopy: "Antwort innerhalb 24h · Unverbindliche Demo · Kostenlose Beratung",
       stats: {
         projects: "Aktive Projekte",
