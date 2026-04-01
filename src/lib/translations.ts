@@ -18,7 +18,8 @@ export const translations = {
       title2: "i uvode kontrolu.",
       subtitle: "Gradimo specijalizovane B2B sisteme za finansije, zdravstvo i uslužne djelatnosti – od evidencije i planiranja do potpune automatizacije i izvještavanja.",
       cta1: "Zatraži demo",
-      cta2: "Pogledaj proizvode",
+      cta2: "Projekti",
+      cta3: "Usluge",
       microcopy: "Odgovaramo u roku 24h · Demo bez obaveze · Besplatna konsultacija",
       stats: {
         projects: "Aktivni projekti",
@@ -181,7 +182,8 @@ export const translations = {
       title2: "and introduce control.",
       subtitle: "We build specialized B2B systems for finance, healthcare and service industries – from records and planning to full automation and reporting.",
       cta1: "Request demo",
-      cta2: "View products",
+      cta2: "Projects",
+      cta3: "Services",
       microcopy: "We respond within 24h · No-obligation demo · Free consultation",
       stats: {
         projects: "Active projects",
@@ -336,7 +338,8 @@ export const translations = {
       title2: "und Kontrolle einführen.",
       subtitle: "Wir entwickeln spezialisierte B2B-Systeme für Finanzen, Gesundheitswesen und Dienstleistungsbranchen – von Aufzeichnungen und Planung bis zur vollständigen Automatisierung und Berichterstattung.",
       cta1: "Demo anfordern",
-      cta2: "Produkte ansehen",
+      cta2: "Projekte",
+      cta3: "Dienstleistungen",
       microcopy: "Antwort innerhalb 24h · Unverbindliche Demo · Kostenlose Beratung",
       stats: {
         projects: "Aktive Projekte",
@@ -491,7 +494,8 @@ export const translations = {
       title2: "e introducono il controllo.",
       subtitle: "Costruiamo sistemi B2B specializzati per finanza, sanità e servizi – dalla registrazione e pianificazione all'automazione completa e reportistica.",
       cta1: "Richiedi demo",
-      cta2: "Vedi prodotti",
+      cta2: "Progetti",
+      cta3: "Servizi",
       microcopy: "Rispondiamo entro 24h · Demo senza impegno · Consulenza gratuita",
       stats: {
         projects: "Progetti attivi",
