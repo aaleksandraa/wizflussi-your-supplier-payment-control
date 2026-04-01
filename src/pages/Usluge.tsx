@@ -57,6 +57,14 @@ const services = [
     features: ["Wireframing", "Prototipovi", "Korisnički testovi", "Dizajn sistemi"],
   },
   {
+    icon: Palette,
+    title: "Grafički dizajn",
+    description:
+      "Kompletna grafička rješenja za vaš brend – od logotipa i vizuelnog identiteta do štampanih materijala, social media grafika i pakovanja.",
+    features: ["Logo & branding", "Vizitke & flajeri", "Social media grafike", "Packaging dizajn"],
+    link: "/usluge/graficki-dizajn",
+  },
+  {
     icon: BarChart3,
     title: "Digitalni marketing",
     description:
