@@ -494,7 +494,8 @@ export const translations = {
       title2: "e introducono il controllo.",
       subtitle: "Costruiamo sistemi B2B specializzati per finanza, sanità e servizi – dalla registrazione e pianificazione all'automazione completa e reportistica.",
       cta1: "Richiedi demo",
-      cta2: "Vedi prodotti",
+      cta2: "Progetti",
+      cta3: "Servizi",
       microcopy: "Rispondiamo entro 24h · Demo senza impegno · Consulenza gratuita",
       stats: {
         projects: "Progetti attivi",

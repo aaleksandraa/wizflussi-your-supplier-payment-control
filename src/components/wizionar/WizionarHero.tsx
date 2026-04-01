@@ -83,6 +83,12 @@ const WizionarHero = () => {
                 {t.hero.cta2}
               </a>
             </Button>
+            <Button variant="outline" size="xl" className="group" asChild>
+              <Link to="/usluge">
+                <Briefcase className="w-4 h-4 mr-1" />
+                {t.hero.cta3}
+              </Link>
+            </Button>
           </motion.div>
 
           {/* Microcopy */}
