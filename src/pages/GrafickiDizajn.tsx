@@ -24,18 +24,36 @@ import { grafickiDizajnTranslations } from "@/lib/graficki-dizajn-translations";
 // Image imports
 import logo1 from "@/assets/design/logo-1.jpg";
 import logo2 from "@/assets/design/logo-2.jpg";
+import logo3 from "@/assets/design/logo-3.jpg";
+import logo4 from "@/assets/design/logo-4.jpg";
 import print1 from "@/assets/design/print-1.jpg";
 import print2 from "@/assets/design/print-2.jpg";
+import print3 from "@/assets/design/print-3.jpg";
+import print4 from "@/assets/design/print-4.jpg";
 import social1 from "@/assets/design/social-1.jpg";
 import social2 from "@/assets/design/social-2.jpg";
+import social3 from "@/assets/design/social-3.jpg";
+import social4 from "@/assets/design/social-4.jpg";
 import packaging1 from "@/assets/design/packaging-1.jpg";
 import packaging2 from "@/assets/design/packaging-2.jpg";
+import packaging3 from "@/assets/design/packaging-3.jpg";
+import packaging4 from "@/assets/design/packaging-4.jpg";
 import presentation1 from "@/assets/design/presentation-1.jpg";
 import presentation2 from "@/assets/design/presentation-2.jpg";
+import presentation3 from "@/assets/design/presentation-3.jpg";
+import presentation4 from "@/assets/design/presentation-4.jpg";
 import illustration1 from "@/assets/design/illustration-1.jpg";
 import illustration2 from "@/assets/design/illustration-2.jpg";
+import illustration3 from "@/assets/design/illustration-3.jpg";
+import illustration4 from "@/assets/design/illustration-4.jpg";
 import webgraphic1 from "@/assets/design/webgraphic-1.jpg";
+import webgraphic2 from "@/assets/design/webgraphic-2.jpg";
+import webgraphic3 from "@/assets/design/webgraphic-3.jpg";
+import webgraphic4 from "@/assets/design/webgraphic-4.jpg";
 import branding1 from "@/assets/design/branding-1.jpg";
+import branding2 from "@/assets/design/branding-2.jpg";
+import branding3 from "@/assets/design/branding-3.jpg";
+import branding4 from "@/assets/design/branding-4.jpg";
 
 const fadeUp = {
   initial: { opacity: 0, y: 20 },
@@ -46,14 +64,14 @@ const fadeUp = {
 
 const serviceIcons = [Palette, FileText, Share2, Package, BookOpen, Image, PenTool, Layers];
 const serviceImages = [
-  [logo1, logo2],
-  [print1, print2],
-  [social1, social2],
-  [packaging1, packaging2],
-  [presentation1, presentation2],
-  [illustration1, illustration2],
-  [webgraphic1],
-  [branding1],
+  [logo1, logo2, logo3, logo4],
+  [print1, print2, print3, print4],
+  [social1, social2, social3, social4],
+  [packaging1, packaging2, packaging3, packaging4],
+  [presentation1, presentation2, presentation3, presentation4],
+  [illustration1, illustration2, illustration3, illustration4],
+  [webgraphic1, webgraphic2, webgraphic3, webgraphic4],
+  [branding1, branding2, branding3, branding4],
 ];
 
 /* ── Mini Carousel (grid of square thumbnails) ────────────── */
