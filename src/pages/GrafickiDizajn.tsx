@@ -364,7 +364,7 @@ const GrafickiDizajn = () => {
 
         {/* CTA */}
         <section className="pb-32">
-          <div className="container mx-auto px-6">
+          <div className="container mx-auto px-3 md:px-6">
             <motion.div
               {...fadeUp}
               className="text-center p-12 rounded-3xl bg-gradient-to-br from-primary/10 to-primary/5 border border-primary/10"
