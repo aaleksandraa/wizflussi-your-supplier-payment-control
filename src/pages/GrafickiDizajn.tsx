@@ -246,7 +246,7 @@ const GrafickiDizajn = () => {
         {/* Hero */}
         <section className="pt-32 pb-20 relative overflow-hidden">
           <div className="absolute inset-0 bg-gradient-to-b from-primary/5 to-transparent" />
-          <div className="container mx-auto px-6 relative z-10 text-center">
+          <div className="container mx-auto px-3 md:px-6 relative z-10 text-center">
             <motion.span {...fadeUp} className="inline-block text-primary text-sm font-semibold uppercase tracking-wider mb-4">
               Grafički dizajn
             </motion.span>
