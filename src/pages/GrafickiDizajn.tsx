@@ -64,14 +64,14 @@ const fadeUp = {
 
 const serviceIcons = [Palette, FileText, Share2, Package, BookOpen, Image, PenTool, Layers];
 const serviceImages = [
-  [logo1, logo2],
-  [print1, print2],
-  [social1, social2],
-  [packaging1, packaging2],
-  [presentation1, presentation2],
-  [illustration1, illustration2],
-  [webgraphic1],
-  [branding1],
+  [logo1, logo2, logo3, logo4],
+  [print1, print2, print3, print4],
+  [social1, social2, social3, social4],
+  [packaging1, packaging2, packaging3, packaging4],
+  [presentation1, presentation2, presentation3, presentation4],
+  [illustration1, illustration2, illustration3, illustration4],
+  [webgraphic1, webgraphic2, webgraphic3, webgraphic4],
+  [branding1, branding2, branding3, branding4],
 ];
 
 /* ── Mini Carousel (grid of square thumbnails) ────────────── */
