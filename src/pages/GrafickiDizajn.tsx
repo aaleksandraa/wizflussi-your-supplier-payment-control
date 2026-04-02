@@ -120,7 +120,7 @@ const faqs = [
   { q: "Radite li dizajn za štampu i digitalne medije?", a: "Da, pokrivamo oba područja – od vizitki i plakata za štampu do web banera i social media grafika za digitalni marketing." },
 ];
 
-/* ── Mini Carousel ─────────────────────────────────────────── */
+/* ── Mini Carousel (grid of square thumbnails) ────────────── */
 const MiniCarousel = ({
   images,
   onImageClick,
@@ -128,49 +128,22 @@ const MiniCarousel = ({
   images: string[];
   onImageClick: (images: string[], index: number) => void;
 }) => {
-  const [current, setCurrent] = useState(0);
-
-  const prev = () => setCurrent((c) => (c === 0 ? images.length - 1 : c - 1));
-  const next = () => setCurrent((c) => (c === images.length - 1 ? 0 : c + 1));
-
   return (
-    <div className="mt-4 relative group/carousel">
-      <div className="overflow-hidden rounded-xl">
-        <img
-          src={images[current]}
-          alt="Primjer dizajna"
-          loading="lazy"
-          width={640}
-          height={512}
-          className="w-full h-40 object-cover cursor-pointer hover:scale-105 transition-transform duration-300"
-          onClick={() => onImageClick(images, current)}
-        />
-      </div>
-      {images.length > 1 && (
-        <>
-          <button
-            onClick={prev}
-            className="absolute left-1.5 top-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-background/80 backdrop-blur-sm border border-border flex items-center justify-center opacity-0 group-hover/carousel:opacity-100 transition-opacity"
-          >
-            <ChevronLeft className="w-4 h-4" />
-          </button>
-          <button
-            onClick={next}
-            className="absolute right-1.5 top-1/2 -translate-y-1/2 w-7 h-7 rounded-full bg-background/80 backdrop-blur-sm border border-border flex items-center justify-center opacity-0 group-hover/carousel:opacity-100 transition-opacity"
-          >
-            <ChevronRight className="w-4 h-4" />
-          </button>
-          <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1.5">
-            {images.map((_, i) => (
-              <button
-                key={i}
-                onClick={() => setCurrent(i)}
-                className={`w-1.5 h-1.5 rounded-full transition-all ${i === current ? "bg-primary w-3" : "bg-background/70"}`}
-              />
-            ))}
-          </div>
-        </>
-      )}
+    <div className="mt-4 grid grid-cols-2 md:grid-cols-3 gap-2">
+      {images.map((img, i) => (
+        <div
+          key={i}
+          className="aspect-square rounded-lg overflow-hidden cursor-pointer group/thumb"
+          onClick={() => onImageClick(images, i)}
+        >
+          <img
+            src={img}
+            alt={`Primjer dizajna ${i + 1}`}
+            loading="lazy"
+            className="w-full h-full object-cover group-hover/thumb:scale-105 transition-transform duration-300"
+          />
+        </div>
+      ))}
     </div>
   );
 };
