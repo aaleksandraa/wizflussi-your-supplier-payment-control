@@ -117,9 +117,7 @@ export const wizflussiTranslations = {
       contact: "Kontaktiraj",
       pricing: {
         customization: "Moguće prilagođavanje po zahtjevu",
-        salePrice: "399 KM",
-        regularPrice: "800 KM",
-        oneTime: "Jednokratna cijena"
+        salePrice: "399 KM"
       }
     },
     footer: {
