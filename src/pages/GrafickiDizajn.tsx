@@ -74,33 +74,56 @@ const serviceImages = [
   [branding1, branding2, branding3, branding4],
 ];
 
-/* ── Mini Carousel (grid of square thumbnails) ────────────── */
+/* ── Mini Gallery (grid with "load more") ─────────────────── */
 const MiniCarousel = ({
   images,
   onImageClick,
   altText,
+  language,
 }: {
   images: string[];
   onImageClick: (images: string[], index: number) => void;
   altText: string;
-}) => (
-  <div className="mt-4 grid grid-cols-2 md:grid-cols-3 gap-2">
-    {images.map((img, i) => (
-      <div
-        key={i}
-        className="aspect-square rounded-lg overflow-hidden cursor-pointer group/thumb"
-        onClick={() => onImageClick(images, i)}
-      >
-        <img
-          src={img}
-          alt={`${altText} ${i + 1}`}
-          loading="lazy"
-          className="w-full h-full object-cover group-hover/thumb:scale-105 transition-transform duration-300"
-        />
+  language: string;
+}) => {
+  const [visibleCount, setVisibleCount] = useState(() => {
+    if (typeof window !== "undefined" && window.innerWidth < 768) return 4;
+    return 6;
+  });
+  const isMobile = typeof window !== "undefined" && window.innerWidth < 768;
+  const step = isMobile ? 4 : 6;
+  const visible = images.slice(0, visibleCount);
+  const hasMore = visibleCount < images.length;
+
+  return (
+    <div className="mt-4">
+      <div className="grid grid-cols-2 md:grid-cols-3 gap-2">
+        {visible.map((img, i) => (
+          <div
+            key={i}
+            className="aspect-square rounded-lg overflow-hidden cursor-pointer group/thumb"
+            onClick={() => onImageClick(images, i)}
+          >
+            <img
+              src={img}
+              alt={`${altText} ${i + 1}`}
+              loading="lazy"
+              className="w-full h-full object-cover group-hover/thumb:scale-105 transition-transform duration-300"
+            />
+          </div>
+        ))}
       </div>
-    ))}
-  </div>
-);
+      {hasMore && (
+        <button
+          onClick={() => setVisibleCount((c) => c + step)}
+          className="mt-3 w-full text-xs text-primary font-medium hover:underline transition-all"
+        >
+          {language === "en" ? "Load more" : language === "de" ? "Mehr laden" : language === "it" ? "Carica altro" : "Učitaj više"} ↓
+        </button>
+      )}
+    </div>
+  );
+};
 
 /* ── Lightbox ──────────────────────────────────────────────── */
 const Lightbox = ({
@@ -224,7 +247,7 @@ const GrafickiDizajn = () => {
                         <span key={ex} className="text-xs px-3 py-1.5 rounded-full bg-primary/10 text-primary font-medium">{ex}</span>
                       ))}
                     </div>
-                    <MiniCarousel images={imgs} onImageClick={openLightbox} altText={t.imageAlt} />
+                    <MiniCarousel images={imgs} onImageClick={openLightbox} altText={t.imageAlt} language={language} />
                   </motion.div>
                 );
               })}
