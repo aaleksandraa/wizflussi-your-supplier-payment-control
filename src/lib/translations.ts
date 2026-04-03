@@ -485,10 +485,21 @@ export const translations = {
       }
     },
     contact: {
-      title: "Kontakt",
-      subtitle: "Für alle Anfragen und Informationen zu unseren Produkten kontaktieren Sie uns per E-Mail.",
-      emailLabel: "E-Mail",
-      email: "info@wizionar.com"
+      title: "Lassen Sie uns über Ihr Projekt sprechen",
+      subtitle: "Ob Sie eine Softwarelösung, Website, SEO-Optimierung oder Grafikdesign benötigen — wir sind für Sie da.",
+      emailLabel: "Schreiben Sie uns direkt",
+      email: "info@wizionar.com",
+      phoneLabel: "Rufen Sie uns an oder schreiben Sie auf WhatsApp",
+      phone: "+387 66 882 702",
+      categories: {
+        products: "Produkte & Software",
+        productsDesc: "Fragen zu WizFlussi, WizMedik, Chatko und anderen Lösungen",
+        services: "Dienstleistungen & Zusammenarbeit",
+        servicesDesc: "Webentwicklung, SEO, Grafikdesign, digitales Marketing",
+        partnership: "Partnerschaft",
+        partnershipDesc: "Langfristige Zusammenarbeit, White-Label oder Integrationen"
+      },
+      cta: "Beschreiben Sie Ihr Projekt oder Ihre Idee — wir antworten innerhalb von 24 Stunden."
     },
     footer: {
       description: "Product Studio, das spezialisierte B2B-Anwendungen für die Automatisierung von Geschäftsprozessen in Finanzen, Gesundheitswesen und Dienstleistungsbranchen entwickelt.",
