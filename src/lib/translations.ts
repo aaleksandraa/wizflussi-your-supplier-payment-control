@@ -318,10 +318,21 @@ export const translations = {
       }
     },
     contact: {
-      title: "Contact",
-      subtitle: "For all inquiries and information about our products, contact us via email.",
-      emailLabel: "Email",
-      email: "info@wizionar.com"
+      title: "Let's talk about your project",
+      subtitle: "Whether you need a software solution, website, SEO optimization, or graphic design — we're here to help.",
+      emailLabel: "Write to us directly",
+      email: "info@wizionar.com",
+      phoneLabel: "Call us or message on WhatsApp",
+      phone: "+387 66 882 702",
+      categories: {
+        products: "Products & software",
+        productsDesc: "Questions about WizFlussi, WizMedik, Chatko and other solutions",
+        services: "Services & collaboration",
+        servicesDesc: "Web development, SEO, graphic design, digital marketing",
+        partnership: "Partnership",
+        partnershipDesc: "Long-term collaboration, white-label or integrations"
+      },
+      cta: "Describe your project or idea — we respond within 24h."
     },
     footer: {
       description: "Product studio building specialized B2B applications for business process automation in finance, healthcare and service industries.",
