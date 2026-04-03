@@ -367,9 +367,7 @@ export const wizflussiTranslations = {
       contact: "Kontakt",
       pricing: {
         customization: "Anpassung auf Anfrage möglich",
-        salePrice: "399 BAM",
-        regularPrice: "800 BAM",
-        oneTime: "Einmaliger Preis"
+        salePrice: "399 BAM"
       }
     },
     footer: {
