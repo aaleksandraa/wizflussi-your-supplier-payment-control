@@ -247,7 +247,7 @@ const GrafickiDizajn = () => {
                         <span key={ex} className="text-xs px-3 py-1.5 rounded-full bg-primary/10 text-primary font-medium">{ex}</span>
                       ))}
                     </div>
-                    <MiniCarousel images={imgs} onImageClick={openLightbox} altText={t.imageAlt} />
+                    <MiniCarousel images={imgs} onImageClick={openLightbox} altText={t.imageAlt} language={language} />
                   </motion.div>
                 );
               })}
