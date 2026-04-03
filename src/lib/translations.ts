@@ -150,10 +150,21 @@ export const translations = {
     },
     // Contact
     contact: {
-      title: "Kontakt",
-      subtitle: "Za sve upite i informacije o našim proizvodima, kontaktirajte nas putem emaila.",
-      emailLabel: "Email",
-      email: "info@wizionar.com"
+      title: "Razgovarajmo o vašem projektu",
+      subtitle: "Bez obzira da li vam treba softversko rješenje, web stranica, SEO optimizacija ili grafički dizajn — tu smo da pomognemo.",
+      emailLabel: "Pišite nam direktno",
+      email: "info@wizionar.com",
+      phoneLabel: "Pozovite nas ili pišite na WhatsApp",
+      phone: "+387 66 882 702",
+      categories: {
+        products: "Proizvodi & softver",
+        productsDesc: "Pitanja o WizFlussi, WizMedik, Chatko i drugim rješenjima",
+        services: "Usluge & saradnja",
+        servicesDesc: "Web development, SEO, grafički dizajn, digitalni marketing",
+        partnership: "Partnerstvo",
+        partnershipDesc: "Dugoročna saradnja, white-label ili integracije"
+      },
+      cta: "Opišite nam svoj projekat ili ideju — odgovaramo u roku od 24h."
     },
     // Footer
     footer: {
@@ -307,10 +318,21 @@ export const translations = {
       }
     },
     contact: {
-      title: "Contact",
-      subtitle: "For all inquiries and information about our products, contact us via email.",
-      emailLabel: "Email",
-      email: "info@wizionar.com"
+      title: "Let's talk about your project",
+      subtitle: "Whether you need a software solution, website, SEO optimization, or graphic design — we're here to help.",
+      emailLabel: "Write to us directly",
+      email: "info@wizionar.com",
+      phoneLabel: "Call us or message on WhatsApp",
+      phone: "+387 66 882 702",
+      categories: {
+        products: "Products & software",
+        productsDesc: "Questions about WizFlussi, WizMedik, Chatko and other solutions",
+        services: "Services & collaboration",
+        servicesDesc: "Web development, SEO, graphic design, digital marketing",
+        partnership: "Partnership",
+        partnershipDesc: "Long-term collaboration, white-label or integrations"
+      },
+      cta: "Describe your project or idea — we respond within 24h."
     },
     footer: {
       description: "Product studio building specialized B2B applications for business process automation in finance, healthcare and service industries.",
@@ -463,10 +485,21 @@ export const translations = {
       }
     },
     contact: {
-      title: "Kontakt",
-      subtitle: "Für alle Anfragen und Informationen zu unseren Produkten kontaktieren Sie uns per E-Mail.",
-      emailLabel: "E-Mail",
-      email: "info@wizionar.com"
+      title: "Lassen Sie uns über Ihr Projekt sprechen",
+      subtitle: "Ob Sie eine Softwarelösung, Website, SEO-Optimierung oder Grafikdesign benötigen — wir sind für Sie da.",
+      emailLabel: "Schreiben Sie uns direkt",
+      email: "info@wizionar.com",
+      phoneLabel: "Rufen Sie uns an oder schreiben Sie auf WhatsApp",
+      phone: "+387 66 882 702",
+      categories: {
+        products: "Produkte & Software",
+        productsDesc: "Fragen zu WizFlussi, WizMedik, Chatko und anderen Lösungen",
+        services: "Dienstleistungen & Zusammenarbeit",
+        servicesDesc: "Webentwicklung, SEO, Grafikdesign, digitales Marketing",
+        partnership: "Partnerschaft",
+        partnershipDesc: "Langfristige Zusammenarbeit, White-Label oder Integrationen"
+      },
+      cta: "Beschreiben Sie Ihr Projekt oder Ihre Idee — wir antworten innerhalb von 24 Stunden."
     },
     footer: {
       description: "Product Studio, das spezialisierte B2B-Anwendungen für die Automatisierung von Geschäftsprozessen in Finanzen, Gesundheitswesen und Dienstleistungsbranchen entwickelt.",
@@ -619,10 +652,21 @@ export const translations = {
       }
     },
     contact: {
-      title: "Contatto",
-      subtitle: "Per tutte le richieste e informazioni sui nostri prodotti, contattateci via email.",
-      emailLabel: "Email",
-      email: "info@wizionar.com"
+      title: "Parliamo del vostro progetto",
+      subtitle: "Che abbiate bisogno di una soluzione software, sito web, ottimizzazione SEO o design grafico — siamo qui per aiutarvi.",
+      emailLabel: "Scriveteci direttamente",
+      email: "info@wizionar.com",
+      phoneLabel: "Chiamateci o scriveteci su WhatsApp",
+      phone: "+387 66 882 702",
+      categories: {
+        products: "Prodotti & software",
+        productsDesc: "Domande su WizFlussi, WizMedik, Chatko e altre soluzioni",
+        services: "Servizi & collaborazione",
+        servicesDesc: "Sviluppo web, SEO, design grafico, marketing digitale",
+        partnership: "Partnership",
+        partnershipDesc: "Collaborazione a lungo termine, white-label o integrazioni"
+      },
+      cta: "Descrivete il vostro progetto o idea — rispondiamo entro 24 ore."
     },
     footer: {
       description: "Product studio che costruisce applicazioni B2B specializzate per l'automazione dei processi aziendali in finanza, sanità e settori dei servizi.",
