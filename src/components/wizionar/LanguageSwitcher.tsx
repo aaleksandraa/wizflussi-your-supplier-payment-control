@@ -35,49 +35,19 @@ const LanguageSwitcher = () => {
   };
 
   return (
-    <>
-      {/* Desktop: show all flags inline */}
-      <div className="hidden lg:flex items-center gap-1">
-        {availableFlags.map((item) => (
-          <button
-            key={item.code}
-            onClick={() => setLanguage(item.code)}
-            className="w-8 h-8 rounded-lg flex items-center justify-center text-lg transition-all hover:bg-secondary"
-            title={item.label}
-            aria-label={`Switch to ${item.label}`}
-          >
-            {item.flag}
-          </button>
-        ))}
-      </div>
-
-      {/* Tablet/Mobile: dropdown */}
-      <div className="lg:hidden relative" ref={dropdownRef}>
+    <div className="flex items-center gap-1">
+      {availableFlags.map((item) => (
         <button
-          onClick={() => setIsOpen(!isOpen)}
-          className="w-10 h-10 rounded-lg flex items-center justify-center gap-1 transition-all hover:bg-secondary border border-border/50"
-          aria-label="Change language"
+          key={item.code}
+          onClick={() => setLanguage(item.code)}
+          className="w-8 h-8 rounded-lg flex items-center justify-center text-lg transition-all hover:bg-secondary"
+          title={item.label}
+          aria-label={`Switch to ${item.label}`}
         >
-          <Globe className="w-4 h-4 text-muted-foreground" />
-          <span className="text-lg">{currentFlag?.flag}</span>
+          {item.flag}
         </button>
-
-        {isOpen && (
-          <div className="absolute right-0 top-full mt-2 bg-background border border-border rounded-lg shadow-lg py-2 min-w-[140px] z-50">
-            {availableFlags.map((item) => (
-              <button
-                key={item.code}
-                onClick={() => handleLanguageChange(item.code)}
-                className="w-full px-4 py-2 flex items-center gap-3 hover:bg-secondary transition-colors text-left"
-              >
-                <span className="text-lg">{item.flag}</span>
-                <span className="text-sm text-foreground">{item.label}</span>
-              </button>
-            ))}
-          </div>
-        )}
-      </div>
-    </>
+      ))}
+    </div>
   );
 };
 
