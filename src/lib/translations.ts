@@ -652,10 +652,21 @@ export const translations = {
       }
     },
     contact: {
-      title: "Contatto",
-      subtitle: "Per tutte le richieste e informazioni sui nostri prodotti, contattateci via email.",
-      emailLabel: "Email",
-      email: "info@wizionar.com"
+      title: "Parliamo del vostro progetto",
+      subtitle: "Che abbiate bisogno di una soluzione software, sito web, ottimizzazione SEO o design grafico — siamo qui per aiutarvi.",
+      emailLabel: "Scriveteci direttamente",
+      email: "info@wizionar.com",
+      phoneLabel: "Chiamateci o scriveteci su WhatsApp",
+      phone: "+387 66 882 702",
+      categories: {
+        products: "Prodotti & software",
+        productsDesc: "Domande su WizFlussi, WizMedik, Chatko e altre soluzioni",
+        services: "Servizi & collaborazione",
+        servicesDesc: "Sviluppo web, SEO, design grafico, marketing digitale",
+        partnership: "Partnership",
+        partnershipDesc: "Collaborazione a lungo termine, white-label o integrazioni"
+      },
+      cta: "Descrivete il vostro progetto o idea — rispondiamo entro 24 ore."
     },
     footer: {
       description: "Product studio che costruisce applicazioni B2B specializzate per l'automazione dei processi aziendali in finanza, sanità e settori dei servizi.",
