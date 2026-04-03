@@ -79,10 +79,12 @@ const MiniCarousel = ({
   images,
   onImageClick,
   altText,
+  language,
 }: {
   images: string[];
   onImageClick: (images: string[], index: number) => void;
   altText: string;
+  language: string;
 }) => {
   const [visibleCount, setVisibleCount] = useState(() => {
     if (typeof window !== "undefined" && window.innerWidth < 768) return 4;
