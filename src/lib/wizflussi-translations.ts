@@ -117,9 +117,7 @@ export const wizflussiTranslations = {
       contact: "Kontaktiraj",
       pricing: {
         customization: "Moguće prilagođavanje po zahtjevu",
-        salePrice: "399 KM",
-        regularPrice: "800 KM",
-        oneTime: "Jednokratna cijena"
+        salePrice: "399 KM"
       }
     },
     footer: {
@@ -244,9 +242,7 @@ export const wizflussiTranslations = {
       contact: "Contact",
       pricing: {
         customization: "Customization available on request",
-        salePrice: "399 BAM",
-        regularPrice: "800 BAM",
-        oneTime: "One-time price"
+        salePrice: "399 BAM"
       }
     },
     footer: {
@@ -371,9 +367,7 @@ export const wizflussiTranslations = {
       contact: "Kontakt",
       pricing: {
         customization: "Anpassung auf Anfrage möglich",
-        salePrice: "399 BAM",
-        regularPrice: "800 BAM",
-        oneTime: "Einmaliger Preis"
+        salePrice: "399 BAM"
       }
     },
     footer: {
@@ -498,9 +492,7 @@ export const wizflussiTranslations = {
       contact: "Contatta",
       pricing: {
         customization: "Personalizzazione disponibile su richiesta",
-        salePrice: "399 BAM",
-        regularPrice: "800 BAM",
-        oneTime: "Prezzo una tantum"
+        salePrice: "399 BAM"
       }
     },
     footer: {

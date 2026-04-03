@@ -28,7 +28,7 @@ const CTASection = () => {
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
             <Button variant="hero" size="xl" className="group" asChild>
-              <a href="https://flussi.wizionar.app/login" target="_blank" rel="noopener noreferrer">
+              <a href="https://flusso.wizionar.app/login" target="_blank" rel="noopener noreferrer">
                 {t.cta.testApp}
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </a>
@@ -41,21 +41,11 @@ const CTASection = () => {
             </Button>
           </div>
 
-          <div className="grid sm:grid-cols-3 gap-6 max-w-2xl mx-auto">
-            <div className="text-center p-6 rounded-2xl bg-[hsl(var(--wf-card))] border border-[hsl(var(--wf-border))]">
+          <div className="max-w-md mx-auto">
+            <div className="text-center p-8 rounded-2xl bg-[hsl(var(--wf-card))] border border-[hsl(var(--wf-border))]">
               <Tag className="w-6 h-6 text-[hsl(var(--emerald))] mx-auto mb-3" />
-              <div className="text-sm text-[hsl(var(--wf-muted-foreground))] mb-2">{t.cta.pricing.oneTime}</div>
-              <div className="flex items-center justify-center gap-2">
-                <span className="text-3xl font-bold text-[hsl(var(--emerald))]">{t.cta.pricing.salePrice}</span>
-                <span className="text-lg text-[hsl(var(--wf-muted-foreground))] line-through">{t.cta.pricing.regularPrice}</span>
-              </div>
-            </div>
-            <div className="text-center p-6 rounded-2xl bg-[hsl(var(--wf-card))] border border-[hsl(var(--wf-border))]">
-              <div className="text-2xl font-bold text-[hsl(var(--wf-foreground))] mb-1">50%</div>
-              <div className="text-sm text-[hsl(var(--wf-muted-foreground))]">Popust</div>
-            </div>
-            <div className="text-center p-6 rounded-2xl bg-[hsl(var(--wf-card))] border border-[hsl(var(--wf-border))]">
-              <div className="text-lg font-bold text-[hsl(var(--wf-foreground))] mb-1">{t.cta.pricing.customization}</div>
+              <div className="text-3xl font-bold text-[hsl(var(--emerald))] mb-3">{t.cta.pricing.salePrice}</div>
+              <div className="text-sm text-[hsl(var(--wf-muted-foreground))]">{t.cta.pricing.customization}</div>
             </div>
           </div>
         </motion.div>
