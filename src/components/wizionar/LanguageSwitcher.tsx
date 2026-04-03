@@ -1,7 +1,5 @@
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Language } from "@/lib/translations";
-import { useState, useRef, useEffect } from "react";
-import { Globe } from "lucide-react";
 
 const flags: { code: Language; label: string; flag: string }[] = [
   { code: 'sr', label: 'Srpski', flag: '🇷🇸' },
