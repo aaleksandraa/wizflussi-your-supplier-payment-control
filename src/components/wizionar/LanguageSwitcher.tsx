@@ -10,27 +10,7 @@ const flags: { code: Language; label: string; flag: string }[] = [
 
 const LanguageSwitcher = () => {
   const { language, setLanguage } = useLanguage();
-  const [isOpen, setIsOpen] = useState(false);
-  const dropdownRef = useRef<HTMLDivElement>(null);
-
   const availableFlags = flags.filter((item) => item.code !== language);
-  const currentFlag = flags.find((item) => item.code === language);
-
-  // Close dropdown when clicking outside
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-        setIsOpen(false);
-      }
-    };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
-
-  const handleLanguageChange = (code: Language) => {
-    setLanguage(code);
-    setIsOpen(false);
-  };
 
   return (
     <div className="flex items-center gap-1">
