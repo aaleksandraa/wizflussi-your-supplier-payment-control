@@ -150,10 +150,21 @@ export const translations = {
     },
     // Contact
     contact: {
-      title: "Kontakt",
-      subtitle: "Za sve upite i informacije o našim proizvodima, kontaktirajte nas putem emaila.",
-      emailLabel: "Email",
-      email: "info@wizionar.com"
+      title: "Razgovarajmo o vašem projektu",
+      subtitle: "Bez obzira da li vam treba softversko rješenje, web stranica, SEO optimizacija ili grafički dizajn — tu smo da pomognemo.",
+      emailLabel: "Pišite nam direktno",
+      email: "info@wizionar.com",
+      phoneLabel: "Pozovite nas ili pišite na WhatsApp",
+      phone: "+387 66 882 702",
+      categories: {
+        products: "Proizvodi & softver",
+        productsDesc: "Pitanja o WizFlussi, WizMedik, Chatko i drugim rješenjima",
+        services: "Usluge & saradnja",
+        servicesDesc: "Web development, SEO, grafički dizajn, digitalni marketing",
+        partnership: "Partnerstvo",
+        partnershipDesc: "Dugoročna saradnja, white-label ili integracije"
+      },
+      cta: "Opišite nam svoj projekat ili ideju — odgovaramo u roku od 24h."
     },
     // Footer
     footer: {
