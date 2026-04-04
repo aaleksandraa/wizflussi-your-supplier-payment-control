@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, ChevronRight, ArrowUpRight } from "lucide-react";
+import { Menu, X, ChevronRight, ArrowUpRight, Mail, Facebook, Instagram, Phone } from "lucide-react";
 import { useEffect, useState } from "react";
 import wizionarLogo from "@/assets/wizionar-logo.png";
 import LanguageSwitcher from "./LanguageSwitcher";
@@ -214,10 +214,53 @@ const WizionarHeader = () => {
                     );
                   })}
                 </div>
+
+                {/* Footer-like info section */}
+                <div className="mt-8 flex flex-col items-center gap-4 border-t border-border/40 pt-6">
+                  <a
+                    href="mailto:info@wizionar.com"
+                    className="flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    <Mail className="w-4 h-4" />
+                    info@wizionar.com
+                  </a>
+
+                  <div className="flex items-center gap-4">
+                    <a
+                      href="https://facebook.com/wizionar"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-secondary/60 text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
+                      aria-label="Facebook"
+                    >
+                      <Facebook className="w-4 h-4" />
+                    </a>
+                    <a
+                      href="https://instagram.com/wizionar.app"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-secondary/60 text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
+                      aria-label="Instagram"
+                    >
+                      <Instagram className="w-4 h-4" />
+                    </a>
+                    <a
+                      href="https://wa.me/38766882702"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-secondary/60 text-muted-foreground hover:text-foreground hover:bg-secondary transition-colors"
+                      aria-label="WhatsApp"
+                    >
+                      <Phone className="w-4 h-4" />
+                    </a>
+                  </div>
+
+                  <img src={wizionarLogo} alt="Wizionar" className="h-10 w-auto opacity-60" />
+                </div>
               </nav>
 
               <div className="border-t border-border/60 px-5 py-5" style={{ backgroundColor: "#ffffff" }}>
-                <Button asChild size="lg" className="mb-4 w-full rounded-xl shadow-orange gap-1.5">
+                <Button asChild size="lg" className="w-full rounded-xl shadow-orange gap-1.5">
                   {isHomePage ? (
                     <a href="#contact" onClick={closeMobileMenu}>
                       {t.nav.requestDemo}
