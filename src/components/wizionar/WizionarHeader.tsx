@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
-import { Link } from "react-router-dom";
-import { Menu, X, ChevronRight } from "lucide-react";
+import { Link, useLocation } from "react-router-dom";
+import { Menu, X, ChevronRight, ArrowUpRight } from "lucide-react";
 import { useEffect, useState } from "react";
 import wizionarLogo from "@/assets/wizionar-logo.png";
 import LanguageSwitcher from "./LanguageSwitcher";
@@ -9,9 +9,18 @@ import { useLanguage } from "@/contexts/LanguageContext";
 
 const WizionarHeader = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const { t } = useLanguage();
+  const location = useLocation();
+  const isHomePage = location.pathname === "/";
 
   const closeMobileMenu = () => setMobileMenuOpen(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 10);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   useEffect(() => {
     const previousBodyOverflow = document.body.style.overflow;
@@ -28,11 +37,26 @@ const WizionarHeader = () => {
     };
   }, [mobileMenuOpen]);
 
-  const mobileNavItems = [
-    { href: "#products", label: t.nav.products, isLink: false },
-    { href: "/usluge", label: "Usluge", isLink: true },
-    { href: "#contact", label: t.nav.contact, isLink: false },
+  // Context-aware nav items
+  const navItems = [
+    {
+      label: t.nav.products,
+      href: isHomePage ? "#products" : "/#products",
+      isRouterLink: !isHomePage,
+    },
+    {
+      label: t.nav.services,
+      href: "/usluge",
+      isRouterLink: true,
+    },
+    {
+      label: t.nav.contact,
+      href: isHomePage ? "#contact" : "/#contact",
+      isRouterLink: !isHomePage,
+    },
   ];
+
+  const contactHref = isHomePage ? "#contact" : "/#contact";
 
   return (
     <>
@@ -40,37 +64,67 @@ const WizionarHeader = () => {
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="fixed top-0 left-0 right-0 z-50 border-b border-border/50 bg-background backdrop-blur-xl"
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          scrolled
+            ? "bg-background/95 backdrop-blur-xl border-b border-border/50 shadow-sm"
+            : "bg-background/80 backdrop-blur-md border-b border-transparent"
+        }`}
       >
-        <div className="container mx-auto flex items-center justify-between px-6 py-4">
+        <div className="container mx-auto flex items-center justify-between px-6 py-3">
           <Link to="/" className="flex items-center gap-3">
             <img src={wizionarLogo} alt="Wizionar" className="h-11 w-auto md:h-12" />
           </Link>
 
-          <nav className="hidden items-center gap-8 md:flex">
-            <a href="#products" className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">
-              {t.nav.products}
-            </a>
-            <Link to="/usluge" className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">
-              Usluge
-            </Link>
-            <a href="#contact" className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">
-              {t.nav.contact}
-            </a>
+          {/* Desktop nav */}
+          <nav className="hidden items-center md:flex">
+            <div className="flex items-center gap-1 rounded-full bg-secondary/50 px-1.5 py-1.5">
+              {navItems.map((item) => {
+                const isActive =
+                  item.isRouterLink && location.pathname === item.href;
+
+                const className = `relative px-4 py-2 text-sm font-medium rounded-full transition-all duration-200 ${
+                  isActive
+                    ? "bg-background text-foreground shadow-sm"
+                    : "text-muted-foreground hover:text-foreground hover:bg-background/50"
+                }`;
+
+                return item.isRouterLink ? (
+                  <Link key={item.href} to={item.href} className={className}>
+                    {item.label}
+                  </Link>
+                ) : (
+                  <a key={item.href} href={item.href} className={className}>
+                    {item.label}
+                  </a>
+                );
+              })}
+            </div>
           </nav>
 
-          <div className="hidden items-center gap-4 md:flex">
+          {/* Desktop right side */}
+          <div className="hidden items-center gap-3 md:flex">
             <LanguageSwitcher />
-            <Button size="lg" className="shadow-orange" asChild>
-              <a href="#contact">{t.nav.requestDemo}</a>
+            <Button size="default" className="rounded-full shadow-orange gap-1.5" asChild>
+              {isHomePage ? (
+                <a href="#contact">
+                  {t.nav.requestDemo}
+                  <ArrowUpRight className="w-4 h-4" />
+                </a>
+              ) : (
+                <Link to="/#contact">
+                  {t.nav.requestDemo}
+                  <ArrowUpRight className="w-4 h-4" />
+                </Link>
+              )}
             </Button>
           </div>
 
+          {/* Mobile right side */}
           <div className="flex items-center gap-2 md:hidden">
             <LanguageSwitcher />
             <button
               type="button"
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-border/60 bg-card transition-colors hover:bg-secondary"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-secondary/60 transition-colors hover:bg-secondary"
               onClick={() => setMobileMenuOpen((prev) => !prev)}
               aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
               aria-expanded={mobileMenuOpen}
@@ -81,6 +135,7 @@ const WizionarHeader = () => {
         </div>
       </motion.header>
 
+      {/* Mobile menu */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <>
@@ -103,14 +158,14 @@ const WizionarHeader = () => {
               className="fixed inset-y-0 right-0 z-[70] flex w-[86%] max-w-sm flex-col border-l border-border shadow-2xl md:hidden"
               style={{ backgroundColor: "#ffffff" }}
             >
-              <div className="flex items-center justify-between border-b border-border/60 px-5 py-5" style={{ backgroundColor: "#ffffff" }}>
+              <div className="flex items-center justify-between border-b border-border/60 px-5 py-4" style={{ backgroundColor: "#ffffff" }}>
                 <Link to="/" className="flex items-center" onClick={closeMobileMenu}>
                   <img src={wizionarLogo} alt="Wizionar" className="h-10 w-auto" />
                 </Link>
 
                 <button
                   type="button"
-                  className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-border/60 transition-colors hover:bg-gray-100"
+                  className="inline-flex h-10 w-10 items-center justify-center rounded-full transition-colors hover:bg-gray-100"
                   style={{ backgroundColor: "#f5f5f5" }}
                   onClick={closeMobileMenu}
                   aria-label="Close menu"
@@ -119,16 +174,22 @@ const WizionarHeader = () => {
                 </button>
               </div>
 
-              <nav className="flex-1 px-5 py-6" style={{ backgroundColor: "#ffffff" }}>
-                <div className="space-y-2">
-                  {mobileNavItems.map((item, index) => {
-                    const linkClassName =
-                      "flex items-center justify-between rounded-2xl px-4 py-4 text-base font-medium text-foreground transition-colors hover:bg-gray-50";
+              <nav className="flex-1 px-4 py-5" style={{ backgroundColor: "#ffffff" }}>
+                <div className="space-y-1">
+                  {navItems.map((item, index) => {
+                    const isActive =
+                      item.isRouterLink && location.pathname === item.href;
+
+                    const linkClassName = `flex items-center justify-between rounded-xl px-4 py-3.5 text-base font-medium transition-colors ${
+                      isActive
+                        ? "bg-primary/5 text-primary"
+                        : "text-foreground hover:bg-gray-50"
+                    }`;
 
                     const content = (
                       <>
                         <span>{item.label}</span>
-                        <ChevronRight className="h-4 w-4 text-muted-foreground" />
+                        <ChevronRight className={`h-4 w-4 ${isActive ? "text-primary" : "text-muted-foreground"}`} />
                       </>
                     );
 
@@ -140,7 +201,7 @@ const WizionarHeader = () => {
                         exit={{ opacity: 0, x: 12 }}
                         transition={{ delay: 0.05 + index * 0.05, duration: 0.2 }}
                       >
-                        {item.isLink ? (
+                        {item.isRouterLink ? (
                           <Link to={item.href} className={linkClassName} onClick={closeMobileMenu}>
                             {content}
                           </Link>
@@ -156,15 +217,19 @@ const WizionarHeader = () => {
               </nav>
 
               <div className="border-t border-border/60 px-5 py-5" style={{ backgroundColor: "#ffffff" }}>
-                <Button asChild size="lg" className="mb-4 w-full shadow-orange">
-                  <a href="#contact" onClick={closeMobileMenu}>
-                    {t.nav.requestDemo}
-                  </a>
+                <Button asChild size="lg" className="mb-4 w-full rounded-xl shadow-orange gap-1.5">
+                  {isHomePage ? (
+                    <a href="#contact" onClick={closeMobileMenu}>
+                      {t.nav.requestDemo}
+                      <ArrowUpRight className="w-4 h-4" />
+                    </a>
+                  ) : (
+                    <Link to="/#contact" onClick={closeMobileMenu}>
+                      {t.nav.requestDemo}
+                      <ArrowUpRight className="w-4 h-4" />
+                    </Link>
+                  )}
                 </Button>
-
-                <div className="flex justify-center">
-                  <LanguageSwitcher />
-                </div>
               </div>
             </motion.aside>
           </>

@@ -5,6 +5,7 @@ export const translations = {
     // Header
     nav: {
       products: "Proizvodi",
+      services: "Usluge",
       process: "Proces",
       security: "Sigurnost",
       contact: "Kontakt",
@@ -181,6 +182,7 @@ export const translations = {
   en: {
     nav: {
       products: "Products",
+      services: "Services",
       process: "Process",
       security: "Security",
       contact: "Contact",
@@ -348,6 +350,7 @@ export const translations = {
   de: {
     nav: {
       products: "Produkte",
+      services: "Dienstleistungen",
       process: "Prozess",
       security: "Sicherheit",
       contact: "Kontakt",
@@ -515,6 +518,7 @@ export const translations = {
   it: {
     nav: {
       products: "Prodotti",
+      services: "Servizi",
       process: "Processo",
       security: "Sicurezza",
       contact: "Contatto",
