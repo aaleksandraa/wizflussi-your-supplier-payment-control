@@ -5,6 +5,7 @@ export const translations = {
     // Header
     nav: {
       products: "Proizvodi",
+      services: "Usluge",
       process: "Proces",
       security: "Sigurnost",
       contact: "Kontakt",
