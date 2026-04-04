@@ -518,6 +518,7 @@ export const translations = {
   it: {
     nav: {
       products: "Prodotti",
+      services: "Servizi",
       process: "Processo",
       security: "Sicurezza",
       contact: "Contatto",
