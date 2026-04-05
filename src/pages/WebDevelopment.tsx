@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import LocalizedLink from "@/components/LocalizedLink";
 import {
   Globe,
   ShoppingCart,
@@ -503,7 +503,7 @@ const WebDevelopment = () => {
                         className="inline-flex items-center gap-1 text-sm text-primary hover:underline"
                       >
                         {t.portfolio.visitSite} <ExternalLink className="w-3 h-3" />
-                      </Link>
+                      </LocalizedLink>
                     )}
                   </div>
                 </motion.div>

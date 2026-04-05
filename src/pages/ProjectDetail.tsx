@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
-import { Link, useParams, Navigate } from "react-router-dom";
+import { useParams, Navigate } from "react-router-dom";
+import LocalizedLink from "@/components/LocalizedLink";
 import { ArrowLeft, ExternalLink, CheckCircle2, Globe, Smartphone, Search, Zap, Code2, ShoppingCart, BarChart3, Shield, PenTool, ChevronLeft, ChevronRight } from "lucide-react";
 import WizionarHeader from "@/components/wizionar/WizionarHeader";
 import WizionarFooter from "@/components/wizionar/WizionarFooter";
@@ -257,12 +258,12 @@ const ProjectDetail = () => {
       {/* Hero */}
       <section className="pt-28 pb-12">
         <div className="container mx-auto px-6">
-          <Link
+          <LocalizedLink
             to="/usluge/izrada-web-stranica#portfolio"
             className="inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-primary transition-colors mb-8"
           >
             <ArrowLeft className="w-4 h-4" /> {l.back}
-          </Link>
+          </LocalizedLink>
 
           <motion.div {...fadeUp}>
             <div className="flex flex-wrap gap-3 mb-4">
