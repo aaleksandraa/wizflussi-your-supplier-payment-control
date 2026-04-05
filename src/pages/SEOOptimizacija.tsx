@@ -443,7 +443,7 @@ const SEOOptimizacija = () => {
                   <Mail className="w-5 h-5" />
                   {t.cta.button}
                 </a>
-                <Link
+                <LocalizedLink
                   to="/usluge"
                   className="inline-flex items-center gap-2 px-8 py-4 rounded-xl border border-border text-foreground font-semibold hover:bg-secondary transition-colors"
                 >

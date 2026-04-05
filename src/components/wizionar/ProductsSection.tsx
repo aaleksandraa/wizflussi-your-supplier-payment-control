@@ -170,7 +170,7 @@ const ProductsSection = () => {
                   {t.products.contactUs}
                 </a>
                 {product.available && product.link !== "#" && (
-                  <Link
+                  <LocalizedLink
                     to={product.link}
                     className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                   >

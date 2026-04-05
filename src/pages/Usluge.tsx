@@ -169,7 +169,7 @@ const Usluge = () => {
                     ))}
                   </ul>
                   {service.link && (
-                    <Link
+                    <LocalizedLink
                       to={service.link}
                       className="inline-flex items-center gap-1 text-sm text-primary font-medium hover:gap-2 transition-all mt-auto"
                     >

@@ -498,7 +498,7 @@ const WebDevelopment = () => {
                     <h3 className="font-bold mb-1">{item.title}</h3>
                     <p className="text-sm text-muted-foreground mb-3">{descs[item.descKey]}</p>
                     {item.link !== "#" && (
-                      <Link
+                      <LocalizedLink
                         to={item.link}
                         className="inline-flex items-center gap-1 text-sm text-primary hover:underline"
                       >
