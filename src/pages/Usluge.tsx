@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import LocalizedLink from "@/components/LocalizedLink";
 import {
   Globe,
   ShoppingCart,
@@ -169,12 +169,12 @@ const Usluge = () => {
                     ))}
                   </ul>
                   {service.link && (
-                    <Link
+                    <LocalizedLink
                       to={service.link}
                       className="inline-flex items-center gap-1 text-sm text-primary font-medium hover:gap-2 transition-all mt-auto"
                     >
                       Saznajte više <ArrowRight className="w-4 h-4" />
-                    </Link>
+                    </LocalizedLink>
                   )}
                 </motion.div>
               ))}

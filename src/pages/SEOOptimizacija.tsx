@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import LocalizedLink from "@/components/LocalizedLink";
 import {
   Search,
   TrendingUp,
@@ -443,13 +443,13 @@ const SEOOptimizacija = () => {
                   <Mail className="w-5 h-5" />
                   {t.cta.button}
                 </a>
-                <Link
+                <LocalizedLink
                   to="/usluge"
                   className="inline-flex items-center gap-2 px-8 py-4 rounded-xl border border-border text-foreground font-semibold hover:bg-secondary transition-colors"
                 >
                   {t.cta.allServices}
                   <ArrowRight className="w-4 h-4" />
-                </Link>
+                </LocalizedLink>
               </div>
             </motion.div>
           </div>

@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { ArrowRight, Play, Briefcase } from "lucide-react";
-import { Link } from "react-router-dom";
+import LocalizedLink from "@/components/LocalizedLink";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const WizionarHero = () => {
@@ -84,10 +84,10 @@ const WizionarHero = () => {
               </a>
             </Button>
             <Button variant="outline" size="xl" className="group" asChild>
-              <Link to="/usluge">
+              <LocalizedLink to="/usluge">
                 <Briefcase className="w-4 h-4 mr-1" />
                 {t.hero.cta3}
-              </Link>
+              </LocalizedLink>
             </Button>
           </motion.div>
 

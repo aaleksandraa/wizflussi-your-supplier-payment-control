@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import LocalizedLink from "@/components/LocalizedLink";
 import { 
   ArrowRight, Search, MapPin, Clock, Calendar,
   Star, Bell, Users, BarChart3, Globe,
@@ -22,12 +22,12 @@ const Frizerino = () => {
         className="fixed top-0 left-0 right-0 z-50 border-b border-[hsl(var(--friz-border))] bg-[hsl(var(--friz-background)/0.8)] backdrop-blur-xl"
       >
         <div className="container mx-auto px-6 py-4 flex items-center justify-between">
-          <Link to="/frizerino" className="flex items-center gap-2">
+          <LocalizedLink to="/frizerino" className="flex items-center gap-2">
             <div className="w-8 h-8 rounded-lg bg-[hsl(var(--rose))] flex items-center justify-center">
               <Scissors className="w-4 h-4 text-white" />
             </div>
             <span className="text-xl font-bold text-[hsl(var(--friz-foreground))]">Frizerino</span>
-          </Link>
+          </LocalizedLink>
 
           <nav className="hidden md:flex items-center gap-8">
             <a href="#search" className="text-sm text-[hsl(var(--friz-muted-foreground))] hover:text-[hsl(var(--friz-foreground))] transition-colors">
@@ -39,9 +39,9 @@ const Frizerino = () => {
             <a href="#about" className="text-sm text-[hsl(var(--friz-muted-foreground))] hover:text-[hsl(var(--friz-foreground))] transition-colors">
               {t.header.about}
             </a>
-            <Link to="/" className="text-sm text-[hsl(var(--rose))] hover:text-[hsl(var(--rose-glow))] transition-colors">
+            <LocalizedLink to="/" className="text-sm text-[hsl(var(--rose))] hover:text-[hsl(var(--rose-glow))] transition-colors">
               {t.header.backToWizionar}
-            </Link>
+            </LocalizedLink>
           </nav>
 
           <div className="flex items-center gap-4">
@@ -369,9 +369,9 @@ const Frizerino = () => {
       {/* Footer */}
       <footer className="py-8 border-t border-[hsl(var(--friz-border))] bg-[hsl(var(--friz-background))]">
         <div className="container mx-auto px-6 text-center">
-          <Link to="/" className="text-[hsl(var(--rose))] hover:text-[hsl(var(--rose-glow))] transition-colors">
+          <LocalizedLink to="/" className="text-[hsl(var(--rose))] hover:text-[hsl(var(--rose-glow))] transition-colors">
             ← {t.footer.wizionar}
-          </Link>
+          </LocalizedLink>
         </div>
       </footer>
     </div>

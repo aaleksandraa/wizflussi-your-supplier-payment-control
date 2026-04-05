@@ -1,18 +1,23 @@
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+import LocalizedLink from "@/components/LocalizedLink";
 import { Menu, X, ChevronRight, ArrowUpRight, Mail, Facebook, Instagram, Phone } from "lucide-react";
 import { useEffect, useState } from "react";
 import wizionarLogo from "@/assets/wizionar-logo.png";
 import LanguageSwitcher from "./LanguageSwitcher";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { useLocalizedPath } from "@/hooks/useLocalizedPath";
 
 const WizionarHeader = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const { t } = useLanguage();
   const location = useLocation();
-  const isHomePage = location.pathname === "/";
+  const lp = useLocalizedPath();
+
+  // Check if on home page (with or without lang prefix)
+  const isHomePage = location.pathname === "/" || /^\/(en|de|it)\/?$/.test(location.pathname);
 
   const closeMobileMenu = () => setMobileMenuOpen(false);
 
@@ -37,26 +42,25 @@ const WizionarHeader = () => {
     };
   }, [mobileMenuOpen]);
 
-  // Context-aware nav items
   const navItems = [
     {
       label: t.nav.products,
-      href: isHomePage ? "#products" : "/#products",
+      href: isHomePage ? "#products" : lp("/#products"),
       isRouterLink: !isHomePage,
     },
     {
       label: t.nav.services,
-      href: "/usluge",
+      href: lp("/usluge"),
       isRouterLink: true,
     },
     {
       label: t.nav.contact,
-      href: isHomePage ? "#contact" : "/#contact",
+      href: isHomePage ? "#contact" : lp("/#contact"),
       isRouterLink: !isHomePage,
     },
   ];
 
-  const contactHref = isHomePage ? "#contact" : "/#contact";
+  const contactHref = isHomePage ? "#contact" : lp("/#contact");
 
   return (
     <>
@@ -71,9 +75,9 @@ const WizionarHeader = () => {
         }`}
       >
         <div className="container mx-auto flex items-center justify-between px-6 py-3">
-          <Link to="/" className="flex items-center gap-3">
+          <LocalizedLink to="/" className="flex items-center gap-3">
             <img src={wizionarLogo} alt="Wizionar" className="h-11 w-auto md:h-12" />
-          </Link>
+          </LocalizedLink>
 
           {/* Desktop nav */}
           <nav className="hidden items-center md:flex">
@@ -89,9 +93,9 @@ const WizionarHeader = () => {
                 }`;
 
                 return item.isRouterLink ? (
-                  <Link key={item.href} to={item.href} className={className}>
+                  <LocalizedLink key={item.href} to={item.href} className={className}>
                     {item.label}
-                  </Link>
+                  </LocalizedLink>
                 ) : (
                   <a key={item.href} href={item.href} className={className}>
                     {item.label}
@@ -111,10 +115,10 @@ const WizionarHeader = () => {
                   <ArrowUpRight className="w-4 h-4" />
                 </a>
               ) : (
-                <Link to="/#contact">
+                <LocalizedLink to="/#contact">
                   {t.nav.requestDemo}
                   <ArrowUpRight className="w-4 h-4" />
-                </Link>
+                </LocalizedLink>
               )}
             </Button>
           </div>
@@ -159,9 +163,9 @@ const WizionarHeader = () => {
               style={{ backgroundColor: "#ffffff" }}
             >
               <div className="flex items-center justify-between border-b border-border/60 px-5 py-4" style={{ backgroundColor: "#ffffff" }}>
-                <Link to="/" className="flex items-center" onClick={closeMobileMenu}>
+                <LocalizedLink to="/" className="flex items-center" onClick={closeMobileMenu}>
                   <img src={wizionarLogo} alt="Wizionar" className="h-10 w-auto" />
-                </Link>
+                </LocalizedLink>
 
                 <button
                   type="button"
@@ -202,9 +206,9 @@ const WizionarHeader = () => {
                         transition={{ delay: 0.05 + index * 0.05, duration: 0.2 }}
                       >
                         {item.isRouterLink ? (
-                          <Link to={item.href} className={linkClassName} onClick={closeMobileMenu}>
+                          <LocalizedLink to={item.href} className={linkClassName} onClick={closeMobileMenu}>
                             {content}
-                          </Link>
+                          </LocalizedLink>
                         ) : (
                           <a href={item.href} className={linkClassName} onClick={closeMobileMenu}>
                             {content}
@@ -214,7 +218,6 @@ const WizionarHeader = () => {
                     );
                   })}
                 </div>
-
               </nav>
 
               <div className="border-t border-border/60 px-5 py-5" style={{ backgroundColor: "#ffffff" }}>
@@ -245,10 +248,10 @@ const WizionarHeader = () => {
                       <ArrowUpRight className="w-4 h-4" />
                     </a>
                   ) : (
-                    <Link to="/#contact" onClick={closeMobileMenu}>
+                    <LocalizedLink to="/#contact" onClick={closeMobileMenu}>
                       {t.nav.requestDemo}
                       <ArrowUpRight className="w-4 h-4" />
-                    </Link>
+                    </LocalizedLink>
                   )}
                 </Button>
               </div>

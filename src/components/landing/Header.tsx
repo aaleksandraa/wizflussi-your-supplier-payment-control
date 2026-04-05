@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import LocalizedLink from "@/components/LocalizedLink";
 import LanguageSwitcher from "@/components/wizionar/LanguageSwitcher";
 import { useWizflussiTranslations } from "@/hooks/useWizflussiTranslations";
 
@@ -15,12 +15,12 @@ const Header = () => {
       className="fixed top-0 left-0 right-0 z-50 border-b border-[hsl(var(--wf-border))] bg-[hsl(var(--wf-background)/0.8)] backdrop-blur-xl"
     >
       <div className="container mx-auto px-6 py-4 flex items-center justify-between">
-        <Link to="/wizflussi" className="flex items-center gap-2">
+        <LocalizedLink to="/wizflussi" className="flex items-center gap-2">
           <div className="w-8 h-8 rounded-lg bg-[hsl(var(--emerald))] flex items-center justify-center">
             <span className="text-[hsl(var(--wf-background))] font-bold text-lg">W</span>
           </div>
           <span className="text-xl font-bold text-[hsl(var(--wf-foreground))]">WizFlussi</span>
-        </Link>
+        </LocalizedLink>
 
         <nav className="hidden md:flex items-center gap-8">
           <a href="#problem" className="text-sm text-[hsl(var(--wf-muted-foreground))] hover:text-[hsl(var(--wf-foreground))] transition-colors">
@@ -38,9 +38,9 @@ const Header = () => {
           <a href="#audience" className="text-sm text-[hsl(var(--wf-muted-foreground))] hover:text-[hsl(var(--wf-foreground))] transition-colors">
             {t.header.audience}
           </a>
-          <Link to="/" className="text-sm text-[hsl(var(--emerald))] hover:text-[hsl(var(--emerald-glow))] transition-colors">
+          <LocalizedLink to="/" className="text-sm text-[hsl(var(--emerald))] hover:text-[hsl(var(--emerald-glow))] transition-colors">
             {t.header.backToWizionar}
-          </Link>
+          </LocalizedLink>
         </nav>
 
         <LanguageSwitcher />
