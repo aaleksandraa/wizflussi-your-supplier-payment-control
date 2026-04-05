@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import LocalizedLink from "@/components/LocalizedLink";
 import { useWizflussiTranslations } from "@/hooks/useWizflussiTranslations";
 
 const Footer = () => {
@@ -28,9 +28,9 @@ const Footer = () => {
             <a href="#security" className="text-sm text-[hsl(var(--wf-muted-foreground))] hover:text-[hsl(var(--wf-foreground))] transition-colors">
               {t.header.security}
             </a>
-            <Link to="/" className="text-sm text-[hsl(var(--emerald))] hover:text-[hsl(var(--emerald-glow))] transition-colors">
+            <LocalizedLink to="/" className="text-sm text-[hsl(var(--emerald))] hover:text-[hsl(var(--emerald-glow))] transition-colors">
               {t.footer.wizionar}
-            </Link>
+            </LocalizedLink>
           </nav>
 
           <div className="text-sm text-[hsl(var(--wf-muted-foreground))]">

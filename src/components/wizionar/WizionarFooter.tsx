@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import LocalizedLink from "@/components/LocalizedLink";
 import wizionarLogo from "@/assets/wizionar-logo.png";
 import { useLanguage } from "@/contexts/LanguageContext";
 import { Mail, Facebook, Instagram, Phone } from "lucide-react";
@@ -49,9 +49,9 @@ const WizionarFooter = () => {
         </div>
 
         {/* Logo */}
-        <Link to="/" className="inline-block">
+        <LocalizedLink to="/" className="inline-block">
           <img src={wizionarLogo} alt="Wizionar" className="h-16 w-auto" />
-        </Link>
+        </LocalizedLink>
 
         {/* Copyright */}
         <p className="text-sm text-muted-foreground">
