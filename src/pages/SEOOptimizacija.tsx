@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import LocalizedLink from "@/components/LocalizedLink";
 import {
   Search,
   TrendingUp,
@@ -449,7 +449,7 @@ const SEOOptimizacija = () => {
                 >
                   {t.cta.allServices}
                   <ArrowRight className="w-4 h-4" />
-                </Link>
+                </LocalizedLink>
               </div>
             </motion.div>
           </div>

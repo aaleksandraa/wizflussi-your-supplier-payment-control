@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import LocalizedLink from "@/components/LocalizedLink";
 import {
   ArrowRight, MessageCircle, ShoppingCart, Truck, CreditCard,
   FileText, ShieldCheck, BarChart3, Plug, Settings, Rocket,
@@ -22,12 +22,12 @@ const Chatko = () => {
         className="fixed top-0 left-0 right-0 z-50 border-b border-[hsl(var(--ck-border))] bg-[hsl(var(--ck-background)/0.8)] backdrop-blur-xl"
       >
         <div className="container mx-auto px-6 py-4 flex items-center justify-between">
-          <Link to="/chatko" className="flex items-center gap-2">
+          <LocalizedLink to="/chatko" className="flex items-center gap-2">
             <div className="w-8 h-8 rounded-lg bg-[hsl(var(--violet))] flex items-center justify-center">
               <MessageCircle className="w-4 h-4 text-white" />
             </div>
             <span className="text-xl font-bold text-[hsl(var(--ck-foreground))]">Chatko</span>
-          </Link>
+          </LocalizedLink>
 
           <nav className="hidden md:flex items-center gap-8">
             <a href="#features" className="text-sm text-[hsl(var(--ck-muted-foreground))] hover:text-[hsl(var(--ck-foreground))] transition-colors">
@@ -39,9 +39,9 @@ const Chatko = () => {
             <a href="#examples" className="text-sm text-[hsl(var(--ck-muted-foreground))] hover:text-[hsl(var(--ck-foreground))] transition-colors">
               {t.header.examples}
             </a>
-            <Link to="/" className="text-sm text-[hsl(var(--violet))] hover:text-[hsl(var(--violet-glow))] transition-colors">
+            <LocalizedLink to="/" className="text-sm text-[hsl(var(--violet))] hover:text-[hsl(var(--violet-glow))] transition-colors">
               {t.header.backToWizionar}
-            </Link>
+            </LocalizedLink>
           </nav>
 
           <div className="flex items-center gap-4">
@@ -328,9 +328,9 @@ const Chatko = () => {
       <footer className="border-t border-[hsl(var(--ck-border))] py-8 bg-[hsl(var(--ck-background))]">
         <div className="container mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-sm text-[hsl(var(--ck-muted-foreground))]">© 2025 Chatko by Wizionar</p>
-          <Link to="/" className="text-sm text-[hsl(var(--violet))] hover:text-[hsl(var(--violet-glow))] transition-colors">
+          <LocalizedLink to="/" className="text-sm text-[hsl(var(--violet))] hover:text-[hsl(var(--violet-glow))] transition-colors">
             {t.footer.wizionar}
-          </Link>
+          </LocalizedLink>
         </div>
       </footer>
     </div>

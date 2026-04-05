@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import LocalizedLink from "@/components/LocalizedLink";
 import { 
   ArrowRight, Search, MapPin, Building2, Calendar,
   Stethoscope, FlaskConical, Heart, Home, Users,
@@ -22,12 +22,12 @@ const WizMedik = () => {
         className="fixed top-0 left-0 right-0 z-50 border-b border-[hsl(var(--wm-border))] bg-[hsl(var(--wm-background)/0.8)] backdrop-blur-xl"
       >
         <div className="container mx-auto px-6 py-4 flex items-center justify-between">
-          <Link to="/wizmedik" className="flex items-center gap-2">
+          <LocalizedLink to="/wizmedik" className="flex items-center gap-2">
             <div className="w-8 h-8 rounded-lg bg-[hsl(var(--teal))] flex items-center justify-center">
               <Stethoscope className="w-5 h-5 text-white" />
             </div>
             <span className="text-xl font-bold text-[hsl(var(--wm-foreground))]">wizMedik</span>
-          </Link>
+          </LocalizedLink>
 
           <nav className="hidden md:flex items-center gap-8">
             <a href="#search" className="text-sm text-[hsl(var(--wm-muted-foreground))] hover:text-[hsl(var(--wm-foreground))] transition-colors">
@@ -39,9 +39,9 @@ const WizMedik = () => {
             <a href="#blog" className="text-sm text-[hsl(var(--wm-muted-foreground))] hover:text-[hsl(var(--wm-foreground))] transition-colors">
               {t.header.blog}
             </a>
-            <Link to="/" className="text-sm text-[hsl(var(--teal))] hover:text-[hsl(var(--teal-glow))] transition-colors">
+            <LocalizedLink to="/" className="text-sm text-[hsl(var(--teal))] hover:text-[hsl(var(--teal-glow))] transition-colors">
               {t.header.backToWizionar}
-            </Link>
+            </LocalizedLink>
           </nav>
 
           <LanguageSwitcher />
@@ -319,9 +319,9 @@ const WizMedik = () => {
       {/* Footer */}
       <footer className="py-8 border-t border-[hsl(var(--wm-border))] bg-[hsl(var(--wm-background))]">
         <div className="container mx-auto px-6 text-center">
-          <Link to="/" className="text-[hsl(var(--teal))] hover:text-[hsl(var(--teal-glow))] transition-colors">
+          <LocalizedLink to="/" className="text-[hsl(var(--teal))] hover:text-[hsl(var(--teal-glow))] transition-colors">
             ← {t.footer.wizionar}
-          </Link>
+          </LocalizedLink>
         </div>
       </footer>
     </div>

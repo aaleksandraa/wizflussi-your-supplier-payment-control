@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import LocalizedLink from "@/components/LocalizedLink";
 import { 
   ArrowRight, Users, BarChart3, FileText, 
   DollarSign, Clock, Shield, Stethoscope,
@@ -23,12 +23,12 @@ const WizMedikReports = () => {
         className="fixed top-0 left-0 right-0 z-50 border-b border-[hsl(var(--wmr-border))] bg-[hsl(var(--wmr-background)/0.8)] backdrop-blur-xl"
       >
         <div className="container mx-auto px-6 py-4 flex items-center justify-between">
-          <Link to="/wizmedik-reports" className="flex items-center gap-2">
+          <LocalizedLink to="/wizmedik-reports" className="flex items-center gap-2">
             <div className="w-8 h-8 rounded-lg bg-[hsl(var(--cyan))] flex items-center justify-center">
               <span className="text-[hsl(var(--wmr-background))] font-bold text-lg">W</span>
             </div>
             <span className="text-xl font-bold text-[hsl(var(--wmr-foreground))]">WizMedikReports</span>
-          </Link>
+          </LocalizedLink>
 
           <nav className="hidden md:flex items-center gap-8">
             <a href="#problem" className="text-sm text-[hsl(var(--wmr-muted-foreground))] hover:text-[hsl(var(--wmr-foreground))] transition-colors">
@@ -40,9 +40,9 @@ const WizMedikReports = () => {
             <a href="#features" className="text-sm text-[hsl(var(--wmr-muted-foreground))] hover:text-[hsl(var(--wmr-foreground))] transition-colors">
               {t.header.features}
             </a>
-            <Link to="/" className="text-sm text-[hsl(var(--cyan))] hover:text-[hsl(var(--cyan-glow))] transition-colors">
+            <LocalizedLink to="/" className="text-sm text-[hsl(var(--cyan))] hover:text-[hsl(var(--cyan-glow))] transition-colors">
               {t.header.backToWizionar}
-            </Link>
+            </LocalizedLink>
           </nav>
 
           <LanguageSwitcher />
@@ -279,9 +279,9 @@ const WizMedikReports = () => {
       {/* Footer */}
       <footer className="py-8 border-t border-[hsl(var(--wmr-border))] bg-[hsl(var(--wmr-background))]">
         <div className="container mx-auto px-6 text-center">
-          <Link to="/" className="text-[hsl(var(--cyan))] hover:text-[hsl(var(--cyan-glow))] transition-colors">
+          <LocalizedLink to="/" className="text-[hsl(var(--cyan))] hover:text-[hsl(var(--cyan-glow))] transition-colors">
             ← {t.footer.wizionar}
-          </Link>
+          </LocalizedLink>
         </div>
       </footer>
     </div>

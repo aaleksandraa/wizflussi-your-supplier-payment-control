@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import LocalizedLink from "@/components/LocalizedLink";
 import { 
   Wallet, 
   Stethoscope, 
@@ -175,7 +175,7 @@ const ProductsSection = () => {
                     className="text-sm text-muted-foreground hover:text-foreground transition-colors"
                   >
                     Pogledaj →
-                  </Link>
+                  </LocalizedLink>
                 )}
               </div>
             </motion.div>
