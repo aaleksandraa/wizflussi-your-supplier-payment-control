@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- Homepage -->
+  <url>
+    <loc>https://wizionar.app/</loc>
+    <xhtml:link rel="alternate" hreflang="bs" href="https://wizionar.app/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://wizionar.app/en" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://wizionar.app/de" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://wizionar.app/it" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wizionar.app/" />
+    <priority>1.0</priority>
+  </url>
+
+  <!-- WizFlussi -->
+  <url>
+    <loc>https://wizionar.app/wizflussi</loc>
+    <xhtml:link rel="alternate" hreflang="bs" href="https://wizionar.app/wizflussi" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://wizionar.app/en/wizflussi" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://wizionar.app/de/wizflussi" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://wizionar.app/it/wizflussi" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wizionar.app/wizflussi" />
+    <priority>0.9</priority>
+  </url>
+
+  <!-- WizMedik Reports -->
+  <url>
+    <loc>https://wizionar.app/wizmedik-reports</loc>
+    <xhtml:link rel="alternate" hreflang="bs" href="https://wizionar.app/wizmedik-reports" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://wizionar.app/en/wizmedik-reports" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://wizionar.app/de/wizmedik-reports" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://wizionar.app/it/wizmedik-reports" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wizionar.app/wizmedik-reports" />
+    <priority>0.9</priority>
+  </url>
+
+  <!-- WizMedik -->
+  <url>
+    <loc>https://wizionar.app/wizmedik</loc>
+    <xhtml:link rel="alternate" hreflang="bs" href="https://wizionar.app/wizmedik" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://wizionar.app/en/wizmedik" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://wizionar.app/de/wizmedik" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://wizionar.app/it/wizmedik" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wizionar.app/wizmedik" />
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Frizerino -->
+  <url>
+    <loc>https://wizionar.app/frizerino</loc>
+    <xhtml:link rel="alternate" hreflang="bs" href="https://wizionar.app/frizerino" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://wizionar.app/en/frizerino" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://wizionar.app/de/frizerino" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://wizionar.app/it/frizerino" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wizionar.app/frizerino" />
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Chatko -->
+  <url>
+    <loc>https://wizionar.app/chatko</loc>
+    <xhtml:link rel="alternate" hreflang="bs" href="https://wizionar.app/chatko" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://wizionar.app/en/chatko" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://wizionar.app/de/chatko" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://wizionar.app/it/chatko" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wizionar.app/chatko" />
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Usluge -->
+  <url>
+    <loc>https://wizionar.app/usluge</loc>
+    <xhtml:link rel="alternate" hreflang="bs" href="https://wizionar.app/usluge" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://wizionar.app/en/usluge" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://wizionar.app/de/usluge" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://wizionar.app/it/usluge" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wizionar.app/usluge" />
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Web Development -->
+  <url>
+    <loc>https://wizionar.app/usluge/izrada-web-stranica</loc>
+    <xhtml:link rel="alternate" hreflang="bs" href="https://wizionar.app/usluge/izrada-web-stranica" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://wizionar.app/en/usluge/izrada-web-stranica" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://wizionar.app/de/usluge/izrada-web-stranica" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://wizionar.app/it/usluge/izrada-web-stranica" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wizionar.app/usluge/izrada-web-stranica" />
+    <priority>0.8</priority>
+  </url>
+
+  <!-- SEO Optimizacija -->
+  <url>
+    <loc>https://wizionar.app/usluge/seo-optimizacija</loc>
+    <xhtml:link rel="alternate" hreflang="bs" href="https://wizionar.app/usluge/seo-optimizacija" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://wizionar.app/en/usluge/seo-optimizacija" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://wizionar.app/de/usluge/seo-optimizacija" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://wizionar.app/it/usluge/seo-optimizacija" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wizionar.app/usluge/seo-optimizacija" />
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Graficki Dizajn -->
+  <url>
+    <loc>https://wizionar.app/usluge/graficki-dizajn</loc>
+    <xhtml:link rel="alternate" hreflang="bs" href="https://wizionar.app/usluge/graficki-dizajn" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://wizionar.app/en/usluge/graficki-dizajn" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://wizionar.app/de/usluge/graficki-dizajn" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://wizionar.app/it/usluge/graficki-dizajn" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://wizionar.app/usluge/graficki-dizajn" />
+    <priority>0.8</priority>
+  </url>
+
+</urlset>
