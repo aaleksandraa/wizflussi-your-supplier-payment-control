@@ -20,30 +20,30 @@ import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
-/**
- * All app routes wrapped in a LanguageProvider that reads :lang from URL.
- * Serbian (sr) = no prefix, other languages = /en/, /de/, /it/ prefix.
- */
-const AppRoutes = () => (
+const appRoutes = (
+  <>
+    <Route index element={<Index />} />
+    <Route path="wizflussi" element={<WizFlussi />} />
+    <Route path="wizmedik-reports" element={<WizMedikReports />} />
+    <Route path="wizmedik" element={<WizMedik />} />
+    <Route path="frizerino" element={<Frizerino />} />
+    <Route path="chatko" element={<Chatko />} />
+    <Route path="usluge" element={<Usluge />} />
+    <Route path="usluge/izrada-web-stranica" element={<WebDevelopment />} />
+    <Route path="usluge/seo-optimizacija" element={<SEOOptimizacija />} />
+    <Route path="usluge/graficki-dizajn" element={<GrafickiDizajn />} />
+    <Route path="portfolio/:slug" element={<ProjectDetail />} />
+    <Route path="*" element={<NotFound />} />
+  </>
+);
+
+const AppShell = ({ children }: { children: React.ReactNode }) => (
   <LanguageProvider>
     <HreflangTags />
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <Routes>
-        <Route path="/" element={<Index />} />
-        <Route path="/wizflussi" element={<WizFlussi />} />
-        <Route path="/wizmedik-reports" element={<WizMedikReports />} />
-        <Route path="/wizmedik" element={<WizMedik />} />
-        <Route path="/frizerino" element={<Frizerino />} />
-        <Route path="/chatko" element={<Chatko />} />
-        <Route path="/usluge" element={<Usluge />} />
-        <Route path="/usluge/izrada-web-stranica" element={<WebDevelopment />} />
-        <Route path="/usluge/seo-optimizacija" element={<SEOOptimizacija />} />
-        <Route path="/usluge/graficki-dizajn" element={<GrafickiDizajn />} />
-        <Route path="/portfolio/:slug" element={<ProjectDetail />} />
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+      {children}
     </TooltipProvider>
   </LanguageProvider>
 );
@@ -51,12 +51,24 @@ const AppRoutes = () => (
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <BrowserRouter>
-      <Routes>
-        {/* Routes with language prefix */}
-        <Route path="/:lang/*" element={<AppRoutes />} />
-        {/* Routes without prefix (default = sr) */}
-        <Route path="/*" element={<AppRoutes />} />
-      </Routes>
+      <AppShell>
+        <Routes>
+          {/* Explicit language prefix routes */}
+          <Route path="/en/*">
+            <Route>{appRoutes}</Route>
+          </Route>
+          <Route path="/de/*">
+            <Route>{appRoutes}</Route>
+          </Route>
+          <Route path="/it/*">
+            <Route>{appRoutes}</Route>
+          </Route>
+          {/* Default (sr) – no prefix */}
+          <Route path="/*">
+            <Route>{appRoutes}</Route>
+          </Route>
+        </Routes>
+      </AppShell>
     </BrowserRouter>
   </QueryClientProvider>
 );
