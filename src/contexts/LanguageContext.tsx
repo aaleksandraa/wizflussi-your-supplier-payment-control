@@ -1,6 +1,6 @@
 import { createContext, useContext, useMemo, useState, useEffect, type Context, type ReactNode } from "react";
 import { translations, Language, Translations } from "@/lib/translations";
-import { useParams, useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 interface LanguageContextType {
   language: Language;
@@ -19,32 +19,38 @@ const LanguageContext =
 globalLanguageContext.__wizionarLanguageContext__ = LanguageContext;
 
 const SUPPORTED_LANGUAGES: Language[] = ["sr", "en", "de", "it"];
+const NON_DEFAULT_LANGUAGES: string[] = ["en", "de", "it"];
 
 /**
- * Strips the language prefix from the current pathname.
+ * Detect the language from the pathname by checking the first segment.
+ */
+const detectLanguage = (pathname: string): Language => {
+  const firstSeg = pathname.split("/")[1]; // e.g. "en" from "/en/usluge"
+  if (firstSeg && NON_DEFAULT_LANGUAGES.includes(firstSeg as Language)) {
+    return firstSeg as Language;
+  }
+  return "sr";
+};
+
+/**
+ * Strips the language prefix from the pathname.
  */
 const stripLangPrefix = (pathname: string): string => {
-  for (const lang of SUPPORTED_LANGUAGES) {
-    if (lang === "sr") continue;
-    if (pathname === `/${lang}`) return "/";
-    if (pathname.startsWith(`/${lang}/`)) return pathname.slice(lang.length + 1);
-  }
-  return pathname;
+  const lang = detectLanguage(pathname);
+  if (lang === "sr") return pathname;
+  // Remove /{lang} from the start
+  const rest = pathname.slice(lang.length + 1); // remove "/en"
+  return rest || "/";
 };
 
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
-  const { lang } = useParams<{ lang?: string }>();
   const navigate = useNavigate();
   const location = useLocation();
 
-  // Determine language from URL param
-  const urlLanguage: Language = lang && SUPPORTED_LANGUAGES.includes(lang as Language)
-    ? (lang as Language)
-    : "sr";
-
+  const urlLanguage = detectLanguage(location.pathname);
   const [language, setLanguageState] = useState<Language>(urlLanguage);
 
-  // Sync language state with URL param changes
+  // Sync when URL changes (e.g. browser back/forward)
   useEffect(() => {
     setLanguageState(urlLanguage);
   }, [urlLanguage]);
@@ -70,6 +76,7 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
       setLanguage,
       t: translations[language],
     }),
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [language, location.pathname],
   );
 
