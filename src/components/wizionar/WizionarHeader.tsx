@@ -14,9 +14,8 @@ const WizionarHeader = () => {
   const [scrolled, setScrolled] = useState(false);
   const { t } = useLanguage();
   const location = useLocation();
-  const lp = useLocalizedPath();
+  const localizedPath = useLocalizedPath();
 
-  // Check if on home page (with or without lang prefix)
   const isHomePage = location.pathname === "/" || /^\/(en|de|it)\/?$/.test(location.pathname);
 
   const closeMobileMenu = () => setMobileMenuOpen(false);
@@ -45,22 +44,30 @@ const WizionarHeader = () => {
   const navItems = [
     {
       label: t.nav.products,
-      href: isHomePage ? "#products" : lp("/#products"),
+      href: isHomePage ? "#products" : "/#products",
       isRouterLink: !isHomePage,
     },
     {
       label: t.nav.services,
-      href: lp("/usluge"),
+      href: "/usluge",
       isRouterLink: true,
     },
     {
       label: t.nav.contact,
-      href: isHomePage ? "#contact" : lp("/#contact"),
+      href: isHomePage ? "#contact" : "/#contact",
       isRouterLink: !isHomePage,
     },
   ];
 
-  const contactHref = isHomePage ? "#contact" : lp("/#contact");
+  const getResolvedPath = (href: string) => localizedPath(href).split(/[?#]/)[0] || "/";
+  const isNavItemActive = (href: string, isRouterLink: boolean) => {
+    if (!isRouterLink) return false;
+
+    const resolvedPath = getResolvedPath(href);
+    return href === "/usluge"
+      ? location.pathname === resolvedPath || location.pathname.startsWith(`${resolvedPath}/`)
+      : location.pathname === resolvedPath;
+  };
 
   return (
     <>
@@ -79,12 +86,10 @@ const WizionarHeader = () => {
             <img src={wizionarLogo} alt="Wizionar" className="h-11 w-auto md:h-12" />
           </LocalizedLink>
 
-          {/* Desktop nav */}
           <nav className="hidden items-center md:flex">
             <div className="flex items-center gap-1 rounded-full bg-secondary/50 px-1.5 py-1.5">
               {navItems.map((item) => {
-                const isActive =
-                  item.isRouterLink && location.pathname === item.href;
+                const isActive = isNavItemActive(item.href, item.isRouterLink);
 
                 const className = `relative px-4 py-2 text-sm font-medium rounded-full transition-all duration-200 ${
                   isActive
@@ -105,7 +110,6 @@ const WizionarHeader = () => {
             </div>
           </nav>
 
-          {/* Desktop right side */}
           <div className="hidden items-center gap-3 md:flex">
             <LanguageSwitcher />
             <Button size="default" className="rounded-full shadow-orange gap-1.5" asChild>
@@ -123,7 +127,6 @@ const WizionarHeader = () => {
             </Button>
           </div>
 
-          {/* Mobile right side */}
           <div className="flex items-center gap-2 md:hidden">
             <LanguageSwitcher />
             <button
@@ -139,7 +142,6 @@ const WizionarHeader = () => {
         </div>
       </motion.header>
 
-      {/* Mobile menu */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <>
@@ -149,7 +151,7 @@ const WizionarHeader = () => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className="fixed inset-0 z-[60] bg-black/30 backdrop-blur-sm md:hidden"
+              className="fixed inset-0 z-[60] bg-foreground/20 backdrop-blur-sm md:hidden"
               onClick={closeMobileMenu}
               aria-label="Close menu overlay"
             />
@@ -159,18 +161,16 @@ const WizionarHeader = () => {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
-              className="fixed inset-y-0 right-0 z-[70] flex w-[86%] max-w-sm flex-col border-l border-border shadow-2xl md:hidden"
-              style={{ backgroundColor: "#ffffff" }}
+              className="fixed inset-y-0 right-0 z-[70] flex w-[86%] max-w-sm flex-col border-l border-border bg-background shadow-2xl md:hidden"
             >
-              <div className="flex items-center justify-between border-b border-border/60 px-5 py-4" style={{ backgroundColor: "#ffffff" }}>
+              <div className="flex items-center justify-between border-b border-border/60 bg-background px-5 py-4">
                 <LocalizedLink to="/" className="flex items-center" onClick={closeMobileMenu}>
                   <img src={wizionarLogo} alt="Wizionar" className="h-10 w-auto" />
                 </LocalizedLink>
 
                 <button
                   type="button"
-                  className="inline-flex h-10 w-10 items-center justify-center rounded-full transition-colors hover:bg-gray-100"
-                  style={{ backgroundColor: "#f5f5f5" }}
+                  className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-secondary transition-colors hover:bg-secondary/80"
                   onClick={closeMobileMenu}
                   aria-label="Close menu"
                 >
@@ -178,16 +178,15 @@ const WizionarHeader = () => {
                 </button>
               </div>
 
-              <nav className="flex-1 px-4 py-5" style={{ backgroundColor: "#ffffff" }}>
+              <nav className="flex-1 bg-background px-4 py-5">
                 <div className="space-y-1">
                   {navItems.map((item, index) => {
-                    const isActive =
-                      item.isRouterLink && location.pathname === item.href;
+                    const isActive = isNavItemActive(item.href, item.isRouterLink);
 
                     const linkClassName = `flex items-center justify-between rounded-xl px-4 py-3.5 text-base font-medium transition-colors ${
                       isActive
                         ? "bg-primary/5 text-primary"
-                        : "text-foreground hover:bg-gray-50"
+                        : "text-foreground hover:bg-secondary/60"
                     }`;
 
                     const content = (
@@ -220,7 +219,7 @@ const WizionarHeader = () => {
                 </div>
               </nav>
 
-              <div className="border-t border-border/60 px-5 py-5" style={{ backgroundColor: "#ffffff" }}>
+              <div className="border-t border-border/60 bg-background px-5 py-5">
                 <div className="flex flex-col items-center gap-3 mb-4">
                   <a
                     href="mailto:info@wizionar.com"
