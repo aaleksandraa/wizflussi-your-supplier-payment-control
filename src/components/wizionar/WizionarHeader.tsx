@@ -14,9 +14,8 @@ const WizionarHeader = () => {
   const [scrolled, setScrolled] = useState(false);
   const { t } = useLanguage();
   const location = useLocation();
-  const lp = useLocalizedPath();
+  const localizedPath = useLocalizedPath();
 
-  // Check if on home page (with or without lang prefix)
   const isHomePage = location.pathname === "/" || /^\/(en|de|it)\/?$/.test(location.pathname);
 
   const closeMobileMenu = () => setMobileMenuOpen(false);
@@ -45,22 +44,30 @@ const WizionarHeader = () => {
   const navItems = [
     {
       label: t.nav.products,
-      href: isHomePage ? "#products" : lp("/#products"),
+      href: isHomePage ? "#products" : "/#products",
       isRouterLink: !isHomePage,
     },
     {
       label: t.nav.services,
-      href: lp("/usluge"),
+      href: "/usluge",
       isRouterLink: true,
     },
     {
       label: t.nav.contact,
-      href: isHomePage ? "#contact" : lp("/#contact"),
+      href: isHomePage ? "#contact" : "/#contact",
       isRouterLink: !isHomePage,
     },
   ];
 
-  const contactHref = isHomePage ? "#contact" : lp("/#contact");
+  const getResolvedPath = (href: string) => localizedPath(href).split(/[?#]/)[0] || "/";
+  const isNavItemActive = (href: string, isRouterLink: boolean) => {
+    if (!isRouterLink) return false;
+
+    const resolvedPath = getResolvedPath(href);
+    return href === "/usluge"
+      ? location.pathname === resolvedPath || location.pathname.startsWith(`${resolvedPath}/`)
+      : location.pathname === resolvedPath;
+  };
 
   return (
     <>
@@ -79,12 +86,10 @@ const WizionarHeader = () => {
             <img src={wizionarLogo} alt="Wizionar" className="h-11 w-auto md:h-12" />
           </LocalizedLink>
 
-          {/* Desktop nav */}
           <nav className="hidden items-center md:flex">
             <div className="flex items-center gap-1 rounded-full bg-secondary/50 px-1.5 py-1.5">
               {navItems.map((item) => {
-                const isActive =
-                  item.isRouterLink && location.pathname === item.href;
+                const isActive = isNavItemActive(item.href, item.isRouterLink);
 
                 const className = `relative px-4 py-2 text-sm font-medium rounded-full transition-all duration-200 ${
                   isActive
@@ -105,7 +110,6 @@ const WizionarHeader = () => {
             </div>
           </nav>
 
-          {/* Desktop right side */}
           <div className="hidden items-center gap-3 md:flex">
             <LanguageSwitcher />
             <Button size="default" className="rounded-full shadow-orange gap-1.5" asChild>
@@ -123,7 +127,6 @@ const WizionarHeader = () => {
             </Button>
           </div>
 
-          {/* Mobile right side */}
           <div className="flex items-center gap-2 md:hidden">
             <LanguageSwitcher />
             <button
@@ -139,7 +142,6 @@ const WizionarHeader = () => {
         </div>
       </motion.header>
 
-      {/* Mobile menu */}
       <AnimatePresence>
         {mobileMenuOpen && (
           <>
@@ -181,8 +183,7 @@ const WizionarHeader = () => {
               <nav className="flex-1 px-4 py-5" style={{ backgroundColor: "#ffffff" }}>
                 <div className="space-y-1">
                   {navItems.map((item, index) => {
-                    const isActive =
-                      item.isRouterLink && location.pathname === item.href;
+                    const isActive = isNavItemActive(item.href, item.isRouterLink);
 
                     const linkClassName = `flex items-center justify-between rounded-xl px-4 py-3.5 text-base font-medium transition-colors ${
                       isActive
