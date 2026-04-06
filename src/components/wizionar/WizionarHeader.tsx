@@ -178,7 +178,7 @@ const WizionarHeader = () => {
                 </button>
               </div>
 
-              <nav className="flex-1 px-4 py-5" style={{ backgroundColor: "#ffffff" }}>
+              <nav className="flex-1 bg-background px-4 py-5">
                 <div className="space-y-1">
                   {navItems.map((item, index) => {
                     const isActive = isNavItemActive(item.href, item.isRouterLink);
@@ -186,7 +186,7 @@ const WizionarHeader = () => {
                     const linkClassName = `flex items-center justify-between rounded-xl px-4 py-3.5 text-base font-medium transition-colors ${
                       isActive
                         ? "bg-primary/5 text-primary"
-                        : "text-foreground hover:bg-gray-50"
+                        : "text-foreground hover:bg-secondary/60"
                     }`;
 
                     const content = (
@@ -219,7 +219,7 @@ const WizionarHeader = () => {
                 </div>
               </nav>
 
-              <div className="border-t border-border/60 px-5 py-5" style={{ backgroundColor: "#ffffff" }}>
+              <div className="border-t border-border/60 bg-background px-5 py-5">
                 <div className="flex flex-col items-center gap-3 mb-4">
                   <a
                     href="mailto:info@wizionar.com"
