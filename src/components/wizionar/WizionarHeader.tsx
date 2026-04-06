@@ -151,7 +151,7 @@ const WizionarHeader = () => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.2 }}
-              className="fixed inset-0 z-[60] bg-black/30 backdrop-blur-sm md:hidden"
+              className="fixed inset-0 z-[60] bg-foreground/20 backdrop-blur-sm md:hidden"
               onClick={closeMobileMenu}
               aria-label="Close menu overlay"
             />
@@ -161,18 +161,16 @@ const WizionarHeader = () => {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ duration: 0.28, ease: [0.22, 1, 0.36, 1] }}
-              className="fixed inset-y-0 right-0 z-[70] flex w-[86%] max-w-sm flex-col border-l border-border shadow-2xl md:hidden"
-              style={{ backgroundColor: "#ffffff" }}
+              className="fixed inset-y-0 right-0 z-[70] flex w-[86%] max-w-sm flex-col border-l border-border bg-background shadow-2xl md:hidden"
             >
-              <div className="flex items-center justify-between border-b border-border/60 px-5 py-4" style={{ backgroundColor: "#ffffff" }}>
+              <div className="flex items-center justify-between border-b border-border/60 bg-background px-5 py-4">
                 <LocalizedLink to="/" className="flex items-center" onClick={closeMobileMenu}>
                   <img src={wizionarLogo} alt="Wizionar" className="h-10 w-auto" />
                 </LocalizedLink>
 
                 <button
                   type="button"
-                  className="inline-flex h-10 w-10 items-center justify-center rounded-full transition-colors hover:bg-gray-100"
-                  style={{ backgroundColor: "#f5f5f5" }}
+                  className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-secondary transition-colors hover:bg-secondary/80"
                   onClick={closeMobileMenu}
                   aria-label="Close menu"
                 >
