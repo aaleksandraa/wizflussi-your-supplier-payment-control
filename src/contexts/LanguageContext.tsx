@@ -19,7 +19,7 @@ const LanguageContext =
 globalLanguageContext.__wizionarLanguageContext__ = LanguageContext;
 
 const SUPPORTED_LANGUAGES: Language[] = ["sr", "en", "de", "it"];
-const NON_DEFAULT_LANGUAGES = SUPPORTED_LANGUAGES.filter((l) => l !== "sr");
+const NON_DEFAULT_LANGUAGES: string[] = ["en", "de", "it"];
 
 /**
  * Detect the language from the pathname by checking the first segment.
